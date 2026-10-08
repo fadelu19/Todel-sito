@@ -202,11 +202,12 @@
     <div class="eroe__corpo">
       <div class="eroe__testo">
         <h1 id="titolo" class="entra" style="--i:0">Taglio laser, plasma e automazione per la lamiera.</h1>
-        <p class="eroe__sotto entra" style="--i:1">Tecnologie industriali, installazione e assistenza con un unico referente. Da Battipaglia (SA), rivenditore ufficiale Golden Laser.</p>
+        <p class="eroe__sotto entra" style="--i:1">Vendiamo, installiamo e assistiamo le macchine per tagliare, saldare e lavorare la lamiera. Rivenditore ufficiale Golden Laser, da Battipaglia (SA).</p>
         <div class="eroe__azioni entra" style="--i:2">
-          <a class="tasto tasto--primario tasto--grande" href="#contatti" data-cta="hero">Richiedi preventivo <svg class="i i--freccia" aria-hidden="true"><use href="#i-freccia"/></svg></a>
-          <a class="tasto tasto--secondario tasto--grande eroe__tel" href="tel:+393288241909" data-traccia="click_telefono" data-origine="hero"><svg class="i" aria-hidden="true"><use href="#i-telefono"/></svg>328 824 1909</a>
+          <a class="tasto tasto--primario tasto--grande" href="#contatti" data-cta="hero" data-luce>Richiedi preventivo <svg class="i i--freccia" aria-hidden="true"><use href="#i-freccia"/></svg></a>
+          <a class="link-freccia eroe__secondaria" href="#macchine" data-traccia="click_macchine" data-origine="hero">Guarda le macchine <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></a>
         </div>
+        <p class="eroe__tel entra" style="--i:3">Preferite parlarne? <a href="tel:+393288241909" data-traccia="click_telefono" data-origine="hero"><svg class="i" aria-hidden="true"><use href="#i-telefono"/></svg><span class="dato">328 824 1909</span></a></p>
       </div>
 
       <figure class="eroe__foto" data-eroe-media>
@@ -225,7 +226,7 @@
             <div><dt>Tubo</dt><dd>Ø 20-160 mm</dd></div>
             <div><dt>Foto</dt><dd>Golden Laser</dd></div>
           </dl>
-          <a class="cartiglio-tecnico__link" href="#taglio-laser-fibra" data-apri="taglio-laser-fibra" data-origine="hero-cartiglio">Scheda tecnica del taglio laser <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></a>
+          <a class="cartiglio-tecnico__link" href="#taglio-laser-fibra" data-apri="taglio-laser-fibra" data-origine="hero-cartiglio" data-luce>Scheda tecnica del taglio laser <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></a>
         </figcaption>
       </figure>
     </div>
@@ -404,94 +405,76 @@
     </div>
   </section>
 
-  <!-- TECNOLOGIE COMPLEMENTARI E SERVIZI: righe, gli schemi animati sono negli approfondimenti -->
+  <!-- TECNOLOGIE COMPLEMENTARI E SERVIZI: tre tavole con foto, poi i servizi per le macchine esistenti.
+       Ogni tavola apre il suo approfondimento (gli schemi animati sono lì); il preventivo parte dal pannello. -->
   <section class="sezione" id="tecnologie" aria-labelledby="titolo-tecnologie">
     <div class="contenitore">
       <header class="testa-sezione">
         <h2 id="titolo-tecnologie">Per completare il reparto</h2>
-        <p>Piegatura, plasma e automazione accanto al laser. E per le macchine che avete già: retrofit del controllo numerico e usato.</p>
+        <p>Accanto al laser: plasma per i forti spessori, piegatura e automazione. E per le macchine che avete già, retrofit del controllo numerico e usato.</p>
       </header>
-      <ul class="righe">
-        <li class="riga" data-faro>
-          <figure class="riga__foto">
+      <ul class="tavole">
+        <li class="tavola" data-luce>
+          <figure class="tavola__foto">
             <picture>
-              <source type="image/webp" srcset="assets/img/plasma-640.webp">
+              <source type="image/webp" srcset="assets/img/plasma-640.webp 640w, assets/img/plasma.webp 1000w" sizes="(max-width: 760px) 100vw, 33vw">
               <img src="assets/img/plasma.jpg" alt="Torcia al plasma che taglia una lamiera d’acciaio, con scintille" width="1000" height="667" loading="lazy" decoding="async">
             </picture>
             <figcaption>Immagine illustrativa</figcaption>
           </figure>
-          <div>
-            <h3>Taglio plasma</h3>
-            <p>Banchi CNC per tagliare lamiere di forte spessore in acciaio al carbonio, inox e alluminio. TO.DE.L. ha venduto almeno 40 impianti plasma.</p>
-          </div>
-          <div class="riga__azioni">
-            <a class="link-cta" href="#contatti" data-prefill="Taglio plasma" data-cta="tecnologie">Preventivo</a>
-            <a class="link-freccia" href="#taglio-plasma" data-apri="taglio-plasma" data-origine="tecnologie">Approfondisci <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></a>
+          <div class="tavola__testo">
+            <h3><a href="#taglio-plasma" data-apri="taglio-plasma" data-origine="tecnologie">Taglio plasma</a></h3>
+            <p>Banchi CNC per tagliare lamiere di forte spessore in acciaio al carbonio, inox e alluminio.</p>
+            <p class="tavola__dato">Almeno 40 impianti plasma venduti</p>
+            <span class="tavola__apri" aria-hidden="true">Approfondisci <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></span>
           </div>
         </li>
-        <li class="riga" data-faro>
-          <figure class="riga__foto">
+        <li class="tavola" data-luce>
+          <figure class="tavola__foto">
             <div class="segnaposto" role="img" aria-label="Foto da inserire: pressopiegatrice">
               <span class="segnaposto__titolo">Foto da inserire</span>
               <span class="segnaposto__file">pressopiegatrice · 3:2</span>
             </div>
           </figure>
-          <div>
-            <h3>Piegatura e cesoie</h3>
-            <p>Pressopiegatrici e cesoie per completare il reparto: dalla lamiera tagliata al pezzo piegato a misura.</p>
-          </div>
-          <div class="riga__azioni">
-            <a class="link-cta" href="#contatti" data-prefill="Piegatura e cesoie" data-cta="tecnologie">Preventivo</a>
-            <a class="link-freccia" href="#piegatura-e-cesoie" data-apri="piegatura-e-cesoie" data-origine="tecnologie">Approfondisci <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></a>
+          <div class="tavola__testo">
+            <h3><a href="#piegatura-e-cesoie" data-apri="piegatura-e-cesoie" data-origine="tecnologie">Piegatura e cesoie</a></h3>
+            <p>Pressopiegatrici e cesoie: dalla lamiera tagliata al pezzo piegato a misura.</p>
+            <span class="tavola__apri" aria-hidden="true">Approfondisci <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></span>
           </div>
         </li>
-        <li class="riga" data-faro>
-          <figure class="riga__foto">
+        <li class="tavola" data-luce>
+          <figure class="tavola__foto">
             <picture>
-              <source type="image/webp" srcset="assets/img/robot-640.webp">
+              <source type="image/webp" srcset="assets/img/robot-640.webp 640w, assets/img/robot.webp 1200w" sizes="(max-width: 760px) 100vw, 33vw">
               <img src="assets/img/robot.jpg" alt="Braccio robotico industriale in una cella automatizzata" width="1400" height="878" loading="lazy" decoding="async">
             </picture>
             <figcaption>Immagine illustrativa</figcaption>
           </figure>
-          <div>
-            <h3>Automazione e cobot</h3>
+          <div class="tavola__testo">
+            <h3><a href="#automazione-e-cobot" data-apri="automazione-e-cobot" data-origine="tecnologie">Automazione e cobot</a></h3>
             <p>Robot industriali e collaborativi per le operazioni ripetitive: stesso ciclo, stessa posizione, a ogni pezzo.</p>
-          </div>
-          <div class="riga__azioni">
-            <a class="link-cta" href="#contatti" data-prefill="Automazione e cobot" data-cta="tecnologie">Preventivo</a>
-            <a class="link-freccia" href="#automazione-e-cobot" data-apri="automazione-e-cobot" data-origine="tecnologie">Approfondisci <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></a>
-          </div>
-        </li>
-        <li class="riga" data-faro>
-          <figure class="riga__foto">
-            <picture>
-              <source type="image/webp" srcset="assets/img/cnc-640.webp">
-              <img src="assets/img/cnc.jpg" alt="Macchina utensile a controllo numerico durante una lavorazione" width="1100" height="734" loading="lazy" decoding="async">
-            </picture>
-            <figcaption>Immagine illustrativa</figcaption>
-          </figure>
-          <div>
-            <p class="etichetta riga__tipo">Servizio</p>
-            <h3>Retrofit CNC</h3>
-            <p>Nuovo controllo numerico su macchine con meccanica ancora valida: aggiornate l’impianto invece di sostituirlo.</p>
-          </div>
-          <div class="riga__azioni">
-            <a class="link-cta" href="#contatti" data-prefill="Retrofit CNC" data-cta="tecnologie">Preventivo</a>
-            <a class="link-freccia" href="#retrofit-cnc" data-apri="retrofit-cnc" data-origine="tecnologie">Approfondisci <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></a>
-          </div>
-        </li>
-        <li class="riga riga--usato" data-faro>
-          <div>
-            <p class="etichetta riga__tipo">Usato</p>
-            <h3>Macchinari usati</h3>
-            <p>Per partire con un investimento più contenuto. La disponibilità cambia spesso: chiedeteci cosa c’è adesso.</p>
-          </div>
-          <div class="riga__azioni">
-            <a class="link-cta" href="#contatti" data-prefill="Macchinari usati" data-cta="tecnologie">Chiedi disponibilità</a>
-            <a class="link-freccia" href="#macchinari-usati" data-apri="macchinari-usati" data-origine="tecnologie">Approfondisci <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></a>
+            <span class="tavola__apri" aria-hidden="true">Approfondisci <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></span>
           </div>
         </li>
       </ul>
+
+      <div class="ciclo">
+        <h3 class="ciclo__titolo">Per le macchine che avete già</h3>
+        <ul class="ciclo__righe">
+          <li class="servizio" data-luce>
+            <p class="etichetta">Servizio</p>
+            <h4><a href="#retrofit-cnc" data-apri="retrofit-cnc" data-origine="tecnologie">Retrofit CNC</a></h4>
+            <p>Nuovo controllo numerico su macchine con meccanica ancora valida: aggiornate l’impianto invece di sostituirlo.</p>
+            <span class="tavola__apri" aria-hidden="true">Approfondisci <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></span>
+          </li>
+          <li class="servizio" data-luce>
+            <p class="etichetta">Usato</p>
+            <h4><a href="#macchinari-usati" data-apri="macchinari-usati" data-origine="tecnologie">Macchinari usati</a></h4>
+            <p>Per partire con un investimento più contenuto. La disponibilità cambia spesso: chiedeteci cosa c’è adesso.</p>
+            <span class="tavola__apri" aria-hidden="true">Approfondisci <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></span>
+          </li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -564,6 +547,18 @@
         <div class="metodo__testa">
           <h2 id="titolo-metodo">Un solo referente, dalla scelta all’assistenza.</h2>
           <p>Scegliere la macchina è metà del lavoro. L’altra metà è installarla bene e tenerla in produzione negli anni: dalla scelta all’assistenza parlate sempre con noi.</p>
+          <!-- REFERENTI: componente pronto per le foto reali della famiglia TO.DE.L.
+               Per attivarlo: mettere la foto in assets/img/famiglia/ (orizzontale, almeno 1600 px)
+               e aggiungere dentro .referenti__foto un <img src="..." alt="..." width=".." height="..">
+               con alt e didascalia solo con nomi e ruoli confermati. Senza foto resta solo la frase. -->
+          <figure class="referenti">
+            <div class="linea-taglio referenti__linea" data-linea-taglio aria-hidden="true"><span></span></div>
+            <div class="referenti__foto"></div>
+            <figcaption>
+              <p class="referenti__frase">Non parlate con un catalogo. Parlate con chi sceglie, installa e segue il vostro impianto.</p>
+              <p class="referenti__firma">TO.DE.L. Automazione Industriale · Battipaglia (SA)</p>
+            </figcaption>
+          </figure>
         </div>
         <div class="fasi" data-fasi>
           <span class="fasi__binario" aria-hidden="true"><span></span></span>
@@ -760,7 +755,14 @@
         </div>
         <div class="campo">
           <label for="f-messaggio">Cosa vi serve</label>
-          <textarea id="f-messaggio" name="messaggio" rows="4" placeholder="Es. lamiere inox fino a 10 mm, formato 3000 × 1500" data-messaggio></textarea>
+          <div class="spunti" role="group" aria-label="Aggiungi una voce al messaggio" data-spunti>
+            <button type="button" class="spunto" aria-pressed="false" data-spunto="Materiale" data-luce>Materiale</button>
+            <button type="button" class="spunto" aria-pressed="false" data-spunto="Spessori" data-luce>Spessori</button>
+            <button type="button" class="spunto" aria-pressed="false" data-spunto="Formato" data-luce>Formato</button>
+            <button type="button" class="spunto" aria-pressed="false" data-spunto="Quantità" data-luce>Quantità</button>
+          </div>
+          <textarea id="f-messaggio" name="messaggio" rows="4" placeholder="Es. lamiere inox fino a 10 mm, formato 3000 × 1500" aria-describedby="f-messaggio-aiuto" data-messaggio></textarea>
+          <p class="campo__aiuto" id="f-messaggio-aiuto">Bastano valori indicativi: ci servono per proporvi la macchina giusta.</p>
         </div>
         <div class="trappola" aria-hidden="true">
           <label for="f-sito">Lasciate vuoto questo campo</label>

@@ -1177,3 +1177,53 @@ if (modulo) {
     }
   });
 }
+
+/* =========================================================
+   Voci rapide del modulo: aggiungono una riga da completare ("Materiale: ")
+   ========================================================= */
+const spunti = $("[data-spunti]");
+if (spunti && campoMessaggio) {
+  const riga = (nome) => new RegExp("(^|\\n)" + nome + ":[^\\n]*", "i");
+  const aggiornaSpunti = () => $$("[data-spunto]", spunti).forEach((b) => b.setAttribute("aria-pressed", String(riga(b.dataset.spunto).test(campoMessaggio.value))));
+  spunti.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-spunto]");
+    if (!b) return;
+    const nome = b.dataset.spunto;
+    if (!riga(nome).test(campoMessaggio.value)) {
+      const v = campoMessaggio.value.replace(/\s+$/, "");
+      campoMessaggio.value = (v ? v + "\n" : "") + nome + ": ";
+      traccia("spunto_modulo", { voce: nome });
+    }
+    // il cursore va in fondo alla riga di quella voce
+    const m = riga(nome).exec(campoMessaggio.value);
+    const pos = m ? m.index + m[0].length : campoMessaggio.value.length;
+    campoMessaggio.focus();
+    campoMessaggio.setSelectionRange(pos, pos);
+    aggiornaSpunti();
+  });
+  campoMessaggio.addEventListener("input", aggiornaSpunti);
+  if (modulo) modulo.addEventListener("reset", () => setTimeout(aggiornaSpunti));
+}
+
+/* =========================================================
+   Luce: il riflesso segue il mouse sulle superfici interattive.
+   Un solo ascoltatore; scrive --lx/--ly sull'elemento sotto il puntatore, una volta per frame.
+   ========================================================= */
+if (puntatoreFine.matches) {
+  $$(".variante, .materiale, .settore__tec a, .famiglie__scheda, .recapito, .nav__cta, .modulo__invio").forEach((el) => el.setAttribute("data-luce", ""));
+  let bersaglio = null, px = 0, py = 0, inAttesa = false;
+  const scrivi = () => {
+    inAttesa = false;
+    if (!bersaglio) return;
+    const r = bersaglio.getBoundingClientRect();
+    bersaglio.style.setProperty("--lx", (px - r.left).toFixed(1) + "px");
+    bersaglio.style.setProperty("--ly", (py - r.top).toFixed(1) + "px");
+  };
+  document.addEventListener("pointermove", (e) => {
+    if (e.pointerType !== "mouse") return;
+    bersaglio = e.target.closest ? e.target.closest("[data-luce]") : null;
+    if (!bersaglio) return;
+    px = e.clientX; py = e.clientY;
+    if (!inAttesa) { inAttesa = true; requestAnimationFrame(scrivi); }
+  }, { passive: true });
+}

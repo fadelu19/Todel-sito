@@ -1,4 +1,4 @@
-# Sito TO.DE.L. (versione 4: revisione "macchina reale")
+# Sito TO.DE.L. (versione 4.1: macchina reale, conversione e micro-interazioni)
 
 Sito one-page di TO.DE.L. Automazione Industriale S.r.l., costruito sui tre brief in `../brief/`.
 HTML, CSS e JavaScript senza framework: nessuna compilazione, si pubblica la cartella `public/` così com'è.
@@ -56,7 +56,8 @@ Se si attiva GA4, copiare lo stesso codice anche nel `config` di `cookie.html`.
 ## Sostituire immagini e video
 
 - Foto Golden Laser: in `assets/img/gl/` (elenco e provenienza in `../brief/golden-laser-modelli.md`). Le foto delle macchine stanno su "lastre" chiare: i rendering a fondo bianco si fondono con la lastra, le foto d'ambiente si vedono intere.
-- Segnaposto ancora aperti: campioni di taglio (sezione Applicazioni) e pressopiegatrice (riga Piegatura e approfondimento). Sostituire il blocco `.segnaposto` con un `<img>` o `<picture>`.
+- Segnaposto ancora aperti: campioni di taglio (sezione Applicazioni) e pressopiegatrice (tavola Piegatura nella sezione Tecnologie e approfondimento). Sostituire il blocco `.segnaposto` con un `<img>` o `<picture>`.
+- Foto della famiglia TO.DE.L. (sezione Metodo, componente `.referenti`): mettere la foto in `assets/img/famiglia/` (orizzontale 3:2, almeno 1600 px, `.jpg` + `.webp`) e inserire `<img src="..." alt="..." width="..." height="..." loading="lazy">` dentro `<div class="referenti__foto"></div>`. Il riquadro compare da solo quando contiene la foto. Nomi e ruoli nell'alt o nella didascalia solo se confermati.
 
 - Foto: stesse dimensioni e nomi in `assets/img/` (versione `.jpg`, `.webp` e `-640.webp`), oppure cambiare i percorsi nell'HTML. Togliere l'etichetta "Immagine illustrativa" quando la foto è reale.
 - Video hero (kit Golden Laser): WebM ≤ 3 MB, MP4 ≤ 5 MB, MP4 mobile 720p ≤ 1,5 MB, poster ≤ 50 KB, 8–12 s in loop. Indicare i percorsi in `videoEroe`. Didascalia con modello e fonte, mai "installazione TO.DE.L." se non lo è.
