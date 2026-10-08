@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /grazie.html
+
+Sitemap: https://DOMINIO-DA-INSERIRE/sitemap.xml

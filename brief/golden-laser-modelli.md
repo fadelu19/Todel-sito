@@ -68,6 +68,7 @@ https://www.goldenfiberlaser.com/handheld-laser-welding-machine.html
 - 1,5 / 2 / 3 kW. Saldatura, pulizia, taglio. Oscillazione 0–5 mm; fibra 10 m; trainafilo automatico; raffreddamento ad acqua.
 - Velocità di saldatura 0–120 mm/s; larghezza pulizia 20 mm (opz. 50–150 mm).
 - Nessuno spessore di saldatura dichiarato.
+- Materiali indicati sulla pagina ufficiale: acciaio al carbonio, acciaio inox, leghe, alluminio, acciaio zincato, titanio, ottone, rame.
 - Il modello SUP20T (2 kW) importato da TO.DE.L. non compare con questo nome: verificare se corrisponde alla W20.
 - Nessuna pulitrice laser dedicata elencata in home page.
 

@@ -1,0 +1,20 @@
+/* pagine secondarie: privacy, cookie, conferma, 404 */
+.legale__testa { border-bottom: 1px solid var(--linea); padding-top: env(safe-area-inset-top, 0px); }
+.legale__fila { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: var(--nav-h); }
+.legale { max-width: calc(760px + var(--gutter) * 2); padding-block: 56px 96px; }
+.legale h1 { font-size: var(--t-h2); }
+.legale h2 { margin-top: 40px; font-size: 1.25rem; letter-spacing: -0.01em; }
+.legale p, .legale li { color: var(--testo-2); }
+.legale p { margin-top: 12px; }
+.legale ul { margin-top: 12px; display: grid; gap: 10px; }
+.legale li { position: relative; padding-left: 18px; }
+.legale li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 8px; height: 1px; background: var(--accento-testo); }
+.legale a:not(.tasto) { color: var(--accento-testo); }
+.legale strong { color: var(--testo); font-weight: 600; }
+.legale code { font-size: 0.9em; color: var(--testo); }
+.legale__aggiornato { font-size: 0.86rem; color: var(--testo-3) !important; }
+.legale--centro { min-height: 60vh; display: grid; align-content: center; justify-items: start; gap: 4px; }
+.legale--centro .conferma__icona { margin-bottom: 16px; }
+.legale__azioni { display: flex; flex-wrap: wrap; gap: 12px; }
+.piede--legale { padding-top: 32px; }
+.piede--legale a { color: var(--testo-2); text-decoration: underline; text-underline-offset: 3px; }
