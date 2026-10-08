@@ -74,3 +74,14 @@ https://www.goldenfiberlaser.com/handheld-laser-welding-machine.html
 
 ## Robot 3D
 - Robot multifunzione taglio 3D lamiera e tubo; serie RV taglio tubo con braccio; saldatura laser con braccio robot.
+
+## Immagini Golden Laser usate sul sito (fornite dal titolare l'8 ottobre 2026)
+Cartella `sito-v3/public/assets/img/gl/`. Foto e rendering ufficiali Golden Laser: la didascalia dice sempre "foto Golden Laser", mai "installazione TO.DE.L.".
+- `gf1530jht-officina` e `gf1530jht-fronte`: GF-1530JHT in un capannone (foto reali con filigrana Golden Laser; il modello è scritto sul fianco). Hero e approfondimento del taglio laser.
+- `lamiera-grande-formato`, `lamiera-cabinata`, `lamiera-compatta`: famiglia lamiera. Il modello esatto non è dichiarato nell'immagine: didascalie per configurazione, non per modello.
+- `lamiera-tubo-aperta`, `lamiera-tubo-cabinata`: famiglia lamiera e tubo, didascalie per configurazione.
+- `tubo-3d-5assi`: serie i25A-3D / i35A-3D (stesso rendering della pagina ufficiale che riporta il nome). `tubo-s12r`: S12R (nome scritto sulla macchina). `tubo-caricatore`: linea di taglio tubo, senza modello.
+- `saldatrice-w`: saldatrice portatile serie W (pagina italiana Golden Laser). `saldatura-robot-r`: saldatura laser con braccio robotico, serie R (didascalia ufficiale "R Series, 3D Robotic Arm Fiber Laser Welding Machine").
+- Non usati: macchine laser CO2 (settore non metalli) e celle robot di taglio 3D (famiglia non presente sul sito).
+- Ancora da fornire: campioni di taglio (laser-cutting-metal-sheet-sample-600-1..4.jpg, laser-cutting-tube-600-1..4.jpg, 8000w-fiber-laser-cutting-carbon-steel-30mm.jpg), foto di una pressopiegatrice, eventuali foto di installazioni TO.DE.L.
+- Dati ufficiali aggiunti: W15 saldatura fino a 3 mm, W20 fino a 5 mm (goldenlaser.com, pagina della saldatrice portatile; la testa è la SUP20T).

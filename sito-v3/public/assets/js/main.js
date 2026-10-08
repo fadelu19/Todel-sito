@@ -1,6 +1,7 @@
 /*
- * TO.DE.L. Automazione Industriale — comportamenti del sito (v3)
- * Modulo ES caricato in differita. La simulazione di taglio (taglio.js) viene importata solo quando serve.
+ * TO.DE.L. Automazione Industriale — comportamenti del sito (v4)
+ * Modulo ES caricato in differita. La simulazione di taglio (taglio.js) viene importata solo quando serve
+ * (sezione "passo per passo" e schemi negli approfondimenti).
  * Se questo script non parte, la pagina toglie la classe .js e mostra tutto senza animazioni.
  */
 
@@ -66,20 +67,13 @@ window.addEventListener("scroll", () => { if (!tickScroll) { tickScroll = true; 
 suScroll();
 
 /* =========================================================
-   Rivelazione allo scorrimento (una volta) e sezioni viste
+   Sezioni viste (statistiche)
    ========================================================= */
 if ("IntersectionObserver" in window) {
-  const oss = new IntersectionObserver((voci) => {
-    voci.forEach((v) => { if (v.isIntersecting) { v.target.classList.add("is-dentro"); oss.unobserve(v.target); } });
-  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.1 });
-  $$("[data-rivela]").forEach((el) => oss.observe(el));
-
   const viste = new IntersectionObserver((voci) => {
     voci.forEach((v) => { if (v.isIntersecting) { traccia("sezione_vista", { sezione: v.target.id }); viste.unobserve(v.target); } });
   }, { threshold: 0.35 });
   $$("main > section[id]").forEach((s) => viste.observe(s));
-} else {
-  $$("[data-rivela]").forEach((el) => el.classList.add("is-dentro"));
 }
 
 /* =========================================================
@@ -317,6 +311,8 @@ function apriPannello(id, origine, daStoria = false) {
     bloccaPagina(true);
     aggiornaBarra();
   }
+  // dopo aver mostrato il pannello: da nascosto lo scorrimento non si azzera
+  scorriP.scrollTop = 0;
   if (!daStoria) cronologia("pushState", { pannello: id }, "#" + id);
   animaApprofondimento(art);
   setTimeout(() => foglio.focus({ preventScroll: true }), 40);
@@ -375,6 +371,10 @@ if (pannello) {
   if (iniziale && document.getElementById(iniziale) && document.getElementById(iniziale).classList.contains("appro")) {
     cronologia("replaceState", null, location.pathname + location.search);
     apriPannello(iniziale, "link-diretto");
+    // il browser scorre da solo verso l'ancora dentro il pannello: si riparte dall'inizio dell'articolo
+    const inCima = () => { scorriP.scrollTop = 0; };
+    requestAnimationFrame(inCima);
+    window.addEventListener("load", () => requestAnimationFrame(inCima), { once: true });
   }
 }
 
@@ -453,35 +453,43 @@ document.addEventListener("click", (e) => {
 });
 
 /* =========================================================
-   Simulazioni di taglio (caricate solo quando servono)
+   Motore della simulazione (caricato solo quando serve)
    ========================================================= */
 let modTaglio = null;
 const caricaTaglio = () => modTaglio || (modTaglio = import("./taglio.js"));
 const lettureDi = (el) => ({ x: $("[data-lettura-x]", el), y: $("[data-lettura-y]", el), stato: $("[data-lettura-stato]", el) });
 
-/* video della hero: se configurato sostituisce la simulazione (poster subito, video differito) */
+/* =========================================================
+   Hero: la foto reale della macchina.
+   Alla prima visita della sessione il riquadro viene "tagliato" dalla lamiera:
+   un punto caldo percorre il contorno, rallenta sugli spigoli, poi il pezzo si stacca.
+   La lamiera è già disegnata dal CSS prima che lo script parta (classe .taglio-eroe nel <head>).
+   ========================================================= */
+const inquadratura = $("[data-taglio-eroe]");
+const finisciTaglio = () => {
+  docEl.classList.remove("taglio-eroe");
+  if (inquadratura) inquadratura.classList.remove("is-tagliato");
+};
+
+/* video della hero (kit Golden Laser): se configurato sostituisce la foto, con pausa sempre disponibile */
 function videoEroe() {
   const v = CONFIG.videoEroe || {};
-  if (!v.mp4 && !v.webm) return false;
-  const media = $("[data-eroe-media]");
-  const box = $('[data-sim="eroe"]', media);
-  box.removeAttribute("data-sim");
-  box.classList.add("sim--video");
-  $$(".sim__hud, .sim__dati", box).forEach((n) => n.remove());
+  if (!inquadratura || (!v.mp4 && !v.webm)) return false;
   const video = document.createElement("video");
   video.muted = true; video.loop = true; video.playsInline = true; video.preload = "none";
   video.setAttribute("muted", ""); video.setAttribute("playsinline", "");
   if (v.poster) video.poster = v.poster;
-  video.setAttribute("aria-hidden", "true");
-  video.style.cssText = "position:absolute;inset:0;width:100%;height:100%;object-fit:cover";
-  box.prepend(video);
-  box.setAttribute("aria-label", v.didascalia || "Video del taglio laser");
-  const didascalia = $(".eroe__didascalia span", media);
-  if (didascalia) didascalia.textContent = v.didascalia || "Video del taglio laser fibra";
-  const pausa = $("[data-sim-pausa]");
+  video.setAttribute("aria-label", v.didascalia || "Video di una macchina Golden Laser in funzione");
+  const foto = $("picture", inquadratura);
+  inquadratura.prepend(video);
+  if (foto && v.poster) foto.remove();
   const conn = navigator.connection || {};
   const lento = conn.saveData || /(^|-)2g$/.test(conn.effectiveType || "");
-  if (riduci.matches || lento) { if (pausa) pausa.hidden = true; return true; }
+  if (riduci.matches || lento) return true;
+  const pausa = document.createElement("button");
+  pausa.type = "button"; pausa.className = "tasto-pausa"; pausa.setAttribute("aria-pressed", "false");
+  pausa.innerHTML = '<svg class="i" aria-hidden="true"><use href="#i-pausa"/></svg><span data-sim-pausa-testo>Pausa</span>';
+  inquadratura.after(pausa);
   let inPausa = false, inVista = false, avviato = false;
   const aggiorna = () => { if (!avviato) return; (inVista && !inPausa && !document.hidden) ? video.play().catch(() => {}) : video.pause(); };
   const carica = () => {
@@ -495,9 +503,9 @@ function videoEroe() {
   };
   const differisci = () => ("requestIdleCallback" in window ? requestIdleCallback(carica, { timeout: 2000 }) : setTimeout(carica, 400));
   if (document.readyState === "complete") differisci(); else window.addEventListener("load", differisci, { once: true });
-  new IntersectionObserver((x) => { inVista = x[0].isIntersecting; aggiorna(); }, { threshold: 0.2 }).observe(box);
+  new IntersectionObserver((x) => { inVista = x[0].isIntersecting; aggiorna(); }, { threshold: 0.2 }).observe(inquadratura);
   document.addEventListener("visibilitychange", aggiorna);
-  if (pausa) pausa.addEventListener("click", () => { inPausa = !inPausa; segnaPausa(pausa, inPausa); aggiorna(); });
+  pausa.addEventListener("click", () => { inPausa = !inPausa; segnaPausa(pausa, inPausa); aggiorna(); traccia("pausa_animazione", { stato: inPausa ? "pausa" : "ripresa" }); });
   return true;
 }
 function segnaPausa(btn, inPausa) {
@@ -506,20 +514,59 @@ function segnaPausa(btn, inPausa) {
   $("use", btn).setAttribute("href", inPausa ? "#i-play" : "#i-pausa");
 }
 
-const simEroe = $('[data-sim="eroe"]');
-if (simEroe && !videoEroe()) {
-  const pausa = $("[data-sim-pausa]");
-  // la simulazione parte dopo il primo disegno della pagina: il titolo (LCP) arriva prima
-  const quandoLibero = (fn) => ("requestIdleCallback" in window ? requestIdleCallback(fn, { timeout: 900 }) : setTimeout(fn, 200));
-  new Promise((ok) => quandoLibero(ok)).then(caricaTaglio).then(({ creaSimulazione }) => {
-    const sim = creaSimulazione(simEroe, { scena: "eroe", modo: "ciclo", lettura: lettureDi(simEroe), etichetta: simEroe.dataset.etichetta });
-    if (riduci.matches) { sim.statico(); if (pausa) pausa.hidden = true; return; }
-    let inVista = false, inPausa = false;
-    const aggiorna = () => (inVista && !inPausa && !document.hidden ? sim.play() : sim.pause());
-    new IntersectionObserver((v) => { inVista = v[0].isIntersecting; aggiorna(); }, { threshold: 0.15 }).observe(simEroe);
-    document.addEventListener("visibilitychange", aggiorna);
-    if (pausa) pausa.addEventListener("click", () => { inPausa = !inPausa; segnaPausa(pausa, inPausa); aggiorna(); traccia("pausa_animazione", { stato: inPausa ? "pausa" : "ripresa" }); });
-  });
+function tagliaEroe() {
+  if (!inquadratura || !docEl.classList.contains("taglio-eroe")) return;
+  sessione.set("todel-taglio", "1");
+  const w = inquadratura.clientWidth, h = inquadratura.clientHeight;
+  if (!w || !h || !inquadratura.animate) { finisciTaglio(); return; }
+  const ns = "http://www.w3.org/2000/svg";
+  const strato = document.createElement("div");
+  strato.className = "taglio-strato";
+  strato.setAttribute("aria-hidden", "true");
+  const svg = document.createElementNS(ns, "svg");
+  svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+  svg.setAttribute("preserveAspectRatio", "none");
+  const solco = document.createElementNS(ns, "path");
+  solco.setAttribute("class", "taglio-strato__solco");
+  solco.setAttribute("d", `M0 0 V${h} H${w} V0 Z`);
+  svg.appendChild(solco);
+  const punto = document.createElement("span");
+  punto.className = "taglio-strato__punto";
+  strato.append(svg, punto);
+  inquadratura.appendChild(strato);
+
+  // contorno dall'angolo in alto a sinistra: prima il lato sinistro e il fondo (quelli che si vedono),
+  // poi il lato destro e il ritorno in alto. La testa rallenta su ogni spigolo.
+  const P = 2 * (w + h);
+  const o = [0, h / P, (h + w) / P, (2 * h + w) / P, 1];
+  const curva = "cubic-bezier(0.77, 0, 0.175, 1)"; // --ease-in-out: la testa frena su ogni spigolo
+  const durata = schermoMobile.matches ? 1000 : 1150;
+  const ritardo = 180;
+  const angoli = [[0, 0], [0, h], [w, h], [w, 0], [0, 0]];
+  const percorsi = [P, P - h, P - h - w, w, 0];
+  solco.style.strokeDasharray = `${P} ${P}`;
+  solco.style.strokeDashoffset = String(P);
+  const opz = { duration: durata, delay: ritardo, fill: "forwards" };
+  const aPunto = punto.animate(angoli.map(([x, y], i) => ({ transform: `translate(${x}px, ${y}px)`, offset: o[i], easing: curva })), opz);
+  solco.animate(percorsi.map((d, i) => ({ strokeDashoffset: d, offset: o[i], easing: curva })), opz);
+  aPunto.onfinish = () => {
+    // il pezzo si stacca: la lamiera cade e il solco si raffredda
+    inquadratura.classList.add("is-tagliato");
+    const uscita = "cubic-bezier(0.23, 1, 0.32, 1)"; // --ease-out
+    punto.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 220, easing: uscita, fill: "forwards" });
+    solco.animate([{ stroke: "#ffb46e", opacity: 1 }, { stroke: "#5c6370", opacity: 0 }], { duration: 900, easing: uscita, fill: "forwards" });
+    setTimeout(() => { strato.remove(); docEl.classList.remove("taglio-eroe"); inquadratura.classList.remove("is-tagliato"); }, 950);
+  };
+}
+if (videoEroe()) finisciTaglio();
+else {
+  try {
+    if (inquadratura && docEl.classList.contains("taglio-eroe")) {
+      const img = $("img", inquadratura);
+      const via = () => requestAnimationFrame(() => { try { tagliaEroe(); } catch (e) { finisciTaglio(); } });
+      if (!img || img.complete) via(); else { img.addEventListener("load", via, { once: true }); img.addEventListener("error", finisciTaglio, { once: true }); }
+    }
+  } catch (e) { finisciTaglio(); }
 }
 
 /* storia del taglio guidata dallo scorrimento */
@@ -577,13 +624,230 @@ if (storia) {
 }
 
 /* =========================================================
-   Schede con animazione tecnica: al passaggio del mouse (computer),
-   quando entrano nello schermo (telefono). Si fermano a fine ciclo.
+   Firma: linee di taglio e quote. Il punto caldo passa una volta quando la linea entra nello schermo.
+   ========================================================= */
+function taglia(linea) {
+  linea.classList.remove("is-tagliata", "is-fredda");
+  void linea.offsetWidth;
+  linea.classList.add("is-tagliata");
+  clearTimeout(linea._fredda);
+  linea._fredda = setTimeout(() => linea.classList.add("is-fredda"), riduci.matches ? 0 : 1250);
+}
+const ossLinee = "IntersectionObserver" in window ? new IntersectionObserver((voci) => {
+  voci.forEach((v) => { if (v.isIntersecting) { taglia(v.target); ossLinee.unobserve(v.target); } });
+}, { threshold: 1, rootMargin: "0px 0px -6% 0px" }) : null;
+$$("[data-linea-taglio]").forEach((l) => (ossLinee ? ossLinee.observe(l) : l.classList.add("is-tagliata", "is-fredda")));
+
+/* metodo: la linea scende lungo le quattro fasi e le accende al passaggio */
+const fasi = $("[data-fasi]");
+if (fasi) {
+  const via = () => { fasi.classList.add("is-tagliata"); setTimeout(() => fasi.classList.add("is-fredda"), riduci.matches ? 0 : 1600); };
+  if ("IntersectionObserver" in window) new IntersectionObserver((v, o) => { if (v[0].isIntersecting) { via(); o.disconnect(); } }, { threshold: 0.35 }).observe(fasi);
+  else via();
+}
+
+/* =========================================================
+   Faro: una luce morbida segue il mouse sulle superfici che si possono aprire
+   ========================================================= */
+if (puntatoreFine.matches) {
+  $$("[data-faro]").forEach((el) => {
+    const faro = document.createElement("span");
+    faro.className = "faro";
+    faro.setAttribute("aria-hidden", "true");
+    el.prepend(faro);
+    let r = null, anima = false, x = 0, y = 0, fx = 0, fy = 0;
+    const passo = () => {
+      fx += (x - fx) * 0.2; fy += (y - fy) * 0.2;
+      faro.style.transform = `translate3d(${fx.toFixed(1)}px, ${fy.toFixed(1)}px, 0)`;
+      if (Math.abs(x - fx) + Math.abs(y - fy) > 0.5) requestAnimationFrame(passo); else anima = false;
+    };
+    el.addEventListener("pointerenter", (e) => {
+      if (e.pointerType !== "mouse") return;
+      r = el.getBoundingClientRect();
+      fx = x = e.clientX - r.left; fy = y = e.clientY - r.top;
+      faro.style.transform = `translate3d(${fx}px, ${fy}px, 0)`;
+    });
+    el.addEventListener("pointermove", (e) => {
+      if (e.pointerType !== "mouse") return;
+      if (!r) r = el.getBoundingClientRect();
+      x = e.clientX - r.left; y = e.clientY - r.top;
+      if (!anima) { anima = true; requestAnimationFrame(passo); }
+    });
+    el.addEventListener("pointerleave", () => { r = null; });
+    window.addEventListener("scroll", () => { r = null; }, { passive: true });
+  });
+}
+
+/* =========================================================
+   Macchine Golden Laser: varianti della stessa famiglia (stessa lastra, foto diversa)
+   ========================================================= */
+function cambiaImmagine(img, d, didascalia) {
+  const token = (img._token || 0) + 1;
+  img._token = token;
+  const nuova = new Image();
+  nuova.src = d.src;
+  const pronta = nuova.decode ? nuova.decode().catch(() => {}) : Promise.resolve();
+  img.classList.add("is-cambia");
+  const attesa = new Promise((ok) => setTimeout(ok, riduci.matches ? 0 : 140));
+  Promise.all([pronta, attesa]).then(() => {
+    if (img._token !== token) return;
+    img.src = d.src; img.width = Number(d.w); img.height = Number(d.h); img.alt = d.alt;
+    img.classList.toggle("is-foto", "foto" in d);
+    if (didascalia) didascalia.textContent = d.didascalia;
+    img.classList.add("is-arriva");
+    img.classList.remove("is-cambia");
+    void img.offsetWidth;
+    requestAnimationFrame(() => { if (img._token === token) img.classList.remove("is-arriva"); });
+  });
+}
+$$(".varianti").forEach((lista) => {
+  const lastra = lista.closest(".famiglia__lastra");
+  const img = $("[data-galleria-img]", lastra);
+  const didascalia = $("[data-galleria-didascalia]", lastra);
+  lista.addEventListener("click", (e) => {
+    const b = e.target.closest(".variante");
+    if (!b || b.getAttribute("aria-pressed") === "true") return;
+    $$(".variante", lista).forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    cambiaImmagine(img, b.dataset, didascalia);
+    traccia("seleziona_variante", { variante: b.textContent.trim() });
+  });
+});
+
+/* famiglie: su computer diventano schede (una lastra alla volta), su telefono restano in colonna */
+const famiglie = $("[data-famiglie]");
+if (famiglie) {
+  const pannelli = $$("[data-famiglia]", famiglie);
+  let barraSchede = null, indicatore = null, schede = [];
+  const posiziona = (b) => {
+    if (!indicatore || !b) return;
+    const rb = b.getBoundingClientRect(), rc = barraSchede.getBoundingClientRect();
+    indicatore.style.transform = `translateX(${rb.left - rc.left}px) scaleX(${Math.max(1, rb.width - 20)})`;
+  };
+  const seleziona = (i, focus) => {
+    schede.forEach((b, k) => {
+      const si = k === i;
+      b.setAttribute("aria-selected", String(si));
+      b.tabIndex = si ? 0 : -1;
+      pannelli[k].hidden = !si;
+      pannelli[k].classList.toggle("is-entra", si);
+    });
+    const p = pannelli[i];
+    const img = $("[data-galleria-img]", p);
+    if (img && !riduci.matches) { img.classList.add("is-cambia"); requestAnimationFrame(() => requestAnimationFrame(() => img.classList.remove("is-cambia"))); }
+    const q = $("[data-linea-taglio]", p);
+    if (q) { if (ossLinee) ossLinee.unobserve(q); taglia(q); }
+    posiziona(schede[i]);
+    if (focus) schede[i].focus();
+  };
+  const attiva = () => {
+    if (barraSchede) return;
+    barraSchede = document.createElement("div");
+    barraSchede.className = "famiglie__schede";
+    barraSchede.setAttribute("role", "tablist");
+    barraSchede.setAttribute("aria-label", "Famiglie di macchine Golden Laser");
+    schede = pannelli.map((p, i) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "famiglie__scheda";
+      b.id = "scheda-" + p.id;
+      b.setAttribute("role", "tab");
+      b.setAttribute("aria-controls", p.id);
+      const t = document.createElement("strong");
+      t.textContent = $("h3", p).textContent;
+      const s = document.createElement("span");
+      s.textContent = p.dataset.breve || "";
+      b.append(t, s);
+      p.setAttribute("role", "tabpanel");
+      p.setAttribute("aria-labelledby", b.id);
+      p.tabIndex = -1;
+      b.addEventListener("click", () => { if (b.getAttribute("aria-selected") !== "true") { seleziona(i); traccia("seleziona_famiglia", { famiglia: t.textContent }); } });
+      barraSchede.appendChild(b);
+      return b;
+    });
+    indicatore = document.createElement("span");
+    indicatore.className = "famiglie__indicatore";
+    indicatore.setAttribute("aria-hidden", "true");
+    barraSchede.appendChild(indicatore);
+    barraSchede.addEventListener("keydown", (e) => {
+      const i = schede.indexOf(document.activeElement);
+      if (i < 0) return;
+      const n = schede.length;
+      const k = e.key === "ArrowRight" ? (i + 1) % n : e.key === "ArrowLeft" ? (i - 1 + n) % n : e.key === "Home" ? 0 : e.key === "End" ? n - 1 : -1;
+      if (k < 0) return;
+      e.preventDefault();
+      seleziona(k, true);
+    });
+    famiglie.prepend(barraSchede);
+    famiglie.classList.add("is-schede");
+    indicatore.style.transition = "none";
+    seleziona(0);
+    requestAnimationFrame(() => { indicatore.style.transition = ""; });
+  };
+  const disattiva = () => {
+    if (!barraSchede) return;
+    barraSchede.remove(); barraSchede = null; indicatore = null; schede = [];
+    famiglie.classList.remove("is-schede");
+    pannelli.forEach((p) => {
+      p.hidden = false; p.classList.remove("is-entra"); p.removeAttribute("role"); p.removeAttribute("tabindex");
+      p.setAttribute("aria-labelledby", $("h3", p).id);
+    });
+  };
+  const largo = matchMedia("(min-width: 1001px)");
+  const decidi = () => (largo.matches ? attiva() : disattiva());
+  decidi();
+  largo.addEventListener("change", decidi);
+  window.addEventListener("resize", () => { if (barraSchede) posiziona(schede.find((b) => b.getAttribute("aria-selected") === "true")); }, { passive: true });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { if (barraSchede) posiziona(schede.find((b) => b.getAttribute("aria-selected") === "true")); });
+}
+
+/* =========================================================
+   Applicazioni: spessore massimo per materiale e potenza (Golden Laser U3, scheda ufficiale)
+   ========================================================= */
+const SPESSORI = {
+  carbonio: { nome: "Acciaio al carbonio", mm: [22, 25, 25, 30, 40, 60] },
+  inox: { nome: "Acciaio inox", mm: [12, 12, 16, 20, 30, 35] },
+  alluminio: { nome: "Alluminio", mm: [8, 12, 16, 18, 20, 25] },
+  ottone: { nome: "Ottone", mm: [8, 12, 16, 18, 20, 22] }
+};
+const KW = [3, 4, 6, 8, 12, 20];
+const sceltaMat = $("[data-materiali]");
+const grafico = $("[data-spessori]");
+if (sceltaMat && grafico) {
+  const colonne = $$(".spessori__colonne > li", grafico);
+  const sintesi = $("[data-sintesi]", grafico);
+  const bottoni = $$("[data-materiale]", sceltaMat);
+  const scegli = (b, focus) => {
+    const d = SPESSORI[b.dataset.materiale];
+    if (!d) return;
+    bottoni.forEach((x) => { const si = x === b; x.setAttribute("aria-checked", String(si)); x.tabIndex = si ? 0 : -1; });
+    colonne.forEach((li, i) => { li.style.setProperty("--mm", d.mm[i]); $("[data-v]", li).textContent = d.mm[i]; });
+    sintesi.textContent = `${d.nome}: da ${d.mm[0]} mm con ${KW[0]} kW a ${d.mm[5]} mm con ${KW[5]} kW.`;
+    if (focus) b.focus();
+  };
+  sceltaMat.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-materiale]");
+    if (!b || b.getAttribute("aria-checked") === "true") return;
+    scegli(b);
+    traccia("seleziona_materiale", { materiale: b.dataset.materiale });
+  });
+  sceltaMat.addEventListener("keydown", (e) => {
+    const i = bottoni.indexOf(document.activeElement);
+    if (i < 0) return;
+    const n = bottoni.length;
+    const k = ["ArrowRight", "ArrowDown"].includes(e.key) ? (i + 1) % n : ["ArrowLeft", "ArrowUp"].includes(e.key) ? (i - 1 + n) % n : -1;
+    if (k < 0) return;
+    e.preventDefault();
+    scegli(bottoni[k], true);
+  });
+}
+
+/* =========================================================
+   Simulazioni negli approfondimenti (caricate solo quando servono)
    ========================================================= */
 const CICLI = new Set(["piega-punzone", "salda-rivela", "cobot-spalla", "retrofit-tendina"]);
 
-/* simulazione dentro una scheda: ferma sul pezzo finito; parte al passaggio del mouse e si ferma
-   quando il mouse esce (resta dov'è, come una macchina in pausa). Su telefono: un ciclo e poi si ferma. */
+/* simulazione: ferma sul pezzo finito; parte al passaggio del mouse e si ferma quando il mouse esce.
+   Su telefono: un ciclo e poi si ferma. */
 function simInterattiva(box, area) {
   let sim = null, avviata = false;
   const prepara = () => (sim ? Promise.resolve(sim) : caricaTaglio().then(({ creaSimulazione }) => {
@@ -599,78 +863,55 @@ function simInterattiva(box, area) {
     });
   };
   const ferma = () => { if (sim) sim.pause(); };
-  new IntersectionObserver((v, o) => { if (v[0].isIntersecting) { prepara(); o.disconnect(); } }, { rootMargin: "300px 0px" }).observe(box);
   area.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") parti(false); });
   area.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") ferma(); });
-  if (!puntatoreFine.matches) {
-    new IntersectionObserver((v) => {
-      if (v[0].isIntersecting) { avviata = false; parti(true); } else ferma();
-    }, { threshold: 0.6 }).observe(box);
-  }
-  return { parti, ferma, prepara };
+  return { parti, ferma, prepara, riavvia: () => { avviata = false; } };
 }
 
-$$("[data-anima]").forEach((scheda) => {
-  const simBox = $("[data-sim]", scheda);
-  if (simBox) { simInterattiva(simBox, scheda); return; }
-  let fermaAFine = false, cicli = 0, cicliMax = Infinity;
-  const attiva = (max) => {
-    if (riduci.matches) return;
-    fermaAFine = false; cicli = 0; cicliMax = max || Infinity;
-    scheda.classList.add("is-attiva");
-  };
-  const disattiva = () => { scheda.classList.remove("is-attiva"); fermaAFine = false; };
-  scheda.addEventListener("animationiteration", (e) => {
-    if (!CICLI.has(e.animationName)) return;
-    cicli++;
-    if (fermaAFine || cicli >= cicliMax) disattiva();
-  });
-  // computer: anteprima del processo al passaggio del mouse, si chiude a fine ciclo
-  scheda.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") attiva(); });
-  scheda.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") fermaAFine = true; });
-  scheda.addEventListener("focusin", () => { if (!scheda.classList.contains("is-attiva")) attiva(1); });
-  // telefono: un ciclo quando la scheda è ben visibile
-  if (!puntatoreFine.matches) {
-    new IntersectionObserver((v) => { if (v[0].isIntersecting) attiva(1); }, { threshold: 0.6 }).observe(scheda);
-  }
-});
-
-/* approfondimenti: lo stesso disegno animato della scheda, un ciclo all'apertura */
-function animaApprofondimento(art) {
-  const fig = $("[data-clona]", art);
-  if (fig && !fig.firstElementChild) {
-    const orig = $(`[data-scheda][data-soluzione="${fig.dataset.clona}"] svg.tec`);
-    if (orig) {
-      const copia = orig.cloneNode(true);
-      // id unici: il disegno della scheda resta valido
-      $$("[id]", copia).forEach((n) => {
-        const vecchio = n.id, nuovo = vecchio + "-appro";
-        n.id = nuovo;
-        $$("*", copia).forEach((m) => {
-          ["clip-path", "fill", "mask", "href"].forEach((at) => {
-            const v = m.getAttribute(at);
-            if (v && v.includes("#" + vecchio)) m.setAttribute(at, v.replace("#" + vecchio, "#" + nuovo));
-          });
-        });
-      });
-      fig.appendChild(copia);
-      let cicli = 0;
-      fig.addEventListener("animationiteration", (e) => { if (CICLI.has(e.animationName) && ++cicli >= 1) fig.classList.remove("is-attiva"); });
-      fig.addEventListener("pointerenter", () => { if (!riduci.matches) { cicli = 0; fig.classList.add("is-attiva"); } });
-      fig.addEventListener("click", () => { if (!riduci.matches) { cicli = 0; fig.classList.add("is-attiva"); } });
-    }
-  }
-  if (fig && !riduci.matches) { fig.classList.remove("is-attiva"); void fig.offsetWidth; fig.classList.add("is-attiva"); }
-  const figSim = $("[data-clona-sim]", art);
-  if (figSim && !$(".sim", figSim)) {
+/* un ciclo del disegno tecnico, poi si ferma sullo stato finale */
+function cicloDisegno(fig) {
+  if (riduci.matches || !fig) return;
+  fig.classList.remove("is-attiva");
+  void fig.offsetWidth;
+  fig.classList.add("is-attiva");
+}
+function preparaVista(vista) {
+  if (vista._pronta) return vista._pronta;
+  const bottoni = $$("[data-vista-mostra]", vista);
+  const strati = $$("[data-vista-strato]", vista);
+  const schema = strati.find((s) => s.dataset.vistaStrato === "schema");
+  let ctrl = null;
+  if (schema && schema.dataset.clonaSim && !$(".sim", schema)) {
     const box = document.createElement("div");
     box.className = "sim";
-    box.dataset.sim = figSim.dataset.clonaSim;
+    box.dataset.sim = schema.dataset.clonaSim;
     box.setAttribute("aria-hidden", "true");
-    figSim.prepend(box);
-    const ctrl = simInterattiva(box, figSim);
-    figSim.addEventListener("click", () => ctrl.parti(false));
+    schema.prepend(box);
+    ctrl = simInterattiva(box, schema);
+  } else if (schema) {
+    schema.addEventListener("animationiteration", (e) => { if (CICLI.has(e.animationName)) schema.classList.remove("is-attiva"); });
+    schema.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") cicloDisegno(schema); });
   }
+  const animaSchema = () => { if (ctrl) { ctrl.riavvia(); ctrl.parti(true); } else cicloDisegno(schema); };
+  const mostra = (quale, utente) => {
+    bottoni.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.vistaMostra === quale)));
+    strati.forEach((s) => s.classList.toggle("is-nascosto", s.dataset.vistaStrato !== quale));
+    if (quale === "schema") animaSchema();
+    else if (ctrl) ctrl.ferma();
+    if (utente) { const art = vista.closest(".appro"); traccia("cambia_vista", { vista: quale, soluzione: art ? art.dataset.soluzione : "" }); }
+  };
+  const iniziale = (bottoni.find((b) => b.getAttribute("aria-pressed") === "true") || bottoni[0]).dataset.vistaMostra;
+  bottoni.forEach((b) => b.addEventListener("click", () => { if (b.getAttribute("aria-pressed") !== "true") mostra(b.dataset.vistaMostra, true); }));
+  vista._pronta = { mostra, iniziale };
+  return vista._pronta;
+}
+
+/* approfondimento aperto: vista iniziale; se parte dallo schema, un ciclo dell'animazione */
+function animaApprofondimento(art) {
+  const vista = $("[data-vista]", art);
+  if (!vista) return;
+  const v = preparaVista(vista);
+  v.mostra(v.iniziale, false);
 }
 
 /* =========================================================
@@ -859,7 +1100,7 @@ if (modulo) {
     etichetta.textContent = si ? "Invio in corso…" : "Richiedi preventivo";
   };
   const mostraConferma = (d) => {
-    const righe = [["Richiesta per", d.soluzione || "—"], ["Nome e azienda", d.nome], ["Telefono", d.telefono]];
+    const righe = [["Richiesta per", d.soluzione || "nessuna in particolare"], ["Nome e azienda", d.nome], ["Telefono", d.telefono]];
     if (d.email) righe.push(["Email", d.email]);
     riepilogo.innerHTML = "";
     righe.forEach(([k, v]) => {

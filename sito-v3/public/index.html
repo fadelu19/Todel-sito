@@ -2,17 +2,17 @@
 <html lang="it">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
 <title>Taglio laser, plasma e automazione per la lamiera | TO.DE.L.</title>
 <meta name="description" content="Taglio laser fibra Golden Laser, plasma, piegatura, saldatura laser, cobot e retrofit CNC. Vendita, installazione e assistenza con tecnici propri da Battipaglia (SA).">
 <!-- DOMINIO: sostituire https://DOMINIO-DA-INSERIRE con lo script scripts/imposta-dominio.mjs prima della pubblicazione -->
 <link rel="canonical" href="https://DOMINIO-DA-INSERIRE/">
-<meta name="theme-color" content="#131b40">
+<meta name="theme-color" content="#0b0e13">
 <meta name="format-detection" content="telephone=no">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="it_IT">
 <meta property="og:site_name" content="TO.DE.L. Automazione Industriale">
-<meta property="og:title" content="TO.DE.L. — Taglio laser, plasma e automazione per la lamiera">
+<meta property="og:title" content="TO.DE.L. | Taglio laser, plasma e automazione per la lamiera">
 <meta property="og:description" content="Tecnologie industriali, installazione e assistenza con un unico referente. Rivenditore ufficiale Golden Laser. Battipaglia (SA).">
 <meta property="og:url" content="https://DOMINIO-DA-INSERIRE/">
 <meta property="og:image" content="https://DOMINIO-DA-INSERIRE/assets/img/og-todel.jpg">
@@ -20,12 +20,12 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/img/gl/gf1530jht-officina.webp" as="image" type="image/webp" fetchpriority="high">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="modulepreload" href="assets/js/main.js">
 <link rel="modulepreload" href="assets/js/consenso.js">
-<link rel="modulepreload" href="assets/js/taglio.js">
-<script>document.documentElement.classList.add("js");setTimeout(function(){if(!window.todelPronto)document.documentElement.classList.remove("js")},3500);</script>
+<script>(function(d){d.classList.add("js");try{if(!sessionStorage.getItem("todel-taglio")&&!matchMedia("(prefers-reduced-motion: reduce)").matches)d.classList.add("taglio-eroe")}catch(e){}setTimeout(function(){if(!window.todelPronto)d.classList.remove("js","taglio-eroe")},3500)})(document.documentElement);</script>
 <!-- Configurazione: modificare qui i servizi da attivare. Vedi README. -->
 <script type="application/json" id="config">
 {
@@ -130,15 +130,15 @@
             Macchine <svg class="i i--piccola" aria-hidden="true"><use href="#i-giu"/></svg>
           </button>
           <div class="tendina__pannello" id="menu-macchine" data-tendina-pannello hidden>
-            <p class="tendina__gruppo">Tecnologia principale</p>
+            <p class="tendina__gruppo">Golden Laser · rivenditore ufficiale</p>
             <ul>
-              <li><a href="#taglio-laser-fibra" data-apri="taglio-laser-fibra">Taglio laser fibra <span>Golden Laser · lamiera e tubo</span></a></li>
+              <li><a href="#taglio-laser-fibra" data-apri="taglio-laser-fibra">Taglio laser fibra <span>lamiera, lamiera e tubo, tubo</span></a></li>
+              <li><a href="#saldatura-e-pulizia-laser" data-apri="saldatura-e-pulizia-laser">Saldatura e pulizia laser <span>saldatrici portatili serie W</span></a></li>
             </ul>
             <p class="tendina__gruppo">Tecnologie complementari</p>
             <ul>
               <li><a href="#piegatura-e-cesoie" data-apri="piegatura-e-cesoie">Piegatura e cesoie</a></li>
               <li><a href="#taglio-plasma" data-apri="taglio-plasma">Taglio plasma</a></li>
-              <li><a href="#saldatura-e-pulizia-laser" data-apri="saldatura-e-pulizia-laser">Saldatura e pulizia laser</a></li>
               <li><a href="#automazione-e-cobot" data-apri="automazione-e-cobot">Automazione e cobot</a></li>
             </ul>
             <p class="tendina__gruppo">Servizi e usato</p>
@@ -148,8 +148,8 @@
             </ul>
           </div>
         </li>
-        <li><a class="nav__link" href="#settori">Settori</a></li>
-        <li><a class="nav__link" href="#perche">Perché TO.DE.L.</a></li>
+        <li><a class="nav__link" href="#applicazioni">Applicazioni</a></li>
+        <li><a class="nav__link" href="#metodo">Metodo</a></li>
         <li><a class="nav__link" href="#azienda">Azienda</a></li>
         <li><a class="nav__link" href="#contatti">Contatti</a></li>
       </ul>
@@ -182,8 +182,8 @@
       <li><a href="#macchinari-usati" data-apri="macchinari-usati">Macchinari usati</a></li>
     </ul>
     <ul class="cassetto__voci">
-      <li><a href="#settori">Settori</a></li>
-      <li><a href="#perche">Perché TO.DE.L.</a></li>
+      <li><a href="#applicazioni">Applicazioni</a></li>
+      <li><a href="#metodo">Metodo</a></li>
       <li><a href="#azienda">Azienda</a></li>
       <li><a href="#finanziamento">Finanziamento</a></li>
       <li><a href="#contatti">Contatti</a></li>
@@ -197,379 +197,391 @@
 
 <main id="contenuto">
 
-  <!-- 2. HERO -->
+  <!-- HERO: la macchina reale. Il riquadro viene "tagliato" dalla lamiera alla prima visita (main.js) -->
   <section class="eroe" id="inizio" aria-labelledby="titolo">
-    <div class="contenitore eroe__griglia">
+    <div class="eroe__corpo">
       <div class="eroe__testo">
-        <p class="eroe__sede entra" style="--i:0">TO.DE.L. Automazione Industriale · Battipaglia (SA)</p>
-        <h1 id="titolo" class="entra" style="--i:1">Taglio laser, plasma e automazione per la lavorazione della lamiera.</h1>
-        <p class="eroe__sotto entra" style="--i:2">Tecnologie industriali, installazione e assistenza con un unico referente.</p>
-        <ul class="prove entra" style="--i:3" aria-label="In sintesi">
-          <li><strong>Oltre 30 anni</strong> nel settore</li>
-          <li><strong>Oltre 100</strong> macchinari venduti</li>
-          <li><strong>Rivenditore ufficiale</strong> Golden Laser</li>
-        </ul>
-        <div class="eroe__azioni entra" style="--i:4">
-          <a class="tasto tasto--primario tasto--grande" href="#contatti" data-cta="hero">Richiedi preventivo <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></a>
-          <a class="tasto tasto--secondario tasto--grande" href="#soluzioni">Scopri le macchine</a>
+        <h1 id="titolo" class="entra" style="--i:0">Taglio laser, plasma e automazione per la lamiera.</h1>
+        <p class="eroe__sotto entra" style="--i:1">Tecnologie industriali, installazione e assistenza con un unico referente. Da Battipaglia (SA), rivenditore ufficiale Golden Laser.</p>
+        <div class="eroe__azioni entra" style="--i:2">
+          <a class="tasto tasto--primario tasto--grande" href="#contatti" data-cta="hero">Richiedi preventivo <svg class="i i--freccia" aria-hidden="true"><use href="#i-freccia"/></svg></a>
+          <a class="tasto tasto--secondario tasto--grande eroe__tel" href="tel:+393288241909" data-traccia="click_telefono" data-origine="hero"><svg class="i" aria-hidden="true"><use href="#i-telefono"/></svg>328 824 1909</a>
         </div>
       </div>
 
-      <figure class="eroe__visuale entra-visuale" data-eroe-media>
-        <div class="sim sim--eroe" data-sim="eroe" data-sim-modo="ciclo" data-etichetta="Simulazione vista dall'alto: il portale e la testa laser si spostano sulla lamiera, forano fuori dal profilo, tagliano prima i fori interni e poi il contorno esterno di una staffa e di una flangia.">
-          <div class="sim__hud" aria-hidden="true">
-            <span class="sim__stato" data-lettura-stato>Pronto</span>
-            <span class="sim__coord">X <b data-lettura-x>0,0</b></span>
-            <span class="sim__coord">Y <b data-lettura-y>0,0</b></span>
-          </div>
-          <div class="sim__dati" aria-hidden="true">
-            <p>Riferimento: Golden Laser U3, sorgente 8 kW</p>
-            <p>Acciaio al carbonio fino a 30 mm · inox 20 mm · alluminio 18 mm</p>
-          </div>
-          <a class="sim__link" href="#taglio-laser-fibra" data-apri="taglio-laser-fibra" data-origine="hero-visuale"><span class="sr">Approfondisci il taglio laser fibra</span></a>
+      <figure class="eroe__foto" data-eroe-media>
+        <div class="eroe__inquadratura" data-taglio-eroe>
+          <picture>
+            <source type="image/webp" srcset="assets/img/gl/gf1530jht-officina.webp">
+            <img src="assets/img/gl/gf1530jht-officina.jpg" alt="Golden Laser GF-1530JHT per lamiera e tubo in un capannone: pannello di controllo a sinistra, portelli arancioni aperti e mandrino del tubo visibile" width="750" height="562" fetchpriority="high" decoding="async">
+          </picture>
         </div>
-        <figcaption class="eroe__didascalia">
-          <span>Simulazione del ciclo: foratura, fori interni, contorno esterno.</span>
-          <button class="tasto-pausa" type="button" data-sim-pausa aria-pressed="false">
-            <svg class="i" aria-hidden="true"><use href="#i-pausa"/></svg><span data-sim-pausa-testo>Pausa</span>
-          </button>
+        <figcaption class="cartiglio-tecnico eroe__cartiglio entra-visuale">
+          <dl>
+            <div class="cartiglio-tecnico__titolo"><dt>Modello</dt><dd>GF-1530JHT</dd></div>
+            <div><dt>Lavorazione</dt><dd>Lamiera e tubo</dd></div>
+            <div><dt>Sorgente</dt><dd>1-4 kW</dd></div>
+            <div><dt>Area</dt><dd>1500 × 3000 mm</dd></div>
+            <div><dt>Tubo</dt><dd>Ø 20-160 mm</dd></div>
+            <div><dt>Foto</dt><dd>Golden Laser</dd></div>
+          </dl>
+          <a class="cartiglio-tecnico__link" href="#taglio-laser-fibra" data-apri="taglio-laser-fibra" data-origine="hero-cartiglio">Scheda tecnica del taglio laser <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></a>
         </figcaption>
       </figure>
     </div>
+    <div class="contenitore"><div class="linea-taglio eroe__linea" data-linea-taglio aria-hidden="true"><span></span></div></div>
   </section>
 
-  <!-- 3. TRUST / SOCIAL PROOF -->
-  <section class="clienti" id="clienti" aria-labelledby="titolo-clienti">
-    <div class="contenitore clienti__fila">
-      <h2 id="titolo-clienti" class="clienti__titolo">Hanno scelto TO.DE.L.</h2>
-      <ul class="clienti__lista">
-        <li><strong>Cerbone</strong></li>
-        <li><strong>3G Metal</strong><span>Carpenteria metallica</span></li>
-        <li><strong>MGR</strong><span>Lavorazioni meccaniche</span></li>
-        <li><strong>General Service</strong><span>Manutenzione industriale</span></li>
-        <li><strong>Car Segnaletica</strong><span>Lavorazioni e segnaletica</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- 4. PERCHÉ TO.DE.L. -->
-  <section class="sezione" id="perche" aria-labelledby="titolo-perche">
+  <!-- AZIENDA: i numeri verificati, come una distinta -->
+  <section class="azienda" id="azienda" aria-labelledby="titolo-azienda">
     <div class="contenitore">
-      <div class="cartiglio" data-rivela><span>01</span>Perché TO.DE.L.</div>
-      <div class="perche">
-        <div class="perche__testa" data-rivela>
-          <h2 id="titolo-perche">Tecnologia industriale. Esperienza. Assistenza.</h2>
-          <p>Scegliere la macchina è metà del lavoro. L’altra metà è installarla bene e tenerla in produzione negli anni.</p>
-          <a class="tasto tasto--primario" href="#contatti" data-cta="perche">Richiedi preventivo <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></a>
+      <div class="azienda__griglia">
+        <div class="azienda__testa">
+          <h2 id="titolo-azienda">TO.DE.L. in numeri</h2>
+          <p>TO.DE.L. Automazione Industriale, già Automazione Macchine Utensili, ha sede a Battipaglia (SA). Vendiamo, installiamo e assistiamo macchine per la lavorazione della lamiera.</p>
         </div>
-        <ol class="punti">
-          <li data-rivela style="--i:0"><span class="punti__n">01</span><div><h3>Un solo referente</h3><p>Dalla scelta della macchina all’installazione e all’assistenza parlate sempre con noi.</p></div></li>
-          <li data-rivela style="--i:1"><span class="punti__n">02</span><div><h3>Tecnici propri</h3><p>Installazione, formazione degli operatori, manutenzione e ricambi: se ne occupano i nostri tecnici.</p></div></li>
-          <li data-rivela style="--i:2"><span class="punti__n">03</span><div><h3>Rivenditore ufficiale Golden Laser</h3><p>Vendiamo e assistiamo la gamma Golden Laser: taglio di lamiera e tubo, saldatura e pulizia laser.</p></div></li>
-          <li data-rivela style="--i:3"><span class="punti__n">04</span><div><h3>Preventivo entro 24 ore</h3><p>Diteci cosa producete e cosa vi serve: entro 24 ore avete una risposta concreta.</p></div></li>
-        </ol>
+        <div>
+          <dl class="distinta">
+            <div><dt>Anni nel settore delle macchine e dell’automazione industriale</dt><dd><span class="distinta__pre">oltre</span><span class="distinta__n">30</span></dd></div>
+            <div><dt>Macchinari venduti</dt><dd><span class="distinta__pre">oltre</span><span class="distinta__n">100</span></dd></div>
+            <div><dt>Impianti plasma venduti</dt><dd><span class="distinta__pre">almeno</span><span class="distinta__n">40</span></dd></div>
+            <div><dt>Sistemi laser venduti, in diverse configurazioni</dt><dd><span class="distinta__pre">oltre</span><span class="distinta__n">20</span></dd></div>
+            <div><dt>Esperienza nel taglio laser</dt><dd><span class="distinta__pre">quasi</span><span class="distinta__n">10</span><span class="distinta__u">anni</span></dd></div>
+            <div><dt>Golden Laser</dt><dd><span class="distinta__marchio">Rivenditore ufficiale</span></dd></div>
+          </dl>
+          <p class="nota">Dati aziendali TO.DE.L.</p>
+        </div>
+      </div>
+      <div class="clienti" id="clienti">
+        <h2 class="clienti__titolo">Hanno scelto TO.DE.L.</h2>
+        <ul class="clienti__lista">
+          <li><strong>Cerbone</strong></li>
+          <li><strong>3G Metal</strong><span>Carpenteria metallica</span></li>
+          <li><strong>MGR</strong><span>Lavorazioni meccaniche</span></li>
+          <li><strong>General Service</strong><span>Manutenzione industriale</span></li>
+          <li><strong>Car Segnaletica</strong><span>Lavorazioni e segnaletica</span></li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- 5. SOLUZIONI / MACCHINE -->
-  <section class="sezione" id="soluzioni" aria-labelledby="titolo-soluzioni">
+  <!-- MACCHINE GOLDEN LASER: una lastra da catalogo per famiglia. Su computer diventano schede (main.js) -->
+  <section class="sezione" id="macchine" aria-labelledby="titolo-macchine">
     <div class="contenitore">
-      <div class="cartiglio" data-rivela><span>02</span>Soluzioni</div>
-      <header class="testa" data-rivela>
-        <h2 id="titolo-soluzioni">Macchine e tecnologie per lavorare la lamiera</h2>
-        <p>Dal taglio alla piegatura, dalla saldatura all’automazione. Scegliete una tecnologia: vi mostriamo come lavora e cosa può fare.</p>
+      <header class="testa-sezione">
+        <h2 id="titolo-macchine">Macchine Golden Laser per lamiera, tubo e saldatura</h2>
+        <p>Siamo rivenditore ufficiale: vendiamo, installiamo e assistiamo la gamma Golden Laser, dalla scelta della configurazione alla manutenzione.</p>
       </header>
 
-      <p class="livello" data-rivela>Tecnologia principale</p>
-      <article class="scheda-laser" data-rivela data-soluzione="Taglio laser fibra" data-scheda data-anima>
-        <div class="scheda-laser__media">
-          <div class="sim sim--nesting" data-sim="nesting" aria-hidden="true"></div>
-          <span class="etichetta-illustrativa">Simulazione · lamiera di produzione</span>
-        </div>
-        <div class="scheda-laser__testo">
-          <p class="scheda__marchio">Golden Laser · rivenditore ufficiale</p>
-          <h3>Taglio laser fibra</h3>
-          <p class="scheda-laser__intro">Lamiere, tubi e profili in acciaio al carbonio, inox, alluminio, ottone e rame. Spessori fino a 30 mm, in funzione di macchina, potenza, materiale e configurazione.</p>
-          <dl class="dati-rapidi">
-            <div><dt>Lamiera</dt><dd>Serie U3, E3, GF, M · da 1,5 a 30 kW</dd></div>
-            <div><dt>Lamiera e tubo</dt><dd>E3t Plus, GF-JHT · da 1 a 4 kW</dd></div>
-            <div><dt>Solo tubo</dt><dd>L12MAX, L16MAX, L20MAX, I20A, Mega4</dd></div>
-            <div><dt>Esempio U3 8 kW</dt><dd>Carbonio 30 mm · inox 20 mm · alluminio 18 mm</dd></div>
-          </dl>
-          <ul class="materiali" aria-label="Materiali lavorabili">
-            <li>Acciaio al carbonio</li><li>Acciaio inox</li><li>Alluminio</li><li>Ottone e rame</li>
-          </ul>
-          <div class="scheda__azioni">
-            <a class="tasto tasto--primario" href="#taglio-laser-fibra" data-apri="taglio-laser-fibra" data-origine="scheda">Approfondisci</a>
-            <a class="tasto tasto--secondario" href="#contatti" data-prefill="Taglio laser fibra" data-cta="scheda-laser">Richiedi preventivo</a>
+      <div class="famiglie" data-famiglie>
+        <section class="famiglia" id="famiglia-lamiera" data-famiglia data-breve="1500 × 3000 → 2500 × 12000 mm" aria-labelledby="fam-lamiera">
+          <div class="famiglia__lastra" data-faro>
+            <figure class="famiglia__foto" data-galleria>
+              <img src="assets/img/gl/lamiera-grande-formato.webp" alt="Golden Laser per lamiera: banco aperto di grande formato con portale e cabina di controllo" width="600" height="237" loading="lazy" decoding="async" data-galleria-img>
+            </figure>
+            <div class="quota famiglia__quota" aria-hidden="true">
+              <span class="quota__valore">piano fino a 12000 mm, serie M</span>
+              <span class="quota__asse"><span class="linea-taglio" data-linea-taglio><span></span></span><span class="quota__tratto quota__tratto--a"></span><span class="quota__tratto quota__tratto--b"></span></span>
+            </div>
+            <p class="famiglia__didascalia" data-galleria-didascalia>Banco aperto, grande formato · foto Golden Laser</p>
+            <ul class="varianti" aria-label="Configurazioni per lamiera">
+              <li><button type="button" class="variante" aria-pressed="true" data-src="assets/img/gl/lamiera-grande-formato.webp" data-w="600" data-h="237" data-alt="Golden Laser per lamiera: banco aperto di grande formato con portale e cabina di controllo" data-didascalia="Banco aperto, grande formato · foto Golden Laser"><img src="assets/img/gl/lamiera-grande-formato.webp" alt="" width="600" height="237" loading="lazy" decoding="async">Grande formato</button></li>
+              <li><button type="button" class="variante" aria-pressed="false" data-src="assets/img/gl/lamiera-cabinata.webp" data-w="559" data-h="306" data-alt="Golden Laser per lamiera: macchina cabinata con portelli arancioni e pannello di controllo orientabile" data-didascalia="Cabinata, con piano di scambio · foto Golden Laser"><img src="assets/img/gl/lamiera-cabinata.webp" alt="" width="559" height="306" loading="lazy" decoding="async">Cabinata</button></li>
+              <li><button type="button" class="variante" aria-pressed="false" data-src="assets/img/gl/lamiera-compatta.webp" data-w="470" data-h="399" data-alt="Golden Laser per lamiera: macchina compatta cabinata arancione con refrigeratore" data-didascalia="Compatta, cabinata · foto Golden Laser"><img src="assets/img/gl/lamiera-compatta.webp" alt="" width="470" height="399" loading="lazy" decoding="async">Compatta</button></li>
+            </ul>
+          </div>
+          <div class="famiglia__scheda">
+            <h3 id="fam-lamiera" style="--i:0">Taglio lamiera</h3>
+            <p class="famiglia__uso" style="--i:1">Lamiere in acciaio al carbonio, inox, alluminio, ottone e rame. Dal formato 1500 × 3000 mm al grande formato, fino a 30 mm di spessore.</p>
+            <dl class="dati" style="--i:2">
+              <div><dt>Serie</dt><dd>U3, E3, GF, M</dd></div>
+              <div><dt>Sorgente</dt><dd>da 1,5 a 30 kW</dd></div>
+              <div><dt>Formato</dt><dd>1500 × 3000 → 2500 × 12000 mm</dd></div>
+              <div><dt>Spessore</dt><dd>fino a 30 mm<small>acciaio al carbonio, U3 con sorgente da 8 kW</small></dd></div>
+            </dl>
+            <div class="famiglia__azioni" style="--i:3">
+              <a class="tasto tasto--primario" href="#contatti" data-prefill="Taglio laser fibra" data-cta="macchine-lamiera">Richiedi preventivo</a>
+              <a class="link-freccia" href="#taglio-laser-fibra" data-apri="taglio-laser-fibra" data-origine="macchine-lamiera">Scheda tecnica <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></a>
+            </div>
+          </div>
+        </section>
+
+        <section class="famiglia" id="famiglia-lamiera-tubo" data-famiglia data-breve="tubo fino a 6 m" aria-labelledby="fam-lamiera-tubo">
+          <div class="famiglia__lastra" data-faro>
+            <figure class="famiglia__foto" data-galleria>
+              <img src="assets/img/gl/lamiera-tubo-aperta.webp" alt="Golden Laser per lamiera e tubo: banco aperto con mandrino rotante per i tubi sul lato" width="598" height="264" loading="lazy" decoding="async" data-galleria-img>
+            </figure>
+            <div class="quota famiglia__quota" aria-hidden="true">
+              <span class="quota__valore">tubo fino a 6000 mm</span>
+              <span class="quota__asse"><span class="linea-taglio" data-linea-taglio><span></span></span><span class="quota__tratto quota__tratto--a"></span><span class="quota__tratto quota__tratto--b"></span></span>
+            </div>
+            <p class="famiglia__didascalia" data-galleria-didascalia>Banco aperto con mandrino per tubi · foto Golden Laser</p>
+            <ul class="varianti" aria-label="Configurazioni per lamiera e tubo">
+              <li><button type="button" class="variante" aria-pressed="true" data-src="assets/img/gl/lamiera-tubo-aperta.webp" data-w="598" data-h="264" data-alt="Golden Laser per lamiera e tubo: banco aperto con mandrino rotante per i tubi sul lato" data-didascalia="Banco aperto con mandrino per tubi · foto Golden Laser"><img src="assets/img/gl/lamiera-tubo-aperta.webp" alt="" width="598" height="264" loading="lazy" decoding="async">Aperta</button></li>
+              <li><button type="button" class="variante" aria-pressed="false" data-src="assets/img/gl/lamiera-tubo-cabinata.webp" data-w="587" data-h="334" data-alt="Golden Laser per lamiera e tubo: macchina cabinata con serranda laterale e mandrino del tubo" data-didascalia="Cabinata, con mandrino per tubi · foto Golden Laser"><img src="assets/img/gl/lamiera-tubo-cabinata.webp" alt="" width="587" height="334" loading="lazy" decoding="async">Cabinata</button></li>
+              <li><button type="button" class="variante is-foto" aria-pressed="false" data-foto data-src="assets/img/gl/gf1530jht-fronte.webp" data-w="750" data-h="562" data-alt="Golden Laser GF-1530JHT in un capannone, vista frontale con pannello di controllo e portelli aperti" data-didascalia="GF-1530JHT in officina · foto Golden Laser"><img src="assets/img/gl/gf1530jht-fronte.webp" alt="" width="750" height="562" loading="lazy" decoding="async">GF-1530JHT</button></li>
+            </ul>
+          </div>
+          <div class="famiglia__scheda">
+            <h3 id="fam-lamiera-tubo" style="--i:0">Lamiera e tubo</h3>
+            <p class="famiglia__uso" style="--i:1">Lamiere, tubi tondi e quadri sulla stessa macchina: un solo impianto per carpenteria e strutture.</p>
+            <dl class="dati" style="--i:2">
+              <div><dt>Modelli</dt><dd>E3t Plus, GF-1530JHT</dd></div>
+              <div><dt>Sorgente</dt><dd>da 1 a 4 kW</dd></div>
+              <div><dt>Lamiera</dt><dd>da 1500 × 3000 mm</dd></div>
+              <div><dt>Tubo</dt><dd>Ø 20-200 mm · fino a 6 m<small>Ø 20-160 mm sulla GF-1530JHT</small></dd></div>
+            </dl>
+            <div class="famiglia__azioni" style="--i:3">
+              <a class="tasto tasto--primario" href="#contatti" data-prefill="Taglio laser fibra" data-cta="macchine-lamiera-tubo">Richiedi preventivo</a>
+              <a class="link-freccia" href="#taglio-laser-fibra" data-apri="taglio-laser-fibra" data-origine="macchine-lamiera-tubo">Scheda tecnica <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></a>
+            </div>
+          </div>
+        </section>
+
+        <section class="famiglia" id="famiglia-tubo" data-famiglia data-breve="Ø 20-350 mm" aria-labelledby="fam-tubo">
+          <div class="famiglia__lastra" data-faro>
+            <figure class="famiglia__foto" data-galleria>
+              <img src="assets/img/gl/tubo-3d-5assi.webp" alt="Golden Laser per tubi 3D a 5 assi, serie i25A-3D / i35A-3D: linea cabinata con carico e scarico laterali" width="573" height="182" loading="lazy" decoding="async" data-galleria-img>
+            </figure>
+            <div class="quota famiglia__quota" aria-hidden="true">
+              <span class="quota__valore">Ø 20-350 mm</span>
+              <span class="quota__asse"><span class="linea-taglio" data-linea-taglio><span></span></span><span class="quota__tratto quota__tratto--a"></span><span class="quota__tratto quota__tratto--b"></span></span>
+            </div>
+            <p class="famiglia__didascalia" data-galleria-didascalia>Tubo 3D a 5 assi, serie i25A-3D / i35A-3D · foto Golden Laser</p>
+            <ul class="varianti" aria-label="Configurazioni per tubo">
+              <li><button type="button" class="variante" aria-pressed="true" data-src="assets/img/gl/tubo-3d-5assi.webp" data-w="573" data-h="182" data-alt="Golden Laser per tubi 3D a 5 assi, serie i25A-3D / i35A-3D: linea cabinata con carico e scarico laterali" data-didascalia="Tubo 3D a 5 assi, serie i25A-3D / i35A-3D · foto Golden Laser"><img src="assets/img/gl/tubo-3d-5assi.webp" alt="" width="573" height="182" loading="lazy" decoding="async">3D a 5 assi</button></li>
+              <li><button type="button" class="variante" aria-pressed="false" data-src="assets/img/gl/tubo-s12r.webp" data-w="525" data-h="144" data-alt="Golden Laser S12R per tubi tondi, con caricatore a sinistra e testa di taglio cabinata a destra" data-didascalia="S12R, tubi tondi · foto Golden Laser"><img src="assets/img/gl/tubo-s12r.webp" alt="" width="525" height="144" loading="lazy" decoding="async">S12R</button></li>
+              <li><button type="button" class="variante" aria-pressed="false" data-src="assets/img/gl/tubo-caricatore.webp" data-w="600" data-h="190" data-alt="Golden Laser per tubi: linea di taglio con alimentazione laterale e banco di scarico" data-didascalia="Linea di taglio tubo · foto Golden Laser"><img src="assets/img/gl/tubo-caricatore.webp" alt="" width="600" height="190" loading="lazy" decoding="async">Linea</button></li>
+            </ul>
+          </div>
+          <div class="famiglia__scheda">
+            <h3 id="fam-tubo" style="--i:0">Taglio tubo</h3>
+            <p class="famiglia__uso" style="--i:1">Tubi tondi, quadri e profili. Sulle macchine 3D a 5 assi la testa si inclina e taglia anche a 45°.</p>
+            <dl class="dati" style="--i:2">
+              <div><dt>Serie</dt><dd>i25, i35, i25A-3D, S12R, Mega4</dd></div>
+              <div><dt>Sorgente</dt><dd>da 1,5 a 6 kW<small>serie i25 / i35</small></dd></div>
+              <div><dt>Tubo tondo</dt><dd>Ø 20-350 mm<small>Ø 20-250 mm sulla serie i25</small></dd></div>
+              <div><dt>Lunghezza</dt><dd>6 m<small>serie i25 / i35</small></dd></div>
+            </dl>
+            <div class="famiglia__azioni" style="--i:3">
+              <a class="tasto tasto--primario" href="#contatti" data-prefill="Taglio laser fibra" data-cta="macchine-tubo">Richiedi preventivo</a>
+              <a class="link-freccia" href="#taglio-laser-fibra" data-apri="taglio-laser-fibra" data-origine="macchine-tubo">Scheda tecnica <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></a>
+            </div>
+          </div>
+        </section>
+
+        <section class="famiglia" id="famiglia-saldatura" data-famiglia data-breve="W15, W20, W30" aria-labelledby="fam-saldatura">
+          <div class="famiglia__lastra" data-faro>
+            <figure class="famiglia__foto" data-galleria>
+              <img src="assets/img/gl/saldatrice-w.webp" alt="Saldatrice laser portatile Golden Laser serie W: unità con schermo, pulsanti e fibra avvolta sul fianco" width="287" height="398" loading="lazy" decoding="async" data-galleria-img>
+            </figure>
+            <div class="quota famiglia__quota" aria-hidden="true">
+              <span class="quota__valore">oscillazione del fascio 0-5 mm</span>
+              <span class="quota__asse"><span class="linea-taglio" data-linea-taglio><span></span></span><span class="quota__tratto quota__tratto--a"></span><span class="quota__tratto quota__tratto--b"></span></span>
+            </div>
+            <p class="famiglia__didascalia" data-galleria-didascalia>Saldatrice portatile 3 in 1, serie W · foto Golden Laser</p>
+            <ul class="varianti" aria-label="Configurazioni per la saldatura laser">
+              <li><button type="button" class="variante" aria-pressed="true" data-src="assets/img/gl/saldatrice-w.webp" data-w="287" data-h="398" data-alt="Saldatrice laser portatile Golden Laser serie W: unità con schermo, pulsanti e fibra avvolta sul fianco" data-didascalia="Saldatrice portatile 3 in 1, serie W · foto Golden Laser"><img src="assets/img/gl/saldatrice-w.webp" alt="" width="287" height="398" loading="lazy" decoding="async">Portatile</button></li>
+              <li><button type="button" class="variante" aria-pressed="false" data-src="assets/img/gl/saldatura-robot-r.webp" data-w="452" data-h="358" data-alt="Golden Laser serie R: braccio robotico a 6 assi con testa di saldatura laser su un tubo in posizione" data-didascalia="Saldatura laser con braccio robotico, serie R · foto Golden Laser"><img src="assets/img/gl/saldatura-robot-r.webp" alt="" width="452" height="358" loading="lazy" decoding="async">Con robot</button></li>
+            </ul>
+          </div>
+          <div class="famiglia__scheda">
+            <h3 id="fam-saldatura" style="--i:0">Saldatura e pulizia laser</h3>
+            <p class="famiglia__uso" style="--i:1">Saldatrici laser portatili 3 in 1: saldano, puliscono e tagliano con la stessa sorgente. Per la sola pulizia, le pulitrici laser della serie Clean. Per i lavori in serie, la saldatura laser con braccio robotico.</p>
+            <dl class="dati" style="--i:2">
+              <div><dt>Modelli</dt><dd>W15, W20, W30<small>portatili; con braccio robotico: serie R</small></dd></div>
+              <div><dt>Sorgente</dt><dd>1,5, 2 e 3 kW</dd></div>
+              <div><dt>Velocità</dt><dd>fino a 120 mm/s</dd></div>
+              <div><dt>Spessore</dt><dd>fino a 3 mm (W15) · 5 mm (W20)<small>saldatura, dati Golden Laser</small></dd></div>
+            </dl>
+            <div class="famiglia__azioni" style="--i:3">
+              <a class="tasto tasto--primario" href="#contatti" data-prefill="Saldatura e pulizia laser" data-cta="macchine-saldatura">Richiedi preventivo</a>
+              <a class="link-freccia" href="#saldatura-e-pulizia-laser" data-apri="saldatura-e-pulizia-laser" data-origine="macchine-saldatura">Scheda tecnica <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECNOLOGIE COMPLEMENTARI E SERVIZI: righe, gli schemi animati sono negli approfondimenti -->
+  <section class="sezione" id="tecnologie" aria-labelledby="titolo-tecnologie">
+    <div class="contenitore">
+      <header class="testa-sezione">
+        <h2 id="titolo-tecnologie">Per completare il reparto</h2>
+        <p>Piegatura, plasma e automazione accanto al laser. E per le macchine che avete già: retrofit del controllo numerico e usato.</p>
+      </header>
+      <ul class="righe">
+        <li class="riga" data-faro>
+          <figure class="riga__foto">
+            <picture>
+              <source type="image/webp" srcset="assets/img/plasma-640.webp">
+              <img src="assets/img/plasma.jpg" alt="Torcia al plasma che taglia una lamiera d’acciaio, con scintille" width="1000" height="667" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Immagine illustrativa</figcaption>
+          </figure>
+          <div>
+            <h3>Taglio plasma</h3>
+            <p>Banchi CNC per tagliare lamiere di forte spessore in acciaio al carbonio, inox e alluminio. TO.DE.L. ha venduto almeno 40 impianti plasma.</p>
+          </div>
+          <div class="riga__azioni">
+            <a class="link-cta" href="#contatti" data-prefill="Taglio plasma" data-cta="tecnologie">Preventivo</a>
+            <a class="link-freccia" href="#taglio-plasma" data-apri="taglio-plasma" data-origine="tecnologie">Approfondisci <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></a>
+          </div>
+        </li>
+        <li class="riga" data-faro>
+          <figure class="riga__foto">
+            <div class="segnaposto" role="img" aria-label="Foto da inserire: pressopiegatrice">
+              <span class="segnaposto__titolo">Foto da inserire</span>
+              <span class="segnaposto__file">pressopiegatrice · 3:2</span>
+            </div>
+          </figure>
+          <div>
+            <h3>Piegatura e cesoie</h3>
+            <p>Pressopiegatrici e cesoie per completare il reparto: dalla lamiera tagliata al pezzo piegato a misura.</p>
+          </div>
+          <div class="riga__azioni">
+            <a class="link-cta" href="#contatti" data-prefill="Piegatura e cesoie" data-cta="tecnologie">Preventivo</a>
+            <a class="link-freccia" href="#piegatura-e-cesoie" data-apri="piegatura-e-cesoie" data-origine="tecnologie">Approfondisci <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></a>
+          </div>
+        </li>
+        <li class="riga" data-faro>
+          <figure class="riga__foto">
+            <picture>
+              <source type="image/webp" srcset="assets/img/robot-640.webp">
+              <img src="assets/img/robot.jpg" alt="Braccio robotico industriale in una cella automatizzata" width="1400" height="878" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Immagine illustrativa</figcaption>
+          </figure>
+          <div>
+            <h3>Automazione e cobot</h3>
+            <p>Robot industriali e collaborativi per le operazioni ripetitive: stesso ciclo, stessa posizione, a ogni pezzo.</p>
+          </div>
+          <div class="riga__azioni">
+            <a class="link-cta" href="#contatti" data-prefill="Automazione e cobot" data-cta="tecnologie">Preventivo</a>
+            <a class="link-freccia" href="#automazione-e-cobot" data-apri="automazione-e-cobot" data-origine="tecnologie">Approfondisci <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></a>
+          </div>
+        </li>
+        <li class="riga" data-faro>
+          <figure class="riga__foto">
+            <picture>
+              <source type="image/webp" srcset="assets/img/cnc-640.webp">
+              <img src="assets/img/cnc.jpg" alt="Macchina utensile a controllo numerico durante una lavorazione" width="1100" height="734" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Immagine illustrativa</figcaption>
+          </figure>
+          <div>
+            <p class="etichetta riga__tipo">Servizio</p>
+            <h3>Retrofit CNC</h3>
+            <p>Nuovo controllo numerico su macchine con meccanica ancora valida: aggiornate l’impianto invece di sostituirlo.</p>
+          </div>
+          <div class="riga__azioni">
+            <a class="link-cta" href="#contatti" data-prefill="Retrofit CNC" data-cta="tecnologie">Preventivo</a>
+            <a class="link-freccia" href="#retrofit-cnc" data-apri="retrofit-cnc" data-origine="tecnologie">Approfondisci <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></a>
+          </div>
+        </li>
+        <li class="riga riga--usato" data-faro>
+          <div>
+            <p class="etichetta riga__tipo">Usato</p>
+            <h3>Macchinari usati</h3>
+            <p>Per partire con un investimento più contenuto. La disponibilità cambia spesso: chiedeteci cosa c’è adesso.</p>
+          </div>
+          <div class="riga__azioni">
+            <a class="link-cta" href="#contatti" data-prefill="Macchinari usati" data-cta="tecnologie">Chiedi disponibilità</a>
+            <a class="link-freccia" href="#macchinari-usati" data-apri="macchinari-usati" data-origine="tecnologie">Approfondisci <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- APPLICAZIONI: spessori reali per materiale e potenza (Golden Laser U3), poi i settori -->
+  <section class="sezione--fascia sezione" id="applicazioni" aria-labelledby="titolo-applicazioni">
+    <div class="contenitore">
+      <div class="applicazioni__griglia">
+        <div class="applicazioni__testa">
+          <h2 id="titolo-applicazioni">Che spessore taglia un laser fibra?</h2>
+          <p>Dipende dal materiale e dalla potenza della sorgente. Scegliete cosa lavorate: questi sono i valori massimi della serie Golden Laser U3.</p>
+          <div class="materiali-scelta" role="radiogroup" aria-label="Materiale" data-materiali>
+            <button type="button" class="materiale" role="radio" aria-checked="true" data-materiale="carbonio">Acciaio al carbonio</button>
+            <button type="button" class="materiale" role="radio" aria-checked="false" tabindex="-1" data-materiale="inox">Acciaio inox</button>
+            <button type="button" class="materiale" role="radio" aria-checked="false" tabindex="-1" data-materiale="alluminio">Alluminio</button>
+            <button type="button" class="materiale" role="radio" aria-checked="false" tabindex="-1" data-materiale="ottone">Ottone</button>
           </div>
         </div>
-      </article>
+        <figure class="spessori" data-spessori>
+          <ol class="spessori__colonne" aria-describedby="spessori-sintesi">
+            <li style="--mm:22"><span class="spessori__lastra" aria-hidden="true"></span><span class="spessori__valore"><span><b data-v>22</b> mm</span></span><span class="spessori__kw">3 kW</span></li>
+            <li style="--mm:25"><span class="spessori__lastra" aria-hidden="true"></span><span class="spessori__valore"><span><b data-v>25</b> mm</span></span><span class="spessori__kw">4 kW</span></li>
+            <li style="--mm:25"><span class="spessori__lastra" aria-hidden="true"></span><span class="spessori__valore"><span><b data-v>25</b> mm</span></span><span class="spessori__kw">6 kW</span></li>
+            <li style="--mm:30"><span class="spessori__lastra" aria-hidden="true"></span><span class="spessori__valore"><span><b data-v>30</b> mm</span></span><span class="spessori__kw">8 kW</span></li>
+            <li style="--mm:40"><span class="spessori__lastra" aria-hidden="true"></span><span class="spessori__valore"><span><b data-v>40</b> mm</span></span><span class="spessori__kw">12 kW</span></li>
+            <li style="--mm:60"><span class="spessori__lastra" aria-hidden="true"></span><span class="spessori__valore"><span><b data-v>60</b> mm</span></span><span class="spessori__kw">20 kW</span></li>
+          </ol>
+          <figcaption class="spessori__nota"><span id="spessori-sintesi" data-sintesi>Acciaio al carbonio: da 22 mm con 3 kW a 60 mm con 20 kW.</span> Valori massimi di taglio dalla scheda tecnica ufficiale Golden Laser U3, disegnati in scala. La qualità del bordo dipende da gas, parametri e materiale: nel preventivo indichiamo il modello esatto.</figcaption>
+        </figure>
+      </div>
 
-      <p class="livello" data-rivela>Tecnologie complementari</p>
-      <ul class="complementari">
-        <li data-rivela style="--i:0">
-          <article class="scheda" data-soluzione="Piegatura e cesoie" data-scheda data-anima>
-            <div class="scheda__visuale">
-              <svg class="tec tec--piega" viewBox="0 0 400 240" aria-hidden="true" focusable="false">
-                <g class="tec__piano"><path d="M0 230 H400"/></g>
-                <polygon class="tec__corpo" points="126,174 180,174 200,196 220,174 274,174 274,230 126,230"/>
-                <g class="piega__lamiera">
-                  <g class="piega__ala piega__ala--sx"><line x1="96" y1="171" x2="201" y2="171"/></g>
-                  <g class="piega__ala piega__ala--dx"><line x1="199" y1="171" x2="304" y2="171"/></g>
-                </g>
-                <g class="piega__punzone">
-                  <rect class="tec__corpo" x="164" y="-20" width="72" height="52"/>
-                  <polygon class="tec__corpo" points="188,32 212,32 212,120 200,146 188,120"/>
-                </g>
-                <g class="piega__quota">
-                  <path d="M181.6 172.6 A26 26 0 0 1 218.4 172.6"/>
-                  <path class="piega__richiamo" d="M219 178 L246 198 H262"/>
-                  <text x="266" y="203">90°</text>
-                </g>
-                <text class="tec__nota" x="20" y="24">Punzone e matrice</text>
-              </svg>
-            </div>
-            <div class="scheda__testo">
-              <h3>Piegatura e cesoie</h3>
-              <p>Pressopiegatrici e cesoie per completare il reparto: dalla lamiera tagliata al pezzo piegato a misura.</p>
-              <p class="scheda__svela">Il punzone spinge la lamiera nella matrice: l’angolo dipende dalla corsa e dall’apertura a V.</p>
-              <div class="scheda__azioni">
-                <a class="link-freccia" href="#piegatura-e-cesoie" data-apri="piegatura-e-cesoie" data-origine="scheda">Approfondisci <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></a>
-                <a class="link-cta" href="#contatti" data-prefill="Piegatura e cesoie" data-cta="scheda">Preventivo</a>
-              </div>
-            </div>
-          </article>
-        </li>
-        <li data-rivela style="--i:1">
-          <article class="scheda" data-soluzione="Taglio plasma" data-scheda data-anima>
-            <div class="scheda__visuale">
-              <div class="sim sim--plasma" data-sim="plasma" data-sim-modo="scheda" aria-hidden="true"></div>
-            </div>
-            <div class="scheda__testo">
-              <h3>Taglio plasma</h3>
-              <p>Banchi CNC per tagliare lamiere di forte spessore in acciaio al carbonio, inox e alluminio.</p>
-              <p class="scheda__svela"><strong>Almeno 40</strong> impianti plasma venduti da TO.DE.L.</p>
-              <div class="scheda__azioni">
-                <a class="link-freccia" href="#taglio-plasma" data-apri="taglio-plasma" data-origine="scheda">Approfondisci <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></a>
-                <a class="link-cta" href="#contatti" data-prefill="Taglio plasma" data-cta="scheda">Preventivo</a>
-              </div>
-            </div>
-          </article>
-        </li>
-        <li data-rivela style="--i:2">
-          <article class="scheda" data-soluzione="Saldatura e pulizia laser" data-scheda data-anima>
-            <div class="scheda__visuale">
-              <svg class="tec tec--salda" viewBox="0 0 400 240" aria-hidden="true" focusable="false">
-                <defs>
-                  <linearGradient id="salda-tinta" x1="186" y1="0" x2="214" y2="0" gradientUnits="userSpaceOnUse">
-                    <stop offset="0" stop-color="#9c7448" stop-opacity="0"/>
-                    <stop offset=".28" stop-color="#a37a4c" stop-opacity=".75"/>
-                    <stop offset=".5" stop-color="#5f68a8" stop-opacity=".85"/>
-                    <stop offset=".72" stop-color="#a37a4c" stop-opacity=".75"/>
-                    <stop offset="1" stop-color="#9c7448" stop-opacity="0"/>
-                  </linearGradient>
-                  <clipPath id="salda-avanza"><rect class="salda__rivela" x="150" y="54" width="100" height="144"/></clipPath>
-                </defs>
-                <rect class="tec__lamiera-piena" x="62" y="44" width="137" height="164"/>
-                <rect class="tec__lamiera-piena" x="201" y="44" width="137" height="164"/>
-                <g clip-path="url(#salda-avanza)">
-                  <rect x="186" y="54" width="28" height="144" fill="url(#salda-tinta)"/>
-                </g>
-                <rect class="salda__pulito" x="185" y="54" width="30" height="144"/>
-                <g clip-path="url(#salda-avanza)">
-                  <line class="salda__cordone" x1="200" y1="58" x2="200" y2="194"/>
-                  <line class="salda__increspature" x1="200" y1="58" x2="200" y2="194"/>
-                </g>
-                <g class="salda__testa"><g class="salda__oscilla"><circle class="salda__luce" cx="200" cy="0" r="17"/><circle class="tec__utensile" cx="200" cy="0" r="11"/></g></g>
-                <g class="salda__testa-pulizia"><line class="salda__scansione" x1="184" y1="0" x2="216" y2="0"/><circle class="tec__utensile" cx="200" cy="0" r="11"/></g>
-                <text class="tec__nota salda__fase salda__fase--1" x="20" y="24">1 · Saldatura con oscillazione</text>
-                <text class="tec__nota salda__fase salda__fase--2" x="20" y="232">2 · Pulizia del cordone</text>
-              </svg>
-            </div>
-            <div class="scheda__testo">
-              <h3>Saldatura e pulizia laser</h3>
-              <p>Saldatrici laser portatili 3 in 1 Golden Laser: saldano, puliscono e tagliano con la stessa sorgente. Pulitrici laser serie Clean.</p>
-              <p class="scheda__svela">W15, W20, W30: da 1,5 a 3 kW · saldatura fino a 120 mm/s.</p>
-              <div class="scheda__azioni">
-                <a class="link-freccia" href="#saldatura-e-pulizia-laser" data-apri="saldatura-e-pulizia-laser" data-origine="scheda">Approfondisci <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></a>
-                <a class="link-cta" href="#contatti" data-prefill="Saldatura e pulizia laser" data-cta="scheda">Preventivo</a>
-              </div>
-            </div>
-          </article>
-        </li>
-        <li data-rivela style="--i:3">
-          <article class="scheda" data-soluzione="Automazione e cobot" data-scheda data-anima>
-            <div class="scheda__visuale">
-              <svg class="tec tec--cobot" viewBox="0 0 400 240" aria-hidden="true" focusable="false">
-                <g class="tec__piano"><path d="M0 226 H400"/></g>
-                <rect class="tec__corpo" x="36" y="180" width="76" height="46"/>
-                <rect class="tec__lamiera-piena" x="44" y="173" width="60" height="7"/>
-                <rect class="tec__lamiera-piena" x="44" y="166" width="60" height="7"/>
-                <rect class="tec__corpo" x="290" y="180" width="76" height="46"/>
-                <rect class="tec__lamiera-piena cobot__posato" x="298" y="173" width="60" height="7"/>
-                <rect class="tec__corpo" x="176" y="206" width="48" height="20" rx="3"/>
-                <g class="cobot__spalla">
-                  <rect class="tec__braccio" x="191" y="112" width="18" height="90" rx="9"/>
-                  <circle class="tec__giunto" cx="200" cy="196" r="12"/>
-                  <g class="cobot__gomito">
-                    <rect class="tec__braccio" x="192" y="42" width="16" height="82" rx="8"/>
-                    <circle class="tec__giunto" cx="200" cy="118" r="10"/>
-                    <g class="cobot__polso">
-                      <circle class="tec__giunto" cx="200" cy="48" r="7"/>
-                      <rect class="tec__corpo" x="195" y="48" width="10" height="12"/>
-                      <path class="cobot__dita" d="M192 60 H208 M193 60 V68 M207 60 V68"/>
-                      <rect class="tec__lamiera-piena cobot__preso" x="170" y="68" width="60" height="7"/>
-                    </g>
-                  </g>
-                </g>
-                <text class="tec__nota" x="20" y="24">Carico e scarico ripetitivo</text>
-              </svg>
-            </div>
-            <div class="scheda__testo">
-              <h3>Automazione e cobot</h3>
-              <p>Robot industriali e collaborativi per automatizzare le operazioni ripetitive del reparto.</p>
-              <p class="scheda__svela">Stesso ciclo, stessa posizione, a ogni pezzo: l’operatore si occupa del resto.</p>
-              <div class="scheda__azioni">
-                <a class="link-freccia" href="#automazione-e-cobot" data-apri="automazione-e-cobot" data-origine="scheda">Approfondisci <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></a>
-                <a class="link-cta" href="#contatti" data-prefill="Automazione e cobot" data-cta="scheda">Preventivo</a>
-              </div>
-            </div>
-          </article>
-        </li>
-      </ul>
+      <div class="campioni segnaposto" role="img" aria-label="Foto da inserire: campioni di taglio Golden Laser su lamiera e tubo">
+        <span class="segnaposto__titolo">Foto da inserire: campioni di taglio Golden Laser</span>
+        <span class="segnaposto__file">laser-cutting-metal-sheet-sample-600-1.jpg</span>
+        <span class="segnaposto__file">laser-cutting-tube-600-1.jpg</span>
+        <span class="segnaposto__file">8000w-fiber-laser-cutting-carbon-steel-30mm.jpg</span>
+      </div>
 
-      <p class="livello" data-rivela>Servizi e usato</p>
-      <ul class="servizi">
-        <li data-rivela style="--i:0">
-          <article class="fascia" data-soluzione="Retrofit CNC" data-scheda data-anima>
-            <svg class="tec tec--retrofit" viewBox="0 0 400 240" aria-hidden="true" focusable="false">
-              <defs><clipPath id="retrofit-tendina"><rect class="retrofit__tendina" x="268" y="22" width="120" height="160"/></clipPath></defs>
-              <g class="tec__piano"><path d="M0 222 H400"/></g>
-              <rect class="tec__corpo" x="30" y="70" width="210" height="34" rx="3"/>
-              <rect class="tec__corpo" x="42" y="104" width="186" height="74"/>
-              <rect class="tec__corpo" x="30" y="178" width="210" height="44"/>
-              <path class="tec__linea" d="M240 86 H282 M282 86 V96"/>
-              <g class="retrofit__vecchio">
-                <rect class="tec__pannello-vecchio" x="276" y="30" width="104" height="146" rx="4"/>
-                <rect class="retrofit__display" x="288" y="42" width="80" height="26"/>
-                <text class="retrofit__cifre" x="364" y="61" text-anchor="end">0000.0</text>
-                <g class="retrofit__tasti"><rect x="288" y="80" width="14" height="10"/><rect x="306" y="80" width="14" height="10"/><rect x="324" y="80" width="14" height="10"/><rect x="342" y="80" width="14" height="10"/><rect x="288" y="96" width="14" height="10"/><rect x="306" y="96" width="14" height="10"/><rect x="324" y="96" width="14" height="10"/><rect x="342" y="96" width="14" height="10"/><rect x="288" y="112" width="14" height="10"/><rect x="306" y="112" width="14" height="10"/><rect x="324" y="112" width="14" height="10"/><rect x="342" y="112" width="14" height="10"/></g>
-              </g>
-              <g class="retrofit__nuovo" clip-path="url(#retrofit-tendina)">
-                <rect class="tec__pannello-nuovo" x="276" y="30" width="104" height="146" rx="4"/>
-                <rect class="retrofit__schermo" x="284" y="38" width="88" height="96" rx="2"/>
-                <path class="retrofit__percorso" d="M298 112 V70 H322 V58 H356 V112 Z M312 96 a6 6 0 1 0 12 0 a6 6 0 1 0 -12 0"/>
-                <rect class="retrofit__tasto" x="286" y="146" width="24" height="18" rx="3"/><rect class="retrofit__tasto" x="316" y="146" width="24" height="18" rx="3"/><rect class="retrofit__tasto retrofit__tasto--avvio" x="346" y="146" width="24" height="18" rx="3"/>
-              </g>
-              <text class="tec__nota" x="30" y="56">Meccanica: invariata</text>
-              <text class="tec__nota retrofit__etichetta" x="276" y="198">Controllo: nuovo</text>
-            </svg>
-            <div class="fascia__testo">
-              <p class="scheda__tipo">Servizio</p>
-              <h3>Retrofit CNC</h3>
-              <p>Nuovo controllo numerico su macchine con meccanica ancora valida: aggiornate l’impianto invece di sostituirlo.</p>
-            </div>
-            <div class="scheda__azioni">
-              <a class="link-freccia" href="#retrofit-cnc" data-apri="retrofit-cnc" data-origine="scheda">Approfondisci <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></a>
-              <a class="link-cta" href="#contatti" data-prefill="Retrofit CNC" data-cta="scheda">Preventivo</a>
-            </div>
-          </article>
-        </li>
-        <li data-rivela style="--i:1">
-          <article class="fascia fascia--usato" data-soluzione="Macchinari usati" data-scheda>
-            <div class="fascia__testo">
-              <p class="scheda__tipo">Usato</p>
-              <h3>Macchinari usati</h3>
-              <p>Per partire con un investimento più contenuto. La disponibilità cambia spesso: chiedeteci cosa c’è adesso.</p>
-            </div>
-            <div class="scheda__azioni">
-              <a class="link-freccia" href="#macchinari-usati" data-apri="macchinari-usati" data-origine="scheda">Approfondisci <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></a>
-              <a class="link-cta" href="#contatti" data-prefill="Macchinari usati" data-cta="scheda">Chiedi disponibilità</a>
-            </div>
-          </article>
-        </li>
-      </ul>
+      <div class="settori" id="settori">
+        <h3 class="settori__titolo">I settori che seguiamo</h3>
+        <ul class="settori__righe">
+          <li>
+            <h4>Carpenteria metallica</h4>
+            <p>Tagliare e piegare in casa lamiere di spessori diversi, con i tempi di consegna sotto controllo.</p>
+            <ul class="settore__tec" aria-label="Tecnologie"><li><a href="#taglio-laser-fibra" data-apri="taglio-laser-fibra" data-origine="settori">Laser fibra</a></li><li><a href="#taglio-plasma" data-apri="taglio-plasma" data-origine="settori">Plasma</a></li><li><a href="#piegatura-e-cesoie" data-apri="piegatura-e-cesoie" data-origine="settori">Piegatura e cesoie</a></li></ul>
+          </li>
+          <li>
+            <h4>Lavorazioni meccaniche</h4>
+            <p>Aggiornare le macchine che già avete e automatizzare i cicli ripetitivi.</p>
+            <ul class="settore__tec" aria-label="Tecnologie"><li><a href="#retrofit-cnc" data-apri="retrofit-cnc" data-origine="settori">Retrofit CNC</a></li><li><a href="#automazione-e-cobot" data-apri="automazione-e-cobot" data-origine="settori">Automazione e cobot</a></li></ul>
+          </li>
+          <li>
+            <h4>Agroalimentare</h4>
+            <p>Lavorare l’acciaio inox con tagli precisi e saldature pulite, che richiedono meno finitura.</p>
+            <ul class="settore__tec" aria-label="Tecnologie"><li><a href="#taglio-laser-fibra" data-apri="taglio-laser-fibra" data-origine="settori">Laser fibra</a></li><li><a href="#saldatura-e-pulizia-laser" data-apri="saldatura-e-pulizia-laser" data-origine="settori">Saldatura e pulizia laser</a></li></ul>
+          </li>
+          <li>
+            <h4>Edilizia</h4>
+            <p>Tagliare lamiere e profili di forte spessore per strutture e carpenteria pesante.</p>
+            <ul class="settore__tec" aria-label="Tecnologie"><li><a href="#taglio-plasma" data-apri="taglio-plasma" data-origine="settori">Plasma</a></li><li><a href="#taglio-laser-fibra" data-apri="taglio-laser-fibra" data-origine="settori">Laser fibra alta potenza</a></li></ul>
+          </li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <!-- 6. ESPERIENZA / NUMERI -->
-  <section class="sezione sezione--numeri" id="azienda" aria-labelledby="titolo-azienda">
+  <!-- METODO: un solo referente. La sequenza è vera, quindi è numerata -->
+  <section class="sezione" id="metodo" aria-labelledby="titolo-metodo">
     <div class="contenitore">
-      <div class="cartiglio" data-rivela><span>03</span>Azienda</div>
-      <header class="testa" data-rivela>
-        <h2 id="titolo-azienda">TO.DE.L. in numeri</h2>
-        <p>TO.DE.L. Automazione Industriale, già Automazione Macchine Utensili, ha sede a Battipaglia (SA). Vendiamo, installiamo e assistiamo macchine per la lavorazione della lamiera.</p>
-      </header>
-      <ul class="numeri">
-        <li data-rivela style="--i:0"><span class="numeri__pre">oltre</span><strong class="numeri__n">30</strong><span class="numeri__cosa">anni nel settore delle macchine e dell’automazione industriale</span></li>
-        <li data-rivela style="--i:1"><span class="numeri__pre">oltre</span><strong class="numeri__n">100</strong><span class="numeri__cosa">macchinari venduti</span></li>
-        <li data-rivela style="--i:2"><span class="numeri__pre">almeno</span><strong class="numeri__n">40</strong><span class="numeri__cosa">impianti plasma venduti</span></li>
-        <li data-rivela style="--i:3"><span class="numeri__pre">oltre</span><strong class="numeri__n">20</strong><span class="numeri__cosa">sistemi laser venduti, in diverse configurazioni</span></li>
-        <li data-rivela style="--i:4"><span class="numeri__pre">quasi</span><strong class="numeri__n">10</strong><span class="numeri__cosa">anni di esperienza nel taglio laser</span></li>
-      </ul>
-      <p class="nota" data-rivela>Dati aziendali TO.DE.L.</p>
-    </div>
-  </section>
-
-  <!-- 7. SETTORI -->
-  <section class="sezione" id="settori" aria-labelledby="titolo-settori">
-    <div class="contenitore">
-      <div class="cartiglio" data-rivela><span>04</span>Settori</div>
-      <header class="testa" data-rivela>
-        <h2 id="titolo-settori">Soluzioni per diversi processi industriali.</h2>
-        <p>Ogni settore ha un problema diverso da risolvere. Ecco quello che affrontiamo più spesso, e con quali tecnologie.</p>
-      </header>
-    </div>
-    <div class="binario-wrap">
-      <ul class="binario" aria-label="Settori">
-        <li class="settore" data-rivela style="--i:0">
-          <h3>Carpenteria metallica</h3>
-          <p>Tagliare e piegare in casa lamiere di spessori diversi, con i tempi di consegna sotto controllo.</p>
-          <ul class="settore__tec" aria-label="Tecnologie"><li><a href="#taglio-laser-fibra" data-apri="taglio-laser-fibra" data-origine="settori">Laser fibra</a></li><li><a href="#taglio-plasma" data-apri="taglio-plasma" data-origine="settori">Plasma</a></li><li><a href="#piegatura-e-cesoie" data-apri="piegatura-e-cesoie" data-origine="settori">Piegatura e cesoie</a></li></ul>
-        </li>
-        <li class="settore" data-rivela style="--i:1">
-          <h3>Lavorazioni meccaniche</h3>
-          <p>Aggiornare le macchine che già avete e automatizzare i cicli ripetitivi.</p>
-          <ul class="settore__tec" aria-label="Tecnologie"><li><a href="#retrofit-cnc" data-apri="retrofit-cnc" data-origine="settori">Retrofit CNC</a></li><li><a href="#automazione-e-cobot" data-apri="automazione-e-cobot" data-origine="settori">Automazione e cobot</a></li></ul>
-        </li>
-        <li class="settore" data-rivela style="--i:2">
-          <h3>Agroalimentare</h3>
-          <p>Lavorare l’acciaio inox con tagli precisi e saldature pulite, che richiedono meno finitura.</p>
-          <ul class="settore__tec" aria-label="Tecnologie"><li><a href="#taglio-laser-fibra" data-apri="taglio-laser-fibra" data-origine="settori">Laser fibra</a></li><li><a href="#saldatura-e-pulizia-laser" data-apri="saldatura-e-pulizia-laser" data-origine="settori">Saldatura e pulizia laser</a></li></ul>
-        </li>
-        <li class="settore" data-rivela style="--i:3">
-          <h3>Edilizia</h3>
-          <p>Tagliare lamiere e profili di forte spessore per strutture e carpenteria pesante.</p>
-          <ul class="settore__tec" aria-label="Tecnologie"><li><a href="#taglio-plasma" data-apri="taglio-plasma" data-origine="settori">Plasma</a></li><li><a href="#taglio-laser-fibra" data-apri="taglio-laser-fibra" data-origine="settori">Laser fibra alta potenza</a></li></ul>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- 8. PROCESSO DI LAVORO -->
-  <section class="sezione" id="processo" aria-labelledby="titolo-processo">
-    <div class="contenitore">
-      <div class="cartiglio" data-rivela><span>05</span>Metodo</div>
-      <header class="testa" data-rivela>
-        <h2 id="titolo-processo">Come lavoriamo</h2>
-        <p>Quattro fasi, un solo interlocutore. Il rapporto non finisce con la consegna.</p>
-      </header>
-      <ol class="fasi" data-fasi>
-        <li data-rivela style="--i:0"><span class="fasi__n">01</span><h3>Analizziamo l’esigenza</h3><p>Partiamo da cosa producete: materiali, spessori, volumi e spazio disponibile in reparto.</p></li>
-        <li data-rivela style="--i:1"><span class="fasi__n">02</span><h3>Individuiamo la soluzione</h3><p>Proponiamo macchina e configurazione coerenti con il vostro utilizzo reale.</p></li>
-        <li data-rivela style="--i:2"><span class="fasi__n">03</span><h3>Fornitura e installazione</h3><p>Consegniamo, installiamo e avviamo la macchina. Formiamo i vostri operatori.</p></li>
-        <li data-rivela style="--i:3"><span class="fasi__n">04</span><h3>Assistenza</h3><p>Dopo la vendita restiamo il vostro riferimento: manutenzione, interventi, ricambi e consumabili.</p></li>
-      </ol>
+      <div class="metodo__griglia">
+        <div class="metodo__testa">
+          <h2 id="titolo-metodo">Un solo referente, dalla scelta all’assistenza.</h2>
+          <p>Scegliere la macchina è metà del lavoro. L’altra metà è installarla bene e tenerla in produzione negli anni: dalla scelta all’assistenza parlate sempre con noi.</p>
+        </div>
+        <div class="fasi" data-fasi>
+          <span class="fasi__binario" aria-hidden="true"><span></span></span>
+          <ol>
+          <li style="--i:0"><span class="fasi__n">01</span><h3>Analizziamo l’esigenza</h3><p>Partiamo da cosa producete: materiali, spessori, volumi e spazio disponibile in reparto.</p><p class="fasi__dato">Preventivo entro 24 ore</p></li>
+          <li style="--i:1"><span class="fasi__n">02</span><h3>Individuiamo la soluzione</h3><p>Proponiamo macchina e configurazione coerenti con il vostro utilizzo reale.</p><p class="fasi__dato">Rivenditore ufficiale Golden Laser</p></li>
+          <li style="--i:2"><span class="fasi__n">03</span><h3>Fornitura e installazione</h3><p>Consegniamo, installiamo e avviamo la macchina. Formiamo i vostri operatori.</p><p class="fasi__dato">Tecnici propri TO.DE.L.</p></li>
+          <li style="--i:3"><span class="fasi__n">04</span><h3>Assistenza</h3><p>Dopo la vendita restiamo il vostro riferimento: manutenzione, interventi, ricambi e consumabili.</p><p class="fasi__dato">Ricambi e consumabili su richiesta</p></li>
+          </ol>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- 9. TECNOLOGIA / CONTENUTI VISUALI -->
   <section class="sezione storia" id="tecnologia" aria-labelledby="titolo-tecnologia" data-storia>
     <div class="contenitore">
-      <div class="cartiglio" data-rivela><span>06</span>Tecnologia</div>
-      <header class="testa" data-rivela>
+      <header class="testa-sezione">
         <h2 id="titolo-tecnologia">Il taglio laser, passo per passo</h2>
         <p>Scorrete la pagina: la testa si posiziona, fora la lamiera, segue il profilo e completa il pezzo.</p>
       </header>
@@ -618,9 +630,9 @@
     </div>
     <div class="contenitore">
       <p class="nota storia__fonte">Simulazione illustrativa con tempi compressi. Dati: scheda tecnica ufficiale Golden Laser U3.</p>
-      <div class="domanda" data-rivela>
+      <div class="domanda">
         <p class="domanda__testo">Quale macchina è adatta alla vostra produzione?</p>
-        <a class="tasto tasto--primario tasto--grande" href="#contatti" data-prefill="Taglio laser fibra" data-cta="tecnologia">Richiedi preventivo <svg class="i" aria-hidden="true"><use href="#i-freccia"/></svg></a>
+        <a class="tasto tasto--primario tasto--grande" href="#contatti" data-prefill="Taglio laser fibra" data-cta="tecnologia">Richiedi preventivo <svg class="i i--freccia" aria-hidden="true"><use href="#i-freccia"/></svg></a>
       </div>
     </div>
   </section>
@@ -628,8 +640,7 @@
   <!-- 9b. VIDEO REALI: resta nascosta finché non ci sono almeno 2 video (data-video-reale con data-mp4) -->
   <section class="sezione" id="video" aria-labelledby="titolo-video" data-sezione-video hidden>
     <div class="contenitore">
-      <div class="cartiglio">In funzione</div>
-      <header class="testa">
+      <header class="testa-sezione">
         <h2 id="titolo-video">Le macchine al lavoro</h2>
         <p>Riprese reali di macchine TO.DE.L. in funzione.</p>
       </header>
@@ -646,13 +657,12 @@
   <!-- 10. FINANZIAMENTO / INVESTIMENTO -->
   <section class="sezione" id="finanziamento" aria-labelledby="titolo-finanziamento">
     <div class="contenitore finanza">
-      <div class="finanza__testa" data-rivela>
-        <div class="cartiglio"><span>07</span>Investimento</div>
+      <div class="finanza__testa">
         <h2 id="titolo-finanziamento">Un investimento industriale va valutato anche dal punto di vista finanziario.</h2>
         <p>Vi affianchiamo nella valutazione dell’acquisto: modalità, strumenti disponibili e documenti necessari. Verifichiamo caso per caso cosa si applica alla vostra azienda.</p>
         <a class="tasto tasto--secondario" href="#contatti" data-prefill="Supporto finanziario per l’acquisto" data-cta="finanziamento">Parliamone</a>
       </div>
-      <div class="finanza__voci" data-rivela data-aggiornabile="finanziamento">
+      <div class="finanza__voci" data-aggiornabile="finanziamento">
         <details class="voce">
           <summary>Acquisto diretto o leasing<svg class="i" aria-hidden="true"><use href="#i-giu"/></svg></summary>
           <div class="voce__corpo"><p>Confrontiamo con voi le modalità di acquisto in base all’importo dell’investimento e all’uso previsto della macchina.</p></div>
@@ -675,29 +685,27 @@
   </section>
 
   <!-- 11. MARCHI -->
-  <section class="sezione sezione--stretta" id="marchi" aria-labelledby="titolo-marchi">
-    <div class="contenitore">
-      <div class="cartiglio" data-rivela><span>08</span>Marchi</div>
-      <h2 id="titolo-marchi" class="marchi__titolo" data-rivela>Marchi che trattiamo</h2>
+  <section class="sezione" id="marchi" aria-labelledby="titolo-marchi">
+    <div class="contenitore marchi-riga">
+      <h2 id="titolo-marchi">Marchi che trattiamo</h2>
       <ul class="marchi">
-        <li class="marchio marchio--ufficiale" data-rivela style="--i:0"><strong>Golden Laser</strong><span>Rivenditore ufficiale · taglio laser lamiera e tubo, saldatura e pulizia laser</span></li>
-        <li class="marchio" data-rivela style="--i:1"><strong>Gilardi</strong></li>
-        <li class="marchio" data-rivela style="--i:2"><strong>DAMI Engineering</strong></li>
-        <li class="marchio" data-rivela style="--i:3"><strong>Di Donato &amp; Partners</strong></li>
+        <li class="marchio marchio--ufficiale"><strong>Golden Laser</strong><span>Rivenditore ufficiale · taglio laser lamiera e tubo, saldatura e pulizia laser</span></li>
+        <li class="marchio"><strong>Gilardi</strong></li>
+        <li class="marchio"><strong>DAMI Engineering</strong></li>
+        <li class="marchio"><strong>Di Donato &amp; Partners</strong></li>
       </ul>
     </div>
   </section>
 
   <!-- 12. CONTATTO / PREVENTIVO -->
-  <section class="sezione contatti" id="contatti" aria-labelledby="titolo-contatti" data-contatti>
+  <section class="contatti" id="contatti" aria-labelledby="titolo-contatti" data-contatti>
     <div class="contenitore contatti__griglia">
-      <div class="contatti__info" data-rivela>
-        <div class="cartiglio"><span>09</span>Contatti</div>
+      <div class="contatti__info">
         <h2 id="titolo-contatti">Richiedi preventivo</h2>
         <p>Diteci cosa lavorate e cosa vi serve. Rispondiamo entro 24 ore; se preferite parlarne subito, chiamateci.</p>
         <ul class="recapiti">
           <li>
-            <a class="recapito" href="tel:+393288241909" data-traccia="click_telefono" data-origine="contatti"><svg class="i" aria-hidden="true"><use href="#i-telefono"/></svg><span><small>Telefono</small>328 824 1909</span></a>
+            <a class="recapito" href="tel:+393288241909" data-traccia="click_telefono" data-origine="contatti"><svg class="i" aria-hidden="true"><use href="#i-telefono"/></svg><span><small>Telefono</small><span class="dato">328 824 1909</span></span></a>
             <button class="tasto-icona" type="button" data-copia="+39 328 824 1909" aria-label="Copia il numero"><svg class="i" aria-hidden="true"><use href="#i-copia"/></svg></button>
           </li>
           <li data-whatsapp hidden>
@@ -714,6 +722,9 @@
         </ul>
         <p class="contatti__zona">Seguiamo clienti soprattutto in Campania e nel Sud Italia.</p>
         <a class="link-freccia" href="#" data-gbp hidden target="_blank" rel="noopener">Scheda Google dell’azienda <svg class="i" aria-hidden="true"><use href="#i-freccia-su"/></svg></a>
+      </div>
+
+      <div class="contatti__mappa">
         <div class="mappa" data-mappa>
           <div class="mappa__invito">
             <svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>
@@ -723,7 +734,7 @@
         </div>
       </div>
 
-      <form class="modulo" action="/api/richiesta" method="post" novalidate data-modulo data-rivela aria-labelledby="titolo-contatti">
+      <form class="modulo" action="/api/richiesta" method="post" novalidate data-modulo aria-labelledby="titolo-contatti">
         <div class="modulo__richiesta" data-richiesta hidden>
           <span>Richiesta per: <strong data-richiesta-testo></strong></span>
           <button class="tasto-icona tasto-icona--piccolo" type="button" data-richiesta-togli aria-label="Togli la soluzione selezionata"><svg class="i" aria-hidden="true"><use href="#i-chiudi"/></svg></button>
@@ -795,9 +806,9 @@
     <nav class="piede__colonna" aria-label="Azienda">
       <p class="piede__titolo">Azienda</p>
       <ul>
-        <li><a href="#perche">Perché TO.DE.L.</a></li>
         <li><a href="#azienda">TO.DE.L. in numeri</a></li>
-        <li><a href="#processo">Come lavoriamo</a></li>
+        <li><a href="#metodo">Come lavoriamo</a></li>
+        <li><a href="#applicazioni">Applicazioni</a></li>
         <li><a href="#finanziamento">Finanziamento</a></li>
         <li><a href="#marchi">Marchi</a></li>
         <li><a href="#contatti">Contatti</a></li>
@@ -824,13 +835,29 @@
 
       <article class="appro" id="taglio-laser-fibra" data-soluzione="Taglio laser fibra" data-pagina="/macchine/taglio-laser-fibra/" hidden>
         <header class="appro__testa">
-          <p class="appro__livello">Tecnologia principale · Golden Laser, rivenditore ufficiale</p>
+          <p class="appro__livello etichetta">Golden Laser · rivenditore ufficiale</p>
           <h2 id="appro-laser">Taglio laser fibra</h2>
           <p>Lamiere, tubi e profili tagliati da una sorgente laser in fibra. Spessori fino a 30 mm, in funzione di macchina, potenza, materiale e configurazione.</p>
         </header>
-        <figure class="appro__media appro__media--sim" data-clona-sim="nestingLargo">
-          <figcaption>Simulazione · lamiera di produzione</figcaption>
-        </figure>
+        <div class="vista" data-vista>
+          <div class="vista__comandi" role="group" aria-label="Cosa mostrare">
+            <button type="button" aria-pressed="true" data-vista-mostra="foto">Foto</button>
+            <button type="button" aria-pressed="false" data-vista-mostra="schema">Schema</button>
+          </div>
+          <div class="vista__riquadro">
+            <figure class="vista__strato" data-vista-strato="foto">
+              <picture>
+                <source type="image/webp" srcset="assets/img/gl/gf1530jht-fronte.webp">
+                <img src="assets/img/gl/gf1530jht-fronte.jpg" alt="Golden Laser GF-1530JHT in un capannone: pannello di controllo, portelli arancioni aperti, cabina con vetri verdi" width="750" height="562" loading="lazy" decoding="async">
+              </picture>
+              <figcaption>GF-1530JHT in officina · foto Golden Laser</figcaption>
+            </figure>
+            <figure class="vista__strato vista__strato--schema is-nascosto" data-vista-strato="schema" data-clona-sim="nestingLargo">
+
+              <figcaption>Simulazione · pezzi disposti su una lamiera di produzione</figcaption>
+            </figure>
+          </div>
+        </div>
         <h3>Come funziona</h3>
         <ol class="appro__passi">
           <li>Il disegno del pezzo diventa un percorso: il software dispone i pezzi sulla lamiera.</li>
@@ -844,13 +871,15 @@
           <table class="tabella">
             <thead><tr><th scope="col">Famiglia</th><th scope="col">Modelli</th><th scope="col">Potenze</th><th scope="col">Formato</th></tr></thead>
             <tbody>
-              <tr><th scope="row">Lamiera, doppio piano</th><td>U3</td><td>3 – 30 kW</td><td>1500 × 3000 mm</td></tr>
-              <tr><th scope="row">Lamiera</th><td>E3</td><td>1,5 – 6 kW</td><td>in base alla configurazione</td></tr>
-              <tr><th scope="row">Lamiera, grande formato</th><td>GF</td><td>4 – 10 kW</td><td>2500 × 6000 / 2500 × 8000 mm</td></tr>
-              <tr><th scope="row">Lamiera, alta potenza</th><td>Serie M</td><td>20 – 30 kW</td><td>da 2000 × 4000 a 2500 × 12000 mm</td></tr>
-              <tr><th scope="row">Lamiera e tubo</th><td>E3t Plus</td><td>1,5 – 4 kW</td><td>1500 × 3000 mm · tubo Ø 20 – 200 mm</td></tr>
-              <tr><th scope="row">Lamiera e tubo</th><td>GF-1530JHT</td><td>1 – 4 kW</td><td>da 1500 × 3000 mm · tubo Ø 20 – 160 mm</td></tr>
-              <tr><th scope="row">Solo tubo</th><td>L12MAX, L16MAX, L20MAX, I20A, Mega4</td><td>in base al modello</td><td>in base al modello</td></tr>
+              <tr><th scope="row">Lamiera, doppio piano</th><td>U3</td><td>3-30 kW</td><td>1500 × 3000 mm</td></tr>
+              <tr><th scope="row">Lamiera</th><td>E3</td><td>1,5-6 kW</td><td>in base alla configurazione</td></tr>
+              <tr><th scope="row">Lamiera, grande formato</th><td>GF</td><td>4-10 kW</td><td>2500 × 6000 / 2500 × 8000 mm</td></tr>
+              <tr><th scope="row">Lamiera, alta potenza</th><td>Serie M</td><td>20-30 kW</td><td>da 2000 × 4000 a 2500 × 12000 mm</td></tr>
+              <tr><th scope="row">Lamiera e tubo</th><td>E3t Plus</td><td>1,5-4 kW</td><td>1500 × 3000 mm · tubo Ø 20-200 mm</td></tr>
+              <tr><th scope="row">Lamiera e tubo</th><td>GF-1530JHT</td><td>1-4 kW</td><td>da 1500 × 3000 mm · tubo Ø 20-160 mm</td></tr>
+              <tr><th scope="row">Tubo</th><td>i25 / i35</td><td>1,5-6 kW</td><td>tubo tondo Ø 20-250 / Ø 20-350 mm · 6 m</td></tr>
+              <tr><th scope="row">Tubo 3D, 5 assi</th><td>i25A-3D / i35A-3D</td><td>in base al modello</td><td>taglio obliquo fino a 45°</td></tr>
+              <tr><th scope="row">Tubo</th><td>S12R, Mega4, L12MAX / L16MAX / L20MAX</td><td>in base al modello</td><td>in base al modello</td></tr>
             </tbody>
           </table>
         </div>
@@ -866,7 +895,7 @@
             </tbody>
           </table>
         </div>
-        <p class="appro__fonte">Fonte: schede tecniche ufficiali Golden Laser. Valori massimi di taglio: la qualità del bordo dipende da gas, parametri e materiale. Con potenze superiori gli spessori aumentano: li indichiamo nel preventivo, con il modello esatto.</p>
+        <p class="appro__fonte">Fonte: schede tecniche ufficiali Golden Laser (goldenlaser.com e goldenfiberlaser.com). Valori massimi di taglio: la qualità del bordo dipende da gas, parametri e materiale. Con potenze superiori gli spessori aumentano: li indichiamo nel preventivo, con il modello esatto.</p>
         <h3>Precisione e dinamica (U3)</h3>
         <dl class="appro__dati">
           <div><dt>Precisione di posizionamento</dt><dd>±0,05 mm/m</dd></div>
@@ -882,11 +911,45 @@
 
       <article class="appro" id="piegatura-e-cesoie" data-soluzione="Piegatura e cesoie" data-pagina="/macchine/piegatura-e-cesoie/" hidden>
         <header class="appro__testa">
-          <p class="appro__livello">Tecnologia complementare</p>
+          <p class="appro__livello etichetta">Tecnologia complementare</p>
           <h2 id="appro-piega">Piegatura e cesoie</h2>
           <p>Pressopiegatrici e cesoie per completare il reparto lamiera: tagliate a misura, poi piegate il pezzo con l’angolo richiesto.</p>
         </header>
-        <figure class="appro__media appro__media--tec" data-clona="Piegatura e cesoie"></figure>
+        <div class="vista" data-vista>
+          <div class="vista__comandi" role="group" aria-label="Cosa mostrare">
+            <button type="button" aria-pressed="false" data-vista-mostra="foto">Foto</button>
+            <button type="button" aria-pressed="true" data-vista-mostra="schema">Schema</button>
+          </div>
+          <div class="vista__riquadro">
+            <figure class="vista__strato is-nascosto" data-vista-strato="foto">
+              <div class="segnaposto" role="img" aria-label="Foto da inserire: pressopiegatrice in officina">
+                <span class="segnaposto__titolo">Foto da inserire</span>
+                <span class="segnaposto__file">pressopiegatrice in officina · 4:3, almeno 1600 px</span>
+              </div>
+            </figure>
+            <figure class="vista__strato vista__strato--schema" data-vista-strato="schema">
+              <svg class="tec tec--piega" viewBox="0 0 400 240" aria-hidden="true" focusable="false">
+              <g class="tec__piano"><path d="M0 230 H400"/></g>
+              <polygon class="tec__corpo" points="126,174 180,174 200,196 220,174 274,174 274,230 126,230"/>
+              <g class="piega__lamiera">
+              <g class="piega__ala piega__ala--sx"><line x1="96" y1="171" x2="201" y2="171"/></g>
+              <g class="piega__ala piega__ala--dx"><line x1="199" y1="171" x2="304" y2="171"/></g>
+              </g>
+              <g class="piega__punzone">
+              <rect class="tec__corpo" x="164" y="-20" width="72" height="52"/>
+              <polygon class="tec__corpo" points="188,32 212,32 212,120 200,146 188,120"/>
+              </g>
+              <g class="piega__quota">
+              <path d="M181.6 172.6 A26 26 0 0 1 218.4 172.6"/>
+              <path class="piega__richiamo" d="M219 178 L246 198 H262"/>
+              <text x="266" y="203">90°</text>
+              </g>
+              <text class="tec__nota" x="20" y="24">Punzone e matrice</text>
+              </svg>
+              <figcaption>Schema · punzone, matrice a V e angolo di 90°</figcaption>
+            </figure>
+          </div>
+        </div>
         <h3>Come funziona</h3>
         <ol class="appro__passi">
           <li>La lamiera appoggia sulla matrice a V, contro i registri posteriori.</li>
@@ -903,17 +966,29 @@
 
       <article class="appro" id="taglio-plasma" data-soluzione="Taglio plasma" data-pagina="/macchine/taglio-plasma/" hidden>
         <header class="appro__testa">
-          <p class="appro__livello">Tecnologia complementare</p>
+          <p class="appro__livello etichetta">Tecnologia complementare</p>
           <h2 id="appro-plasma">Taglio plasma</h2>
           <p>Banchi CNC con torcia al plasma per tagliare lamiere di forte spessore. TO.DE.L. ha venduto almeno 40 impianti plasma.</p>
         </header>
-        <figure class="appro__media">
-          <picture>
-            <source type="image/webp" srcset="assets/img/plasma-640.webp 640w, assets/img/plasma.webp 1000w" sizes="(min-width: 760px) 640px, 100vw">
-            <img src="assets/img/plasma.jpg" alt="Torcia al plasma che taglia una lamiera d’acciaio, con scintille" width="1000" height="667" loading="lazy" decoding="async">
-          </picture>
-          <figcaption>Immagine illustrativa.</figcaption>
-        </figure>
+        <div class="vista" data-vista>
+          <div class="vista__comandi" role="group" aria-label="Cosa mostrare">
+            <button type="button" aria-pressed="true" data-vista-mostra="foto">Foto</button>
+            <button type="button" aria-pressed="false" data-vista-mostra="schema">Schema</button>
+          </div>
+          <div class="vista__riquadro">
+            <figure class="vista__strato" data-vista-strato="foto">
+              <picture>
+                <source type="image/webp" srcset="assets/img/plasma-640.webp 640w, assets/img/plasma.webp 1000w" sizes="(min-width: 760px) 680px, 100vw">
+                <img src="assets/img/plasma.jpg" alt="Torcia al plasma che taglia una lamiera d’acciaio, con scintille" width="1000" height="667" loading="lazy" decoding="async">
+              </picture>
+              <figcaption>Immagine illustrativa</figcaption>
+            </figure>
+            <figure class="vista__strato vista__strato--schema is-nascosto" data-vista-strato="schema" data-clona-sim="plasma">
+
+              <figcaption>Simulazione · taglio plasma di una piastra</figcaption>
+            </figure>
+          </div>
+        </div>
         <h3>Come funziona</h3>
         <ol class="appro__passi">
           <li>Un arco elettrico ionizza il gas e lo porta a temperature che fondono il metallo.</li>
@@ -930,11 +1005,51 @@
 
       <article class="appro" id="saldatura-e-pulizia-laser" data-soluzione="Saldatura e pulizia laser" data-pagina="/macchine/saldatura-e-pulizia-laser/" hidden>
         <header class="appro__testa">
-          <p class="appro__livello">Tecnologia complementare · Golden Laser</p>
+          <p class="appro__livello etichetta">Golden Laser · rivenditore ufficiale</p>
           <h2 id="appro-salda">Saldatura e pulizia laser</h2>
           <p>Saldatrici laser portatili 3 in 1 della serie W: saldano, puliscono e tagliano con la stessa sorgente. Per la sola pulizia, le pulitrici laser della serie Clean.</p>
         </header>
-        <figure class="appro__media appro__media--tec" data-clona="Saldatura e pulizia laser"></figure>
+        <div class="vista" data-vista>
+          <div class="vista__comandi" role="group" aria-label="Cosa mostrare">
+            <button type="button" aria-pressed="true" data-vista-mostra="foto">Foto</button>
+            <button type="button" aria-pressed="false" data-vista-mostra="schema">Schema</button>
+          </div>
+          <div class="vista__riquadro">
+            <figure class="vista__strato vista__strato--lastra" data-vista-strato="foto">
+              <img src="assets/img/gl/saldatrice-w.webp" alt="Saldatrice laser portatile Golden Laser serie W" width="287" height="398" loading="lazy" decoding="async">
+              <figcaption>Serie W · foto Golden Laser</figcaption>
+            </figure>
+            <figure class="vista__strato vista__strato--schema is-nascosto" data-vista-strato="schema">
+              <svg class="tec tec--salda" viewBox="0 0 400 240" aria-hidden="true" focusable="false">
+              <defs>
+              <linearGradient id="salda-tinta" x1="186" y1="0" x2="214" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#9c7448" stop-opacity="0"/>
+              <stop offset=".28" stop-color="#a37a4c" stop-opacity=".75"/>
+              <stop offset=".5" stop-color="#5f68a8" stop-opacity=".85"/>
+              <stop offset=".72" stop-color="#a37a4c" stop-opacity=".75"/>
+              <stop offset="1" stop-color="#9c7448" stop-opacity="0"/>
+              </linearGradient>
+              <clipPath id="salda-avanza"><rect class="salda__rivela" x="150" y="54" width="100" height="144"/></clipPath>
+              </defs>
+              <rect class="tec__lamiera-piena" x="62" y="44" width="137" height="164"/>
+              <rect class="tec__lamiera-piena" x="201" y="44" width="137" height="164"/>
+              <g clip-path="url(#salda-avanza)">
+              <rect x="186" y="54" width="28" height="144" fill="url(#salda-tinta)"/>
+              </g>
+              <rect class="salda__pulito" x="185" y="54" width="30" height="144"/>
+              <g clip-path="url(#salda-avanza)">
+              <line class="salda__cordone" x1="200" y1="58" x2="200" y2="194"/>
+              <line class="salda__increspature" x1="200" y1="58" x2="200" y2="194"/>
+              </g>
+              <g class="salda__testa"><g class="salda__oscilla"><circle class="salda__luce" cx="200" cy="0" r="17"/><circle class="tec__utensile" cx="200" cy="0" r="11"/></g></g>
+              <g class="salda__testa-pulizia"><line class="salda__scansione" x1="184" y1="0" x2="216" y2="0"/><circle class="tec__utensile" cx="200" cy="0" r="11"/></g>
+              <text class="tec__nota salda__fase salda__fase--1" x="20" y="24">1 · Saldatura con oscillazione</text>
+              <text class="tec__nota salda__fase salda__fase--2" x="20" y="232">2 · Pulizia del cordone</text>
+              </svg>
+              <figcaption>Schema · saldatura con oscillazione, poi pulizia del cordone</figcaption>
+            </figure>
+          </div>
+        </div>
         <h3>Come funziona</h3>
         <ol class="appro__passi">
           <li>Il fascio laser fonde i due lembi lungo il giunto; la testa oscilla per allargare il cordone.</li>
@@ -947,19 +1062,20 @@
             <thead><tr><th scope="col">Modello</th><th scope="col">W15</th><th scope="col">W20</th><th scope="col">W30</th></tr></thead>
             <tbody>
               <tr><th scope="row">Potenza della sorgente</th><td>1,5 kW</td><td>2 kW</td><td>3 kW</td></tr>
+              <tr><th scope="row">Spessore massimo di saldatura</th><td>3 mm</td><td>5 mm</td><td>non indicato</td></tr>
             </tbody>
           </table>
         </div>
         <dl class="appro__dati">
           <div><dt>Funzioni</dt><dd>Saldatura, pulizia, taglio</dd></div>
-          <div><dt>Oscillazione del fascio</dt><dd>0 – 5 mm</dd></div>
-          <div><dt>Velocità di saldatura</dt><dd>0 – 120 mm/s</dd></div>
-          <div><dt>Larghezza di pulizia</dt><dd>20 mm (opzionale 50 – 150 mm)</dd></div>
+          <div><dt>Oscillazione del fascio</dt><dd>0-5 mm</dd></div>
+          <div><dt>Velocità di saldatura</dt><dd>0-120 mm/s</dd></div>
+          <div><dt>Larghezza di pulizia</dt><dd>20 mm (opzionale 50-150 mm)</dd></div>
           <div><dt>Fibra</dt><dd>10 m</dd></div>
           <div><dt>Trainafilo</dt><dd>automatico</dd></div>
           <div><dt>Raffreddamento</dt><dd>ad acqua</dd></div>
         </dl>
-        <p class="appro__fonte">Fonte: scheda tecnica ufficiale Golden Laser. Pulitrici serie Clean: potenze e dati nel preventivo.</p>
+        <p class="appro__fonte">Fonte: schede tecniche ufficiali Golden Laser (goldenlaser.com e goldenfiberlaser.com). Pulitrici serie Clean: potenze e dati nel preventivo.</p>
         <h3>Materiali</h3>
         <ul class="materiali"><li>Acciaio al carbonio</li><li>Acciaio inox</li><li>Alluminio</li><li>Acciaio zincato</li><li>Ottone e rame</li><li>Titanio</li></ul>
         <h3>Applicazioni</h3>
@@ -968,17 +1084,52 @@
 
       <article class="appro" id="automazione-e-cobot" data-soluzione="Automazione e cobot" data-pagina="/macchine/automazione-e-cobot/" hidden>
         <header class="appro__testa">
-          <p class="appro__livello">Tecnologia complementare</p>
+          <p class="appro__livello etichetta">Tecnologia complementare</p>
           <h2 id="appro-cobot">Automazione e cobot</h2>
           <p>Robot industriali e collaborativi per le operazioni ripetitive: lo stesso movimento, nella stessa posizione, a ogni ciclo.</p>
         </header>
-        <figure class="appro__media">
-          <picture>
-            <source type="image/webp" srcset="assets/img/robot-640.webp 640w, assets/img/robot.webp 1200w" sizes="(min-width: 760px) 640px, 100vw">
-            <img src="assets/img/robot.jpg" alt="Braccio robotico industriale in una cella automatizzata" width="1400" height="878" loading="lazy" decoding="async">
-          </picture>
-          <figcaption>Immagine illustrativa.</figcaption>
-        </figure>
+        <div class="vista" data-vista>
+          <div class="vista__comandi" role="group" aria-label="Cosa mostrare">
+            <button type="button" aria-pressed="true" data-vista-mostra="foto">Foto</button>
+            <button type="button" aria-pressed="false" data-vista-mostra="schema">Schema</button>
+          </div>
+          <div class="vista__riquadro">
+            <figure class="vista__strato" data-vista-strato="foto">
+              <picture>
+                <source type="image/webp" srcset="assets/img/robot-640.webp 640w, assets/img/robot.webp 1200w" sizes="(min-width: 760px) 680px, 100vw">
+                <img src="assets/img/robot.jpg" alt="Braccio robotico industriale in una cella automatizzata" width="1400" height="878" loading="lazy" decoding="async">
+              </picture>
+              <figcaption>Immagine illustrativa</figcaption>
+            </figure>
+            <figure class="vista__strato vista__strato--schema is-nascosto" data-vista-strato="schema">
+              <svg class="tec tec--cobot" viewBox="0 0 400 240" aria-hidden="true" focusable="false">
+              <g class="tec__piano"><path d="M0 226 H400"/></g>
+              <rect class="tec__corpo" x="36" y="180" width="76" height="46"/>
+              <rect class="tec__lamiera-piena" x="44" y="173" width="60" height="7"/>
+              <rect class="tec__lamiera-piena" x="44" y="166" width="60" height="7"/>
+              <rect class="tec__corpo" x="290" y="180" width="76" height="46"/>
+              <rect class="tec__lamiera-piena cobot__posato" x="298" y="173" width="60" height="7"/>
+              <rect class="tec__corpo" x="176" y="206" width="48" height="20" rx="3"/>
+              <g class="cobot__spalla">
+              <rect class="tec__braccio" x="191" y="112" width="18" height="90" rx="9"/>
+              <circle class="tec__giunto" cx="200" cy="196" r="12"/>
+              <g class="cobot__gomito">
+              <rect class="tec__braccio" x="192" y="42" width="16" height="82" rx="8"/>
+              <circle class="tec__giunto" cx="200" cy="118" r="10"/>
+              <g class="cobot__polso">
+              <circle class="tec__giunto" cx="200" cy="48" r="7"/>
+              <rect class="tec__corpo" x="195" y="48" width="10" height="12"/>
+              <path class="cobot__dita" d="M192 60 H208 M193 60 V68 M207 60 V68"/>
+              <rect class="tec__lamiera-piena cobot__preso" x="170" y="68" width="60" height="7"/>
+              </g>
+              </g>
+              </g>
+              <text class="tec__nota" x="20" y="24">Carico e scarico ripetitivo</text>
+              </svg>
+              <figcaption>Schema · carico e scarico ripetitivo</figcaption>
+            </figure>
+          </div>
+        </div>
         <h3>Come funziona</h3>
         <ol class="appro__passi">
           <li>Analizziamo il ciclo: quali operazioni si ripetono e con quali tempi.</li>
@@ -993,17 +1144,50 @@
 
       <article class="appro" id="retrofit-cnc" data-soluzione="Retrofit CNC" data-pagina="/servizi/retrofit-cnc/" hidden>
         <header class="appro__testa">
-          <p class="appro__livello">Servizio</p>
+          <p class="appro__livello etichetta">Servizio</p>
           <h2 id="appro-retrofit">Retrofit CNC</h2>
           <p>Un nuovo controllo numerico su una macchina con meccanica ancora valida: la macchina torna aggiornata senza essere sostituita.</p>
         </header>
-        <figure class="appro__media">
-          <picture>
-            <source type="image/webp" srcset="assets/img/cnc-640.webp 640w, assets/img/cnc.webp 1100w" sizes="(min-width: 760px) 640px, 100vw">
-            <img src="assets/img/cnc.jpg" alt="Macchina utensile a controllo numerico durante una lavorazione" width="1100" height="734" loading="lazy" decoding="async">
-          </picture>
-          <figcaption>Immagine illustrativa.</figcaption>
-        </figure>
+        <div class="vista" data-vista>
+          <div class="vista__comandi" role="group" aria-label="Cosa mostrare">
+            <button type="button" aria-pressed="true" data-vista-mostra="foto">Foto</button>
+            <button type="button" aria-pressed="false" data-vista-mostra="schema">Schema</button>
+          </div>
+          <div class="vista__riquadro">
+            <figure class="vista__strato" data-vista-strato="foto">
+              <picture>
+                <source type="image/webp" srcset="assets/img/cnc-640.webp 640w, assets/img/cnc.webp 1100w" sizes="(min-width: 760px) 680px, 100vw">
+                <img src="assets/img/cnc.jpg" alt="Macchina utensile a controllo numerico durante una lavorazione" width="1100" height="734" loading="lazy" decoding="async">
+              </picture>
+              <figcaption>Immagine illustrativa</figcaption>
+            </figure>
+            <figure class="vista__strato vista__strato--schema is-nascosto" data-vista-strato="schema">
+              <svg class="tec tec--retrofit" viewBox="0 0 400 240" aria-hidden="true" focusable="false">
+              <defs><clipPath id="retrofit-tendina"><rect class="retrofit__tendina" x="268" y="22" width="120" height="160"/></clipPath></defs>
+              <g class="tec__piano"><path d="M0 222 H400"/></g>
+              <rect class="tec__corpo" x="30" y="70" width="210" height="34" rx="3"/>
+              <rect class="tec__corpo" x="42" y="104" width="186" height="74"/>
+              <rect class="tec__corpo" x="30" y="178" width="210" height="44"/>
+              <path class="tec__linea" d="M240 86 H282 M282 86 V96"/>
+              <g class="retrofit__vecchio">
+              <rect class="tec__pannello-vecchio" x="276" y="30" width="104" height="146" rx="4"/>
+              <rect class="retrofit__display" x="288" y="42" width="80" height="26"/>
+              <text class="retrofit__cifre" x="364" y="61" text-anchor="end">0000.0</text>
+              <g class="retrofit__tasti"><rect x="288" y="80" width="14" height="10"/><rect x="306" y="80" width="14" height="10"/><rect x="324" y="80" width="14" height="10"/><rect x="342" y="80" width="14" height="10"/><rect x="288" y="96" width="14" height="10"/><rect x="306" y="96" width="14" height="10"/><rect x="324" y="96" width="14" height="10"/><rect x="342" y="96" width="14" height="10"/><rect x="288" y="112" width="14" height="10"/><rect x="306" y="112" width="14" height="10"/><rect x="324" y="112" width="14" height="10"/><rect x="342" y="112" width="14" height="10"/></g>
+              </g>
+              <g class="retrofit__nuovo" clip-path="url(#retrofit-tendina)">
+              <rect class="tec__pannello-nuovo" x="276" y="30" width="104" height="146" rx="4"/>
+              <rect class="retrofit__schermo" x="284" y="38" width="88" height="96" rx="2"/>
+              <path class="retrofit__percorso" d="M298 112 V70 H322 V58 H356 V112 Z M312 96 a6 6 0 1 0 12 0 a6 6 0 1 0 -12 0"/>
+              <rect class="retrofit__tasto" x="286" y="146" width="24" height="18" rx="3"/><rect class="retrofit__tasto" x="316" y="146" width="24" height="18" rx="3"/><rect class="retrofit__tasto retrofit__tasto--avvio" x="346" y="146" width="24" height="18" rx="3"/>
+              </g>
+              <text class="tec__nota" x="30" y="56">Meccanica: invariata</text>
+              <text class="tec__nota retrofit__etichetta" x="276" y="198">Controllo: nuovo</text>
+              </svg>
+              <figcaption>Schema · meccanica invariata, nuovo controllo</figcaption>
+            </figure>
+          </div>
+        </div>
         <h3>Come funziona</h3>
         <ol class="appro__passi">
           <li>Verifichiamo lo stato della meccanica e cosa vale la pena aggiornare.</li>
@@ -1018,7 +1202,7 @@
 
       <article class="appro" id="macchinari-usati" data-soluzione="Macchinari usati" data-pagina="/macchinari-usati/" hidden>
         <header class="appro__testa">
-          <p class="appro__livello">Usato</p>
+          <p class="appro__livello etichetta">Usato</p>
           <h2 id="appro-usato">Macchinari usati</h2>
           <p>Macchine usate per partire con un investimento più contenuto. La disponibilità cambia spesso: chiedeteci cosa c’è in questo momento e per quale lavorazione.</p>
         </header>
