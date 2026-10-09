@@ -1,671 +1,236 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-07T13:49:00Z",
+  "generatedAt": "2026-10-09T10:12:46Z",
   "title": "Design System: TO.DE.L. Automazione Industriale",
   "extensions": {
     "colorMeta": {
+      "fondo": {
+        "role": "neutral",
+        "displayName": "Grafite Profonda",
+        "canonical": "#0b0e13",
+        "cssVar": "--fondo"
+      },
+      "fondo-2": {
+        "role": "neutral",
+        "displayName": "Grafite di Fascia",
+        "canonical": "#0f1219",
+        "cssVar": "--fondo-2"
+      },
+      "superficie": {
+        "role": "neutral",
+        "displayName": "Superficie",
+        "canonical": "#151a23",
+        "cssVar": "--superficie"
+      },
+      "superficie-2": {
+        "role": "neutral",
+        "displayName": "Superficie 2",
+        "canonical": "#1b212c",
+        "cssVar": "--superficie-2"
+      },
+      "superficie-3": {
+        "role": "neutral",
+        "displayName": "Superficie 3",
+        "canonical": "#232a36",
+        "cssVar": "--superficie-3"
+      },
+      "linea": {
+        "role": "neutral",
+        "displayName": "Linea",
+        "canonical": "rgba(226, 232, 242, 0.09)",
+        "cssVar": "--linea"
+      },
+      "linea-forte": {
+        "role": "neutral",
+        "displayName": "Linea Forte",
+        "canonical": "rgba(226, 232, 242, 0.2)",
+        "cssVar": "--linea-forte"
+      },
+      "linea-campo": {
+        "role": "neutral",
+        "displayName": "Linea Campo",
+        "canonical": "rgba(226, 232, 242, 0.42)",
+        "cssVar": "--linea-campo"
+      },
+      "testo": {
+        "role": "neutral",
+        "displayName": "Bianco Gesso",
+        "canonical": "#eef0f2",
+        "cssVar": "--testo"
+      },
+      "testo-2": {
+        "role": "neutral",
+        "displayName": "Grigio Quota",
+        "canonical": "#aab1bc",
+        "cssVar": "--testo-2"
+      },
+      "testo-3": {
+        "role": "neutral",
+        "displayName": "Grigio Nota",
+        "canonical": "#8d94a0",
+        "cssVar": "--testo-3"
+      },
       "blu": {
-        "role": "primary",
-        "displayName": "TO.DE.L. Sign Blue",
-        "canonical": "#3E4C96",
-        "cssVar": "--blu",
-        "tonalRamp": [
-          "oklch(15.0% 0.121 272.5)",
-          "oklch(26.4% 0.121 272.5)",
-          "oklch(37.9% 0.121 272.5)",
-          "oklch(49.3% 0.121 272.5)",
-          "oklch(60.7% 0.121 272.5)",
-          "oklch(72.1% 0.121 272.5)",
-          "oklch(83.6% 0.121 272.5)",
-          "oklch(95.0% 0.121 272.5)"
-        ]
-      },
-      "blu-scuro": {
-        "role": "primary",
-        "displayName": "Pressed Blue",
-        "canonical": "#303C7C",
-        "cssVar": "--blu-scuro",
-        "tonalRamp": [
-          "oklch(15.0% 0.109 272.3)",
-          "oklch(26.4% 0.109 272.3)",
-          "oklch(37.9% 0.109 272.3)",
-          "oklch(49.3% 0.109 272.3)",
-          "oklch(60.7% 0.109 272.3)",
-          "oklch(72.1% 0.109 272.3)",
-          "oklch(83.6% 0.109 272.3)",
-          "oklch(95.0% 0.109 272.3)"
-        ]
-      },
-      "blu-acceso": {
-        "role": "primary",
-        "displayName": "Backlit Blue",
-        "canonical": "#4A5AAB",
-        "cssVar": "--blu-acceso",
-        "tonalRamp": [
-          "oklch(15.0% 0.130 272.4)",
-          "oklch(26.4% 0.130 272.4)",
-          "oklch(37.9% 0.130 272.4)",
-          "oklch(49.3% 0.130 272.4)",
-          "oklch(60.7% 0.130 272.4)",
-          "oklch(72.1% 0.130 272.4)",
-          "oklch(83.6% 0.130 272.4)",
-          "oklch(95.0% 0.130 272.4)"
-        ]
-      },
-      "blu-filo": {
-        "role": "primary",
-        "displayName": "Row Hairline on Blue",
-        "canonical": "rgba(255, 255, 255, 0.22)",
-        "cssVar": "--blu-filo"
-      },
-      "su-blu": {
-        "role": "primary",
-        "displayName": "Enamel White",
-        "canonical": "#FFFFFF",
-        "cssVar": "--su-blu",
-        "tonalRamp": [
-          "oklch(15.0% 0.000 89.9)",
-          "oklch(26.4% 0.000 89.9)",
-          "oklch(37.9% 0.000 89.9)",
-          "oklch(49.3% 0.000 89.9)",
-          "oklch(60.7% 0.000 89.9)",
-          "oklch(72.1% 0.000 89.9)",
-          "oklch(83.6% 0.000 89.9)",
-          "oklch(95.0% 0.000 89.9)"
-        ]
-      },
-      "su-blu-2": {
-        "role": "primary",
-        "displayName": "Pale Enamel Text",
-        "canonical": "#D9DCEC",
-        "cssVar": "--su-blu-2",
-        "tonalRamp": [
-          "oklch(15.0% 0.022 277.5)",
-          "oklch(26.4% 0.022 277.5)",
-          "oklch(37.9% 0.022 277.5)",
-          "oklch(49.3% 0.022 277.5)",
-          "oklch(60.7% 0.022 277.5)",
-          "oklch(72.1% 0.022 277.5)",
-          "oklch(83.6% 0.022 277.5)",
-          "oklch(95.0% 0.022 277.5)"
-        ]
-      },
-      "verde": {
         "role": "secondary",
-        "displayName": "Safe-Condition Green",
-        "canonical": "#0B7A47",
-        "cssVar": "--verde",
-        "tonalRamp": [
-          "oklch(15.0% 0.121 155.7)",
-          "oklch(26.4% 0.121 155.7)",
-          "oklch(37.9% 0.121 155.7)",
-          "oklch(49.3% 0.121 155.7)",
-          "oklch(60.7% 0.121 155.7)",
-          "oklch(72.1% 0.121 155.7)",
-          "oklch(83.6% 0.121 155.7)",
-          "oklch(95.0% 0.121 155.7)"
-        ]
+        "displayName": "Blu TO.DE.L.",
+        "canonical": "#4357c2",
+        "cssVar": "--blu"
       },
-      "verde-scuro": {
+      "blu-chiaro": {
         "role": "secondary",
-        "displayName": "Deep Safety Green",
-        "canonical": "#08623A",
-        "cssVar": "--verde-scuro",
-        "tonalRamp": [
-          "oklch(15.0% 0.102 156.7)",
-          "oklch(26.4% 0.102 156.7)",
-          "oklch(37.9% 0.102 156.7)",
-          "oklch(49.3% 0.102 156.7)",
-          "oklch(60.7% 0.102 156.7)",
-          "oklch(72.1% 0.102 156.7)",
-          "oklch(83.6% 0.102 156.7)",
-          "oklch(95.0% 0.102 156.7)"
-        ]
+        "displayName": "Blu Focus",
+        "canonical": "#aab7ff",
+        "cssVar": "--blu-chiaro"
       },
-      "su-verde-2": {
-        "role": "secondary",
-        "displayName": "Green-Ground Text",
-        "canonical": "#E3F1E8",
-        "tonalRamp": [
-          "oklch(15.0% 0.019 157.9)",
-          "oklch(26.4% 0.019 157.9)",
-          "oklch(37.9% 0.019 157.9)",
-          "oklch(49.3% 0.019 157.9)",
-          "oklch(60.7% 0.019 157.9)",
-          "oklch(72.1% 0.019 157.9)",
-          "oklch(83.6% 0.019 157.9)",
-          "oklch(95.0% 0.019 157.9)"
-        ]
+      "caldo": {
+        "role": "primary",
+        "displayName": "Punto Laser",
+        "canonical": "#ffb46e",
+        "cssVar": "--caldo"
       },
-      "verde-velo": {
-        "role": "secondary",
-        "displayName": "Pressed White on Green",
-        "canonical": "#EAF4EE",
-        "tonalRamp": [
-          "oklch(15.0% 0.013 159.9)",
-          "oklch(26.4% 0.013 159.9)",
-          "oklch(37.9% 0.013 159.9)",
-          "oklch(49.3% 0.013 159.9)",
-          "oklch(60.7% 0.013 159.9)",
-          "oklch(72.1% 0.013 159.9)",
-          "oklch(83.6% 0.013 159.9)",
-          "oklch(95.0% 0.013 159.9)"
-        ]
+      "caldo-vivo": {
+        "role": "primary",
+        "displayName": "Laser Vivo",
+        "canonical": "#ff8a3d",
+        "cssVar": "--caldo-vivo"
       },
-      "giallo-segnale": {
-        "role": "tertiary",
-        "displayName": "Signal Yellow",
-        "canonical": "#F2B705",
-        "cssVar": "--giallo-segnale",
-        "tonalRamp": [
-          "oklch(15.0% 0.166 85.0)",
-          "oklch(26.4% 0.166 85.0)",
-          "oklch(37.9% 0.166 85.0)",
-          "oklch(49.3% 0.166 85.0)",
-          "oklch(60.7% 0.166 85.0)",
-          "oklch(72.1% 0.166 85.0)",
-          "oklch(83.6% 0.166 85.0)",
-          "oklch(95.0% 0.166 85.0)"
-        ]
-      },
-      "segnaposto-fondo": {
-        "role": "tertiary",
-        "displayName": "Placeholder Fill",
-        "canonical": "#FBEFC4",
-        "tonalRamp": [
-          "oklch(15.0% 0.057 94.3)",
-          "oklch(26.4% 0.057 94.3)",
-          "oklch(37.9% 0.057 94.3)",
-          "oklch(49.3% 0.057 94.3)",
-          "oklch(60.7% 0.057 94.3)",
-          "oklch(72.1% 0.057 94.3)",
-          "oklch(83.6% 0.057 94.3)",
-          "oklch(95.0% 0.057 94.3)"
-        ]
-      },
-      "segnaposto-testo": {
-        "role": "tertiary",
-        "displayName": "Placeholder Text",
-        "canonical": "#6A4D00",
-        "tonalRamp": [
-          "oklch(15.0% 0.090 83.6)",
-          "oklch(26.4% 0.090 83.6)",
-          "oklch(37.9% 0.090 83.6)",
-          "oklch(49.3% 0.090 83.6)",
-          "oklch(60.7% 0.090 83.6)",
-          "oklch(72.1% 0.090 83.6)",
-          "oklch(83.6% 0.090 83.6)",
-          "oklch(95.0% 0.090 83.6)"
-        ]
-      },
-      "segnaposto-bordo": {
-        "role": "tertiary",
-        "displayName": "Placeholder Dashed Edge",
-        "canonical": "#B88A00",
-        "tonalRamp": [
-          "oklch(15.0% 0.135 84.8)",
-          "oklch(26.4% 0.135 84.8)",
-          "oklch(37.9% 0.135 84.8)",
-          "oklch(49.3% 0.135 84.8)",
-          "oklch(60.7% 0.135 84.8)",
-          "oklch(72.1% 0.135 84.8)",
-          "oklch(83.6% 0.135 84.8)",
-          "oklch(95.0% 0.135 84.8)"
-        ]
-      },
-      "segnaposto-chiaro": {
-        "role": "tertiary",
-        "displayName": "Placeholder on Ink",
-        "canonical": "#FFE08A",
-        "tonalRamp": [
-          "oklch(15.0% 0.111 90.3)",
-          "oklch(26.4% 0.111 90.3)",
-          "oklch(37.9% 0.111 90.3)",
-          "oklch(49.3% 0.111 90.3)",
-          "oklch(60.7% 0.111 90.3)",
-          "oklch(72.1% 0.111 90.3)",
-          "oklch(83.6% 0.111 90.3)",
-          "oklch(95.0% 0.111 90.3)"
-        ]
-      },
-      "rosso": {
-        "role": "error",
-        "displayName": "Error Red",
-        "canonical": "#C8352F",
-        "cssVar": "--rosso",
-        "tonalRamp": [
-          "oklch(15.0% 0.185 27.4)",
-          "oklch(26.4% 0.185 27.4)",
-          "oklch(37.9% 0.185 27.4)",
-          "oklch(49.3% 0.185 27.4)",
-          "oklch(60.7% 0.185 27.4)",
-          "oklch(72.1% 0.185 27.4)",
-          "oklch(83.6% 0.185 27.4)",
-          "oklch(95.0% 0.185 27.4)"
-        ]
-      },
-      "rosso-su-verde": {
-        "role": "error",
-        "displayName": "Error Edge on Green",
-        "canonical": "#FFB4AE",
-        "tonalRamp": [
-          "oklch(15.0% 0.088 24.2)",
-          "oklch(26.4% 0.088 24.2)",
-          "oklch(37.9% 0.088 24.2)",
-          "oklch(49.3% 0.088 24.2)",
-          "oklch(60.7% 0.088 24.2)",
-          "oklch(72.1% 0.088 24.2)",
-          "oklch(83.6% 0.088 24.2)",
-          "oklch(95.0% 0.088 24.2)"
-        ]
-      },
-      "rosso-su-verde-testo": {
-        "role": "error",
-        "displayName": "Error Text on Green",
-        "canonical": "#FFD9D6",
-        "tonalRamp": [
-          "oklch(15.0% 0.043 23.3)",
-          "oklch(26.4% 0.043 23.3)",
-          "oklch(37.9% 0.043 23.3)",
-          "oklch(49.3% 0.043 23.3)",
-          "oklch(60.7% 0.043 23.3)",
-          "oklch(72.1% 0.043 23.3)",
-          "oklch(83.6% 0.043 23.3)",
-          "oklch(95.0% 0.043 23.3)"
-        ]
-      },
-      "cemento": {
+      "errore": {
         "role": "neutral",
-        "displayName": "Resin Concrete",
-        "canonical": "#E6E6E1",
-        "cssVar": "--cemento",
-        "tonalRamp": [
-          "oklch(15.0% 0.007 106.5)",
-          "oklch(26.4% 0.007 106.5)",
-          "oklch(37.9% 0.007 106.5)",
-          "oklch(49.3% 0.007 106.5)",
-          "oklch(60.7% 0.007 106.5)",
-          "oklch(72.1% 0.007 106.5)",
-          "oklch(83.6% 0.007 106.5)",
-          "oklch(95.0% 0.007 106.5)"
-        ]
+        "displayName": "Errore",
+        "canonical": "#ffa094",
+        "cssVar": "--errore"
       },
-      "cemento-scuro": {
+      "ok": {
         "role": "neutral",
-        "displayName": "Worn Concrete",
-        "canonical": "#D3D4CE",
-        "cssVar": "--cemento-scuro",
-        "tonalRamp": [
-          "oklch(15.0% 0.008 114.2)",
-          "oklch(26.4% 0.008 114.2)",
-          "oklch(37.9% 0.008 114.2)",
-          "oklch(49.3% 0.008 114.2)",
-          "oklch(60.7% 0.008 114.2)",
-          "oklch(72.1% 0.008 114.2)",
-          "oklch(83.6% 0.008 114.2)",
-          "oklch(95.0% 0.008 114.2)"
-        ]
+        "displayName": "Esito positivo",
+        "canonical": "#a7ecc2",
+        "cssVar": "--ok"
       },
-      "cemento-riga": {
+      "lastra": {
         "role": "neutral",
-        "displayName": "Floor Joint Grey",
-        "canonical": "#C5C6BF",
-        "cssVar": "--cemento-riga",
-        "tonalRamp": [
-          "oklch(15.0% 0.010 113.2)",
-          "oklch(26.4% 0.010 113.2)",
-          "oklch(37.9% 0.010 113.2)",
-          "oklch(49.3% 0.010 113.2)",
-          "oklch(60.7% 0.010 113.2)",
-          "oklch(72.1% 0.010 113.2)",
-          "oklch(83.6% 0.010 113.2)",
-          "oklch(95.0% 0.010 113.2)"
-        ]
+        "displayName": "Lastra",
+        "canonical": "#e7e5e0",
+        "cssVar": "--lastra"
       },
-      "piastra": {
+      "lastra-ombra": {
         "role": "neutral",
-        "displayName": "Enamel Plate",
-        "canonical": "#F8F8F5",
-        "cssVar": "--piastra",
-        "tonalRamp": [
-          "oklch(15.0% 0.004 106.5)",
-          "oklch(26.4% 0.004 106.5)",
-          "oklch(37.9% 0.004 106.5)",
-          "oklch(49.3% 0.004 106.5)",
-          "oklch(60.7% 0.004 106.5)",
-          "oklch(72.1% 0.004 106.5)",
-          "oklch(83.6% 0.004 106.5)",
-          "oklch(95.0% 0.004 106.5)"
-        ]
+        "displayName": "Lastra Ombra",
+        "canonical": "#d3d1cb",
+        "cssVar": "--lastra-ombra"
       },
       "inchiostro": {
         "role": "neutral",
-        "displayName": "Sign Ink",
-        "canonical": "#191C26",
-        "cssVar": "--inchiostro",
-        "tonalRamp": [
-          "oklch(15.0% 0.020 271.7)",
-          "oklch(26.4% 0.020 271.7)",
-          "oklch(37.9% 0.020 271.7)",
-          "oklch(49.3% 0.020 271.7)",
-          "oklch(60.7% 0.020 271.7)",
-          "oklch(72.1% 0.020 271.7)",
-          "oklch(83.6% 0.020 271.7)",
-          "oklch(95.0% 0.020 271.7)"
-        ]
+        "displayName": "Inchiostro",
+        "canonical": "#14171d",
+        "cssVar": "--inchiostro"
       },
       "inchiostro-2": {
         "role": "neutral",
-        "displayName": "Graphite",
-        "canonical": "#444957",
-        "cssVar": "--inchiostro-2",
-        "tonalRamp": [
-          "oklch(15.0% 0.024 269.8)",
-          "oklch(26.4% 0.024 269.8)",
-          "oklch(37.9% 0.024 269.8)",
-          "oklch(49.3% 0.024 269.8)",
-          "oklch(60.7% 0.024 269.8)",
-          "oklch(72.1% 0.024 269.8)",
-          "oklch(83.6% 0.024 269.8)",
-          "oklch(95.0% 0.024 269.8)"
-        ]
-      },
-      "piede-testo": {
-        "role": "neutral",
-        "displayName": "Footer Text",
-        "canonical": "#C9CCD6",
-        "tonalRamp": [
-          "oklch(15.0% 0.014 272.7)",
-          "oklch(26.4% 0.014 272.7)",
-          "oklch(37.9% 0.014 272.7)",
-          "oklch(49.3% 0.014 272.7)",
-          "oklch(60.7% 0.014 272.7)",
-          "oklch(72.1% 0.014 272.7)",
-          "oklch(83.6% 0.014 272.7)",
-          "oklch(95.0% 0.014 272.7)"
-        ]
-      },
-      "campo-suggerimento": {
-        "role": "neutral",
-        "displayName": "Field Hint",
-        "canonical": "#6B7080",
-        "tonalRamp": [
-          "oklch(15.0% 0.026 271.8)",
-          "oklch(26.4% 0.026 271.8)",
-          "oklch(37.9% 0.026 271.8)",
-          "oklch(49.3% 0.026 271.8)",
-          "oklch(60.7% 0.026 271.8)",
-          "oklch(72.1% 0.026 271.8)",
-          "oklch(83.6% 0.026 271.8)",
-          "oklch(95.0% 0.026 271.8)"
-        ]
-      },
-      "campo-bordo-hover": {
-        "role": "neutral",
-        "displayName": "Field Hover Edge",
-        "canonical": "#9A9DA6",
-        "tonalRamp": [
-          "oklch(15.0% 0.014 271.2)",
-          "oklch(26.4% 0.014 271.2)",
-          "oklch(37.9% 0.014 271.2)",
-          "oklch(49.3% 0.014 271.2)",
-          "oklch(60.7% 0.014 271.2)",
-          "oklch(72.1% 0.014 271.2)",
-          "oklch(83.6% 0.014 271.2)",
-          "oklch(95.0% 0.014 271.2)"
-        ]
-      },
-      "logo-blu": {
-        "role": "brand-mark",
-        "displayName": "Logo Blue (mark only)",
-        "canonical": "#42519A",
-        "tonalRamp": [
-          "oklch(15.0% 0.119 272.2)",
-          "oklch(26.4% 0.119 272.2)",
-          "oklch(37.9% 0.119 272.2)",
-          "oklch(49.3% 0.119 272.2)",
-          "oklch(60.7% 0.119 272.2)",
-          "oklch(72.1% 0.119 272.2)",
-          "oklch(83.6% 0.119 272.2)",
-          "oklch(95.0% 0.119 272.2)"
-        ]
-      },
-      "tricolore-verde": {
-        "role": "brand-mark",
-        "displayName": "Tricolor Green (mark only)",
-        "canonical": "#0A9A5B",
-        "cssVar": "--verde-tricolore",
-        "tonalRamp": [
-          "oklch(15.0% 0.145 155.9)",
-          "oklch(26.4% 0.145 155.9)",
-          "oklch(37.9% 0.145 155.9)",
-          "oklch(49.3% 0.145 155.9)",
-          "oklch(60.7% 0.145 155.9)",
-          "oklch(72.1% 0.145 155.9)",
-          "oklch(83.6% 0.145 155.9)",
-          "oklch(95.0% 0.145 155.9)"
-        ]
-      },
-      "tricolore-rosso": {
-        "role": "brand-mark",
-        "displayName": "Tricolor Red (mark only)",
-        "canonical": "#D6403F",
-        "tonalRamp": [
-          "oklch(15.0% 0.187 25.3)",
-          "oklch(26.4% 0.187 25.3)",
-          "oklch(37.9% 0.187 25.3)",
-          "oklch(49.3% 0.187 25.3)",
-          "oklch(60.7% 0.187 25.3)",
-          "oklch(72.1% 0.187 25.3)",
-          "oklch(83.6% 0.187 25.3)",
-          "oklch(95.0% 0.187 25.3)"
-        ]
-      },
-      "tricolore-filo": {
-        "role": "brand-mark",
-        "displayName": "Tricolor Keyline (mark only)",
-        "canonical": "#B9BCC4",
-        "tonalRamp": [
-          "oklch(15.0% 0.012 269.5)",
-          "oklch(26.4% 0.012 269.5)",
-          "oklch(37.9% 0.012 269.5)",
-          "oklch(49.3% 0.012 269.5)",
-          "oklch(60.7% 0.012 269.5)",
-          "oklch(72.1% 0.012 269.5)",
-          "oklch(83.6% 0.012 269.5)",
-          "oklch(95.0% 0.012 269.5)"
-        ]
+        "displayName": "Inchiostro 2",
+        "canonical": "#4a505a",
+        "cssVar": "--inchiostro-2"
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "The single headline on the reparti board."
+        "purpose": "Solo il titolo della hero."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Section titles."
+        "purpose": "Titoli di sezione H2."
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Zone names along the painted lane."
+        "purpose": "H3 di schede, tavole, fasi."
       },
-      "title-sm": {
-        "displayName": "Title Sm",
-        "purpose": "Reparto row titles."
-      },
-      "row": {
-        "displayName": "Row",
-        "purpose": "Machine names on the board rows."
-      },
-      "numeral": {
-        "displayName": "Numeral",
-        "purpose": "Stencil zone numerals 1-4 inside the floor boxes; outlined until reached, then filled."
-      },
-      "phone": {
-        "displayName": "Phone",
-        "purpose": "Phone number on the board's contact plate."
-      },
-      "sign": {
-        "displayName": "Sign",
-        "purpose": "Direction-sign label."
-      },
-      "plate": {
-        "displayName": "Plate",
-        "purpose": "Brand-name plates, uppercase."
-      },
-      "code": {
-        "displayName": "Code",
-        "purpose": "A-G letters in code tiles (2.1rem inside reparto plates)."
-      },
-      "button": {
-        "displayName": "Button",
-        "purpose": "Buttons, nav links, arrow text links."
-      },
-      "button-large": {
-        "displayName": "Button Large",
-        "purpose": "Large buttons (submit, assistance phone)."
-      },
-      "band": {
-        "displayName": "Band",
-        "purpose": "The board's band heading only; uppercase, 0.08em tracking."
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Sottotitoli di hero e sezioni."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Reading text, tabular figures."
-      },
-      "body-lead": {
-        "displayName": "Body Lead",
-        "purpose": "Section intro paragraphs."
+        "purpose": "Paragrafi."
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Form labels and legends."
+        "purpose": "Etichette brevi in maiuscolo: campi, tabelle, cartigli."
       },
-      "caption": {
-        "displayName": "Caption",
-        "purpose": "Small line above a number on contact plates."
+      "data": {
+        "displayName": "Data",
+        "purpose": "Ogni valore misurabile, telefono, quote, didascalie delle foto."
       }
     },
     "shadows": [
       {
-        "name": "ombra-pannello",
-        "value": "0 2px 2px rgba(25, 28, 38, 0.10), 0 24px 48px -18px rgba(25, 28, 38, 0.45)",
-        "purpose": "Hung panel: the reparti board and the quote form."
+        "name": "galleggiante",
+        "value": "0 30px 60px -30px rgba(0, 0, 0, 0.8)",
+        "purpose": "Cartiglio tecnico, tavole al passaggio del mouse."
       },
       {
-        "name": "ombra-piastra",
-        "value": "0 1px 1px rgba(25, 28, 38, 0.10), 0 6px 18px -6px rgba(25, 28, 38, 0.22)",
-        "purpose": "Lifted plate: the form status message."
+        "name": "pannello",
+        "value": "0 40px 80px -50px rgba(0, 0, 0, 0.9)",
+        "purpose": "Modulo e conferma."
       },
       {
-        "name": "pannello-su-verde",
-        "value": "0 30px 60px -30px rgba(0, 0, 0, 0.45)",
-        "purpose": "The assistance form panel on the green section."
-      },
-      {
-        "name": "insegna-staccata",
-        "value": "0 8px 20px -14px rgba(25, 28, 38, 0.35)",
-        "purpose": "Sticky header once the page scrolls more than 8px (with a cemento-riga hairline)."
-      },
-      {
-        "name": "seduta-targa",
-        "value": "0 1px 0 rgba(0, 0, 0, 0.12)",
-        "purpose": "The phone plate seated on the blue board."
-      },
-      {
-        "name": "anello-arrivo",
-        "value": "0 0 0 6px #F2B705",
-        "purpose": "Arrival ring on the quote form when a machine is preselected; fades to 0 over 1.4s."
-      },
-      {
-        "name": "bordi-corsia",
-        "value": "inset 5px 0 0 #3E4C96, inset 8px 0 0 #FFFFFF, inset -5px 0 0 #3E4C96, inset -8px 0 0 #FFFFFF",
-        "purpose": "Painted white edge lines of the floor lane (3px/5px on phones). Paint, not elevation."
-      },
-      {
-        "name": "filo-cartello",
-        "value": "inset 0 0 0 3px #3E4C96, inset 0 0 0 4.5px rgba(255, 255, 255, 0.6)",
-        "purpose": "Inner enamel edge of the direction sign. Paint, not elevation."
+        "name": "foglio-laterale",
+        "value": "-40px 0 80px -40px rgba(0, 0, 0, 0.85)",
+        "purpose": "Pannello di approfondimento."
       }
     ],
     "motion": [
       {
-        "name": "ease-uscita",
-        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "The only easing curve: every colour, arrow and fill transition."
+        "name": "ease-out",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "Entrate e risposte dell'interfaccia."
       },
       {
-        "name": "duration-press",
+        "name": "ease-in-out",
+        "value": "cubic-bezier(0.77, 0, 0.175, 1)",
+        "purpose": "Movimenti in scena (linee di taglio)."
+      },
+      {
+        "name": "ease-drawer",
+        "value": "cubic-bezier(0.32, 0.72, 0, 1)",
+        "purpose": "Cassetto e pannello."
+      },
+      {
+        "name": "d-press",
         "value": "160ms",
-        "purpose": "Button, plate and sign colour changes; 1px press on active."
+        "purpose": "Pressione dei pulsanti."
       },
       {
-        "name": "duration-field",
-        "value": "150ms",
-        "purpose": "Field border and error inset transitions."
-      },
-      {
-        "name": "duration-header",
+        "name": "d-hover",
         "value": "200ms",
-        "purpose": "Header hairline and shadow appearing on scroll."
+        "purpose": "Hover."
       },
       {
-        "name": "duration-row-light",
-        "value": "220ms",
-        "purpose": "Board row lighting to backlit blue on hover/focus."
+        "name": "d-pannello",
+        "value": "420ms",
+        "purpose": "Apertura di cassetto e pannello."
       },
       {
-        "name": "duration-arrow",
-        "value": "240ms-260ms",
-        "purpose": "Arrow advance: 6px on board rows (260ms), 5px on text links and the direction sign (240ms)."
-      },
-      {
-        "name": "duration-connector",
-        "value": "400ms",
-        "purpose": "Zone connector bar turning blue when the lane reaches it."
-      },
-      {
-        "name": "duration-zone",
-        "value": "500ms",
-        "purpose": "Zone box and stencil numeral filling from outline to blue (green for zone 4)."
-      },
-      {
-        "name": "duration-arrival",
-        "value": "1400ms",
-        "purpose": "Yellow arrival ring fading on the quote form; focus moves to the first field after 450ms."
-      },
-      {
-        "name": "corsia-scroll",
-        "value": "scroll-linked (--corsia 0-1, rAF, reading line at 62% of viewport height)",
-        "purpose": "Lane paint height follows scroll; zones become reached as they cross the reading line."
-      },
-      {
-        "name": "reduced-motion",
-        "value": "transition/animation 0.01ms; smooth scroll off",
-        "purpose": "Lane fully painted and all zones reached from the start."
+        "name": "d-taglio",
+        "value": "1100ms",
+        "purpose": "Linee di taglio che si tracciano."
       }
     ],
     "breakpoints": [
       {
-        "name": "desktop-compact",
-        "value": "1180px",
-        "purpose": "Tighter nav padding."
+        "name": "stretto",
+        "value": "420px"
       },
       {
-        "name": "tablet-wide",
-        "value": "1040px",
-        "purpose": "Board head and zone bodies stack; reparto rows go to two columns."
+        "name": "mobile",
+        "value": "760px"
       },
       {
         "name": "tablet",
-        "value": "960px",
-        "purpose": "Mobile menu; board rows and section grids go to one column; direction-sign arrow points down."
+        "value": "1000px"
       },
       {
-        "name": "phone",
-        "value": "640px",
-        "purpose": "64px header, 16px gutter, narrow lane (24px), single-column reparti and forms, full-width large buttons."
+        "name": "desktop-stretto",
+        "value": "1180px"
       }
     ]
   },
@@ -674,157 +239,111 @@
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Square sign-blue button with the single arrow; header 'Preventivo' and quote submit.",
-      "html": "<button class=\"ds-tasto\" type=\"button\">Invia la richiesta<svg viewBox=\"0 0 48 48\" aria-hidden=\"true\"><path d=\"M4 20h24V8l16 16-16 16V28H4z\"/></svg></button>",
-      "css": ".ds-tasto { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 20px; font-family: var(--titoli, \"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif); font-weight: 600; font-size: 1.15rem; letter-spacing: 0.01em; color: #fff; background: var(--blu, #3E4C96); border: 2px solid var(--blu, #3E4C96); border-radius: 0; cursor: pointer; white-space: nowrap; transition: background-color 160ms var(--ease-uscita, cubic-bezier(0.16, 1, 0.3, 1)), border-color 160ms var(--ease-uscita, cubic-bezier(0.16, 1, 0.3, 1)), transform 160ms var(--ease-uscita, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-tasto svg { width: 20px; height: 20px; fill: currentColor; flex: none; } .ds-tasto:hover { background: var(--blu-scuro, #303C7C); border-color: var(--blu-scuro, #303C7C); } .ds-tasto:active { transform: translateY(1px); } .ds-tasto:focus-visible { outline: 3px solid var(--giallo-segnale, #F2B705); outline-offset: 3px; }"
+      "description": "Richiedi preventivo: sempre questo pulsante.",
+      "html": "<button class=\"ds-btn-primary\">Richiedi preventivo <span aria-hidden=\"true\">→</span></button>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:10px;min-height:56px;padding:0 26px;border:1px solid transparent;border-radius:4px;background:#eef0f2;color:#0b0e13;font:600 1.05rem Archivo,system-ui,sans-serif;transition:transform 160ms cubic-bezier(.23,1,.32,1),background-color 200ms ease}.ds-btn-primary:hover{background:#fff}.ds-btn-primary:active{transform:scale(.97)}.ds-btn-primary:focus-visible{outline:2px solid #aab7ff;outline-offset:3px}"
     },
     {
-      "name": "Plate Button (phone)",
+      "name": "Secondary Button",
       "kind": "button",
-      "refersTo": "button-plate",
-      "description": "Enamel plate button carrying the phone number in the header.",
-      "html": "<a class=\"ds-tasto-piastra\" href=\"#\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M6.7 2.6l3 .4 1.3 4.4-2.3 1.6a12.2 12.2 0 0 0 6.3 6.3l1.6-2.3 4.4 1.3.4 3c.1 1-.6 1.9-1.6 2C10.9 19.9 4.1 13.1 4.7 4.2c.1-1 1-1.7 2-1.6z\"/></svg><span>328 824 1909</span></a>",
-      "css": ".ds-tasto-piastra { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 20px; font-family: var(--titoli, \"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif); font-weight: 600; font-size: 1.15rem; letter-spacing: 0.01em; color: var(--inchiostro, #191C26); background: var(--piastra, #F8F8F5); border: 2px solid var(--cemento-riga, #C5C6BF); border-radius: 0; text-decoration: none; white-space: nowrap; transition: border-color 160ms var(--ease-uscita, cubic-bezier(0.16, 1, 0.3, 1)), transform 160ms var(--ease-uscita, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-tasto-piastra svg { width: 20px; height: 20px; fill: var(--blu, #3E4C96); flex: none; } .ds-tasto-piastra:hover { border-color: var(--blu, #3E4C96); } .ds-tasto-piastra:active { transform: translateY(1px); } .ds-tasto-piastra:focus-visible { outline: 3px solid var(--giallo-segnale, #F2B705); outline-offset: 3px; }"
-    },
-    {
-      "name": "Assistance Button",
-      "kind": "button",
-      "refersTo": "button-assistance",
-      "description": "White button with deep-green text, used only on the green assistance ground.",
-      "html": "<div class=\"ds-fondo-verde\"><a class=\"ds-tasto-bianco\" href=\"#\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M6.7 2.6l3 .4 1.3 4.4-2.3 1.6a12.2 12.2 0 0 0 6.3 6.3l1.6-2.3 4.4 1.3.4 3c.1 1-.6 1.9-1.6 2C10.9 19.9 4.1 13.1 4.7 4.2c.1-1 1-1.7 2-1.6z\"/></svg>328 824 1909</a></div>",
-      "css": ".ds-fondo-verde { background: var(--verde, #0B7A47); padding: 28px; } .ds-tasto-bianco { display: inline-flex; align-items: center; gap: 10px; min-height: 58px; padding: 0 26px; font-family: var(--titoli, \"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif); font-weight: 600; font-size: 1.35rem; letter-spacing: 0.01em; color: var(--verde-scuro, #08623A); background: #fff; border: 2px solid #fff; border-radius: 0; text-decoration: none; transition: background-color 160ms var(--ease-uscita, cubic-bezier(0.16, 1, 0.3, 1)), border-color 160ms var(--ease-uscita, cubic-bezier(0.16, 1, 0.3, 1)), transform 160ms var(--ease-uscita, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-tasto-bianco svg { width: 24px; height: 24px; fill: currentColor; flex: none; } .ds-tasto-bianco:hover { background: #EAF4EE; border-color: #EAF4EE; } .ds-tasto-bianco:active { transform: translateY(1px); } .ds-tasto-bianco:focus-visible { outline: 3px solid var(--giallo-segnale, #F2B705); outline-offset: 3px; }"
+      "refersTo": "button-secondary",
+      "description": "Azioni secondarie: Parliamone, Mostra la mappa, Chiama.",
+      "html": "<button class=\"ds-btn-sec\">Parliamone</button>",
+      "css": ".ds-btn-sec{min-height:48px;padding:0 22px;border:1px solid rgba(226,232,242,.2);border-radius:4px;background:transparent;color:#eef0f2;font:600 1rem Archivo,system-ui,sans-serif;transition:background-color 200ms ease,border-color 200ms ease}.ds-btn-sec:hover{background:rgba(226,232,242,.06);border-color:rgba(226,232,242,.36)}.ds-btn-sec:focus-visible{outline:2px solid #aab7ff;outline-offset:3px}"
     },
     {
       "name": "Text Field",
       "kind": "input",
       "refersTo": "input",
-      "description": "Square white field with label above; yellow focus ring plus ink border; red error border, inset and message.",
-      "html": "<div class=\"ds-campi\"><div class=\"ds-campo\"><label for=\"ds-azienda\">Azienda</label><input id=\"ds-azienda\" autocomplete=\"off\"></div><div class=\"ds-campo\"><label for=\"ds-tel\">Telefono</label><input id=\"ds-tel\" type=\"tel\" aria-invalid=\"true\" aria-describedby=\"ds-tel-err\"><p class=\"ds-errore\" id=\"ds-tel-err\">Serve un numero per richiamarvi.</p></div></div>",
-      "css": ".ds-campi { display: grid; gap: 16px; max-width: 420px; padding: 24px; background: var(--piastra, #F8F8F5); } .ds-campo { display: grid; gap: 6px; } .ds-campo label { font-family: var(--corpo, \"Barlow\", \"Arial Narrow\", system-ui, sans-serif); font-weight: 600; font-size: 0.98rem; color: var(--inchiostro, #191C26); } .ds-campo input { width: 100%; box-sizing: border-box; min-height: 50px; padding: 12px 14px; font-family: var(--corpo, \"Barlow\", \"Arial Narrow\", system-ui, sans-serif); font-size: 1.05rem; color: var(--inchiostro, #191C26); background: #fff; border: 1.5px solid var(--cemento-riga, #C5C6BF); border-radius: 0; transition: border-color 150ms, box-shadow 150ms; } .ds-campo input:hover { border-color: #9A9DA6; } .ds-campo input:focus { outline: none; } .ds-campo input:focus-visible { outline: 3px solid var(--giallo-segnale, #F2B705); outline-offset: 1px; border-color: var(--inchiostro, #191C26); } .ds-campo input[aria-invalid=\"true\"] { border-color: var(--rosso, #C8352F); box-shadow: inset 0 0 0 1px var(--rosso, #C8352F); } .ds-errore { margin: 0; font-family: var(--corpo, \"Barlow\", \"Arial Narrow\", system-ui, sans-serif); font-size: 0.95rem; font-weight: 600; color: var(--rosso, #C8352F); }"
+      "description": "Campo del modulo preventivo.",
+      "html": "<label class=\"ds-campo\"><span>Nome e azienda</span><input placeholder=\"\"></label>",
+      "css": ".ds-campo{display:grid;gap:8px;font:600 .95rem Archivo,system-ui,sans-serif;color:#eef0f2}.ds-campo input{min-height:54px;padding:14px 16px;border:1px solid rgba(226,232,242,.42);border-radius:4px;background:#0b0e13;color:#eef0f2;font:400 16px Archivo,system-ui,sans-serif;caret-color:#ffb46e;transition:border-color 200ms ease,box-shadow 200ms ease}.ds-campo input:focus{outline:none;border-color:#aab7ff;box-shadow:0 0 0 3px rgba(170,183,255,.22)}"
     },
     {
-      "name": "Header Navigation",
-      "kind": "nav",
-      "refersTo": "nav-link",
-      "description": "Concrete header band with Condensed nav links and the blue quote button (logo omitted: provisional traced SVG).",
-      "html": "<nav class=\"ds-insegna\" aria-label=\"Principale\"><ul><li><a href=\"#\">Macchinari</a></li><li><a href=\"#\">Come lavoriamo</a></li><li><a href=\"#\">Assistenza</a></li><li><a href=\"#\">Azienda</a></li><li><a href=\"#\">Contatti</a></li></ul><a class=\"ds-insegna__tasto\" href=\"#\">Preventivo</a></nav>",
-      "css": ".ds-insegna { display: flex; align-items: center; gap: 16px; min-height: 76px; padding: 0 24px; background: var(--cemento, #E6E6E1); border-bottom: 1px solid var(--cemento-riga, #C5C6BF); box-shadow: 0 8px 20px -14px rgba(25, 28, 38, 0.35); } .ds-insegna ul { display: flex; gap: 4px; margin: 0 0 0 auto; padding: 0; list-style: none; } .ds-insegna ul a { display: block; padding: 10px 12px; font-family: var(--titoli, \"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif); font-weight: 600; font-size: 1.15rem; color: var(--inchiostro, #191C26); text-decoration: none; border-radius: 0; } .ds-insegna ul a:hover { color: var(--blu, #3E4C96); background: rgba(62, 76, 150, 0.08); } .ds-insegna a:focus-visible { outline: 3px solid var(--giallo-segnale, #F2B705); outline-offset: 3px; } .ds-insegna__tasto { display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px; font-family: var(--titoli, \"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif); font-weight: 600; font-size: 1.15rem; color: #fff; background: var(--blu, #3E4C96); border: 2px solid var(--blu, #3E4C96); text-decoration: none; transition: background-color 160ms var(--ease-uscita, cubic-bezier(0.16, 1, 0.3, 1)), border-color 160ms var(--ease-uscita, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-insegna__tasto:hover { background: var(--blu-scuro, #303C7C); border-color: var(--blu-scuro, #303C7C); }"
-    },
-    {
-      "name": "Tabellone Rows",
-      "kind": "custom",
-      "refersTo": "riga",
-      "description": "Signature: the enamelled reparti board with band heading, A-G code tiles, filled pictograms and the advancing arrow.",
-      "html": "<div class=\"ds-tabellone\"><h2 class=\"ds-tabellone__fascia\"><span>Scegliete il reparto</span><span aria-hidden=\"true\">Richiedi preventivo</span></h2><ul class=\"ds-righe\"><li><a class=\"ds-riga\" href=\"#\"><span class=\"ds-riga__codice\" aria-hidden=\"true\">A</span><svg class=\"ds-riga__pitto\" viewBox=\"0 0 48 48\" aria-hidden=\"true\"><path d=\"M17 3h14v13H17z\"/><path d=\"M18 17h12l-4 8h-4z\"/><path d=\"M23 26h2v8h-2z\"/><path d=\"M3 36h19v5H3zM26 36h19v5H26z\"/><path d=\"M28.3 31.1l5.2-2.6.9 1.8-5.2 2.6zM19.7 31.1l-5.2-2.6-.9 1.8 5.2 2.6z\"/></svg><span class=\"ds-riga__testo\"><strong>Taglio laser fibra</strong><span>Acciaio, inox, alluminio: taglio preciso e veloce</span></span><svg class=\"ds-riga__freccia\" viewBox=\"0 0 48 48\" aria-hidden=\"true\"><path d=\"M4 20h24V8l16 16-16 16V28H4z\"/></svg></a></li><li><a class=\"ds-riga\" href=\"#\"><span class=\"ds-riga__codice\" aria-hidden=\"true\">B</span><svg class=\"ds-riga__pitto\" viewBox=\"0 0 48 48\" aria-hidden=\"true\"><path d=\"M3 38h42v5H3z\"/><path d=\"M31 15h5v23h-5z\"/><path d=\"M5.5 8.6 10 5l17 19.4-4.6 3.6z\"/><path d=\"M8.3 13.6 4 22.4l3.6 1.8 4.3-8.2z\"/><circle cx=\"28\" cy=\"33\" r=\"2.8\"/><path d=\"M21.2 30.2l3.4.6-.3 1.9-3.4-.6zM25.5 23.8l1.9-.4.7 3.4-1.9.4z\"/></svg><span class=\"ds-riga__testo\"><strong>Saldatura e pulizia laser</strong><span>Saldatrici portatili e sistemi di pulizia</span></span><svg class=\"ds-riga__freccia\" viewBox=\"0 0 48 48\" aria-hidden=\"true\"><path d=\"M4 20h24V8l16 16-16 16V28H4z\"/></svg></a></li></ul></div>",
-      "css": ".ds-tabellone { position: relative; padding: 28px 32px 32px; background: var(--blu, #3E4C96); color: #fff; border-radius: 0; box-shadow: 0 2px 2px rgba(25, 28, 38, 0.10), 0 24px 48px -18px rgba(25, 28, 38, 0.45); } .ds-tabellone::before { content: \"\"; position: absolute; inset: 8px; border: 1.5px solid rgba(255, 255, 255, 0.55); pointer-events: none; } .ds-tabellone__fascia { display: flex; justify-content: space-between; gap: 16px; margin: 0; padding: 12px 0 10px; border-top: 3px solid #fff; font-family: var(--titoli, \"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif); font-weight: 600; font-size: 1rem; line-height: 1.6; letter-spacing: 0.08em; text-transform: uppercase; color: #D9DCEC; } .ds-righe { margin: 0; padding: 0; list-style: none; } .ds-righe li + li { border-top: 1px solid rgba(255, 255, 255, 0.22); } .ds-riga { position: relative; display: grid; grid-template-columns: 34px 46px minmax(0, 1fr) 40px; align-items: center; gap: 14px; min-height: 74px; padding: 10px 12px 10px 4px; margin-inline: -8px; color: #fff; text-decoration: none; transition: background-color 220ms var(--ease-uscita, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-riga__codice { display: grid; place-items: center; width: 34px; height: 34px; background: #fff; color: var(--blu, #3E4C96); font-family: var(--titoli, \"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif); font-weight: 700; font-size: 1.35rem; line-height: 1; } .ds-riga__pitto { width: 44px; height: 44px; fill: #fff; } .ds-riga__testo { display: grid; gap: 2px; min-width: 0; } .ds-riga__testo strong { font-family: var(--titoli, \"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif); font-weight: 600; font-size: 1.55rem; line-height: 1.05; } .ds-riga__testo > span { font-family: var(--corpo, \"Barlow\", \"Arial Narrow\", system-ui, sans-serif); color: #D9DCEC; font-size: 0.98rem; line-height: 1.35; } .ds-riga__freccia { width: 32px; height: 32px; fill: #fff; justify-self: end; transition: transform 260ms var(--ease-uscita, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-riga:hover, .ds-riga:focus-visible { background: var(--blu-acceso, #4A5AAB); } .ds-riga:hover .ds-riga__freccia, .ds-riga:focus-visible .ds-riga__freccia { transform: translateX(6px); } .ds-riga:focus-visible { outline: 3px solid var(--giallo-segnale, #F2B705); outline-offset: 3px; }"
-    },
-    {
-      "name": "Corsia and Zone Boxes",
-      "kind": "custom",
-      "refersTo": "corsia-vernice",
-      "description": "Signature: the painted floor lane with white edge lines and chevrons; hover stands in for scroll, painting the lane and lighting zone 4 green.",
-      "html": "<div class=\"ds-corsia\"><div class=\"ds-corsia__binario\" aria-hidden=\"true\"><span class=\"ds-corsia__vernice\"></span></div><ol class=\"ds-zone\"><li class=\"ds-zona is-raggiunta\"><span class=\"ds-zona__numero\" aria-hidden=\"true\">3</span><div><h3>Formazione</h3><p>Formiamo chi userà la macchina ogni giorno, sulla vostra macchina e sul vostro lavoro.</p></div></li><li class=\"ds-zona ds-zona--verde\"><span class=\"ds-zona__numero\" aria-hidden=\"true\">4</span><div><h3>Assistenza</h3><p>Manutenzione e interventi con tecnici TO.DE.L., ricambi e consumabili su richiesta.</p></div></li></ol></div>",
-      "css": ".ds-corsia { display: grid; grid-template-columns: 88px minmax(0, 1fr); column-gap: 24px; padding: 24px 24px 24px 0; background: var(--cemento, #E6E6E1); } .ds-corsia__binario { position: relative; justify-self: center; width: 48px; background: var(--cemento-scuro, #D3D4CE); } .ds-corsia__vernice { position: absolute; left: 0; top: 0; width: 100%; height: 52%; background-color: var(--blu, #3E4C96); background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='144' viewBox='0 0 48 144'%3E%3Cpath d='M10 52l14 16 14-16v13L24 81 10 65z' fill='%23fff'/%3E%3C/svg%3E\"); background-repeat: repeat-y; background-size: 100% auto; box-shadow: inset 5px 0 0 var(--blu, #3E4C96), inset 8px 0 0 #fff, inset -5px 0 0 var(--blu, #3E4C96), inset -8px 0 0 #fff; transition: height 700ms var(--ease-uscita, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-corsia:hover .ds-corsia__vernice { height: 100%; } .ds-zone { display: grid; gap: 48px; margin: 0; padding: 0; list-style: none; } .ds-zona { position: relative; display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 24px; align-items: start; } .ds-zona::before { content: \"\"; position: absolute; top: 51px; right: 100%; width: 44px; height: 8px; background: var(--cemento-scuro, #D3D4CE); transition: background-color 400ms var(--ease-uscita, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-zona__numero { box-sizing: border-box; display: grid; place-items: center; width: 110px; aspect-ratio: 1; border: 6px solid var(--cemento-riga, #C5C6BF); font-family: var(--stencil, \"Big Shoulders Stencil Display\", \"Barlow Condensed\", system-ui, sans-serif); font-weight: 800; font-size: 5.4rem; line-height: 1; color: transparent; -webkit-text-stroke: 2px var(--cemento-riga, #C5C6BF); transition: color 500ms var(--ease-uscita, cubic-bezier(0.16, 1, 0.3, 1)), border-color 500ms var(--ease-uscita, cubic-bezier(0.16, 1, 0.3, 1)), -webkit-text-stroke-color 500ms var(--ease-uscita, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-zona.is-raggiunta::before, .ds-corsia:hover .ds-zona--verde::before { background: var(--blu, #3E4C96); } .ds-zona.is-raggiunta .ds-zona__numero { color: var(--blu, #3E4C96); border-color: var(--blu, #3E4C96); -webkit-text-stroke-color: var(--blu, #3E4C96); } .ds-corsia:hover .ds-zona--verde .ds-zona__numero { color: var(--verde, #0B7A47); border-color: var(--verde, #0B7A47); -webkit-text-stroke-color: var(--verde, #0B7A47); } .ds-zona h3 { margin: 0; font-family: var(--titoli, \"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif); font-weight: 600; font-size: 2.4rem; line-height: 1; color: var(--inchiostro, #191C26); } .ds-zona p { margin: 12px 0 0; font-family: var(--corpo, \"Barlow\", \"Arial Narrow\", system-ui, sans-serif); font-size: 1.05rem; line-height: 1.6; color: var(--inchiostro-2, #444957); max-width: 60ch; } @media (prefers-reduced-motion: reduce) { .ds-corsia * , .ds-corsia *::before { transition-duration: 0.01ms; } }"
-    },
-    {
-      "name": "Reparto Row",
-      "kind": "custom",
-      "refersTo": "reparto-targa-codice",
-      "description": "Directory row: ink code square joined to a blue pictogram plate, title, text and an arrow text link.",
-      "html": "<article class=\"ds-reparto\"><div class=\"ds-reparto__targa\" aria-hidden=\"true\"><span>A</span><svg viewBox=\"0 0 48 48\"><path d=\"M17 3h14v13H17z\"/><path d=\"M18 17h12l-4 8h-4z\"/><path d=\"M23 26h2v8h-2z\"/><path d=\"M3 36h19v5H3zM26 36h19v5H26z\"/><path d=\"M28.3 31.1l5.2-2.6.9 1.8-5.2 2.6zM19.7 31.1l-5.2-2.6-.9 1.8 5.2 2.6z\"/></svg></div><h3>Taglio laser fibra</h3><p>Impianti laser in fibra per il taglio di lamiere in acciaio, inox e alluminio.</p><a class=\"ds-collegamento\" href=\"#\">Preventivo per il taglio laser<svg viewBox=\"0 0 48 48\" aria-hidden=\"true\"><path d=\"M4 20h24V8l16 16-16 16V28H4z\"/></svg></a></article>",
-      "css": ".ds-reparto { display: grid; grid-template-columns: 132px minmax(0, 0.9fr) minmax(0, 1.3fr) auto; gap: 28px; align-items: center; padding: 22px 16px; background: var(--piastra, #F8F8F5); border-top: 3px solid var(--inchiostro, #191C26); border-bottom: 1px solid var(--cemento-riga, #C5C6BF); } .ds-reparto__targa { display: flex; align-items: stretch; height: 64px; } .ds-reparto__targa span { display: grid; place-items: center; width: 56px; background: var(--inchiostro, #191C26); color: #fff; font-family: var(--titoli, \"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif); font-weight: 700; font-size: 2.1rem; } .ds-reparto__targa svg { box-sizing: content-box; width: 44px; height: 44px; padding: 10px 14px; background: var(--blu, #3E4C96); fill: #fff; flex: 1; } .ds-reparto h3 { margin: 0; font-family: var(--titoli, \"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif); font-weight: 600; font-size: 1.9rem; line-height: 1; color: var(--inchiostro, #191C26); } .ds-reparto p { margin: 0; font-family: var(--corpo, \"Barlow\", \"Arial Narrow\", system-ui, sans-serif); font-size: 1.0625rem; line-height: 1.6; color: var(--inchiostro-2, #444957); } .ds-collegamento { display: inline-flex; align-items: center; gap: 10px; padding: 10px 0; font-family: var(--titoli, \"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif); font-weight: 600; font-size: 1.15rem; color: var(--blu, #3E4C96); text-decoration: none; white-space: nowrap; } .ds-collegamento svg { width: 22px; height: 22px; fill: currentColor; transition: transform 240ms var(--ease-uscita, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-collegamento:hover svg { transform: translateX(5px); } .ds-collegamento:focus-visible { outline: 3px solid var(--giallo-segnale, #F2B705); outline-offset: 3px; }"
-    },
-    {
-      "name": "Direction Sign",
-      "kind": "custom",
-      "refersTo": "cartello-direzione",
-      "description": "Blue directional sign with inner enamel edge pointing to the quote form; arrow advances on hover.",
-      "html": "<a class=\"ds-cartello\" href=\"#\">Ufficio commerciale<svg viewBox=\"0 0 48 48\" aria-hidden=\"true\"><path d=\"M4 20h24V8l16 16-16 16V28H4z\"/></svg></a>",
-      "css": ".ds-cartello { display: inline-flex; align-items: center; gap: 18px; padding: 12px 18px 12px 20px; background: var(--blu, #3E4C96); color: #fff; text-decoration: none; font-family: var(--titoli, \"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif); font-weight: 600; font-size: 1.5rem; line-height: 1; border-radius: 0; box-shadow: inset 0 0 0 3px var(--blu, #3E4C96), inset 0 0 0 4.5px rgba(255, 255, 255, 0.6); transition: background-color 160ms var(--ease-uscita, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-cartello svg { width: 34px; height: 34px; fill: #fff; transition: transform 240ms var(--ease-uscita, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-cartello:hover { background: var(--blu-scuro, #303C7C); } .ds-cartello:hover svg { transform: translateX(5px); } .ds-cartello:focus-visible { outline: 3px solid var(--giallo-segnale, #F2B705); outline-offset: 3px; }"
-    },
-    {
-      "name": "Segnaposto (temporary placeholder)",
+      "name": "Chip spunto",
       "kind": "chip",
-      "refersTo": "segnaposto",
-      "description": "Dashed yellow plate marking a fact not yet supplied; removed when the client confirms it. Dark variant on ink.",
-      "html": "<ul class=\"ds-segnaposti\"><li class=\"ds-segnaposto\">Nome cliente da inserire</li><li class=\"ds-segnaposto\">anno da inserire</li></ul><p class=\"ds-piede-riga\">P.IVA <span class=\"ds-segnaposto ds-segnaposto--scuro\">da inserire</span></p>",
-      "css": ".ds-segnaposti { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; } .ds-segnaposto { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 14px; color: #6A4D00; background: #FBEFC4; border: 1.5px dashed #B88A00; border-radius: 0; font-family: var(--corpo, \"Barlow\", \"Arial Narrow\", system-ui, sans-serif); font-size: 0.95rem; font-weight: 600; } .ds-piede-riga { margin: 10px 0 0; padding: 14px 16px; background: var(--inchiostro, #191C26); color: #C9CCD6; font-family: var(--corpo, \"Barlow\", \"Arial Narrow\", system-ui, sans-serif); font-size: 0.98rem; } .ds-segnaposto--scuro { min-height: 0; padding: 0 6px; color: #FFE08A; border-color: #FFE08A; background: transparent; }"
+      "refersTo": "chip-spunto",
+      "description": "Suggerimenti del modulo e filtri materiale.",
+      "html": "<button class=\"ds-chip\" aria-pressed=\"false\">Spessori</button><button class=\"ds-chip\" aria-pressed=\"true\">Materiale</button>",
+      "css": ".ds-chip{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 12px;margin-right:6px;border:1px solid rgba(226,232,242,.2);border-radius:2px;background:transparent;color:#aab1bc;font:500 .86rem Archivo,system-ui,sans-serif}.ds-chip::before{content:'+';font-family:'Martian Mono',monospace;color:#ffb46e}.ds-chip[aria-pressed=true]{color:#eef0f2;border-color:rgba(255,180,110,.55);background:#1b212c}.ds-chip[aria-pressed=true]::before{content:'✓'}.ds-chip:hover{color:#eef0f2}"
+    },
+    {
+      "name": "Cartiglio tecnico",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Dati della macchina come il cartiglio di un disegno.",
+      "html": "<dl class=\"ds-cart\"><div><dt>Modello</dt><dd class=\"t\">GF-1530JHT</dd></div><div><dt>Sorgente</dt><dd>1-4 kW</dd></div><div><dt>Area</dt><dd>1500 × 3000 mm</dd></div></dl>",
+      "css": ".ds-cart{display:grid;grid-template-columns:repeat(3,1fr);margin:0;border:1px solid rgba(226,232,242,.2);border-radius:4px;background:rgba(19,23,31,.9);box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}.ds-cart div{padding:10px 14px 11px;border-right:1px solid rgba(226,232,242,.09)}.ds-cart div:last-child{border-right:0}.ds-cart dt{font:600 .75rem Archivo,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#8d94a0}.ds-cart dd{margin:3px 0 0;font:400 .82rem 'Martian Mono',monospace;color:#eef0f2}.ds-cart dd.t{font:640 1.35rem Archivo,sans-serif;font-stretch:78%}"
+    },
+    {
+      "name": "Lastra",
+      "kind": "card",
+      "refersTo": "lastra",
+      "description": "Supporto chiaro da catalogo per le foto delle macchine.",
+      "html": "<figure class=\"ds-lastra\"><div class=\"ph\"></div><figcaption>Banco aperto, grande formato · foto Golden Laser</figcaption></figure>",
+      "css": ".ds-lastra{margin:0;padding:24px;border-radius:8px;background:radial-gradient(120% 90% at 50% 38%,#f1f0ec 0%,#e7e5e0 55%,#d3d1cb 100%);color:#14171d}.ds-lastra .ph{aspect-ratio:16/9;border-bottom:1px solid #4a505a}.ds-lastra figcaption{margin-top:12px;font:400 .75rem 'Martian Mono',monospace;color:#4a505a}"
+    },
+    {
+      "name": "Link con freccia",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Scheda tecnica, Approfondisci.",
+      "html": "<a class=\"ds-freccia\" href=\"#\">Scheda tecnica <span>→</span></a>",
+      "css": ".ds-freccia{display:inline-flex;align-items:center;gap:8px;min-height:44px;color:#eef0f2;font:600 1rem Archivo,system-ui,sans-serif;text-decoration:none}.ds-freccia span{color:#ffb46e;transition:transform 200ms cubic-bezier(.23,1,.32,1)}.ds-freccia:hover span{transform:translateX(3px)}"
     }
   ],
   "narrative": {
-    "northStar": "The Plant Signage System",
-    "overview": "The site is the wayfinding of the TO.DE.L. plant, drawn with the discipline of Bob Noorda's transit signage. A visitor walks in on a floor of light resin concrete, reads the enamelled blue reparti board (tabellone) hung at the entrance, and follows a blue lane painted on the floor (corsia) from choosing a machine to getting it serviced. Every element is a sign, a plate, a floor marking or a form at the office counter. Nothing floats, glows or rounds off.\n\nDensity is that of a real sign: few words, large condensed type, generous plate padding, hairline rules between rows. Colour is a safety code, not decoration. Blue means signage and action, green means assistance, signal yellow means focus or \"temporary, to be replaced\", red means an error (and the tricolor inside the logo). Depth comes from the floor/panel relationship: the floor is flat and grained; the board and the quote form hang on it with a low, heavy shadow.\n\nThe world explicitly rejects the dark industrial hero with sparks and the grid of product cards. Machines are listed as rows on a board and as reparto rows with a code plate, never as cards. There is no usable photography yet; pictograms drawn in an ISO-style filled idiom carry all imagery. The logo files in `assets/img/` are a builder-traced vector redraw of the raster original (`source/logo-originale.png`, 399×399), pending client approval: treat their geometry as provisional.",
+    "northStar": "La Tavola Tecnica",
+    "overview": "Il sito si legge come una tavola di disegno tecnico appoggiata in officina: fondo grafite, testi asciutti, quote e cartigli come su un disegno meccanico. Le macchine non stanno su sfondi scuri ma su **lastre** chiare color lamiera, come in un catalogo stampato: le foto del costruttore a fondo bianco si fondono con la lastra, le foto d'ambiente restano intere.\n\nIl colore è quasi assente. L'unico accento caldo è il **punto laser**: compare nelle linee di taglio, nelle quote, nelle frecce e negli stati attivi, mai come riempimento di superfici. Il blu del logo resta come colore d'identità e di focus. I dati tecnici sono composti in carattere monospaziato con cifre tabellari, come le letture di una macchina CNC.\n\nIl movimento è quello di una macchina: preciso, breve, con curve decise. Le animazioni lunghe sono riservate a ciò che spiega (la simulazione del taglio, la linea che si traccia); l'interfaccia di tutti i giorni risponde in meno di 300 ms.",
     "keyCharacteristics": [
-      "Light resin-concrete floor (cemento with a 6% fractal-noise grain), enamelled blue sign panels with white text.",
-      "Square corners everywhere (\"angoli vivi\"): 0px radius on every surface, field, button and focus ring.",
-      "A colour code with one meaning per hue: blue = signage/action, green = assistance only, yellow = focus and temporary placeholders only, red = errors and tricolor only.",
-      "Barlow Condensed as the sign face, Barlow for reading, a stencil face only for floor zone numerals.",
-      "Filled ISO-style pictograms on a 48×48 grid and one single arrow drawing for every direction.",
-      "A painted floor lane with white edge lines and chevrons that paints itself with scroll and lights the zones it reaches."
+      "Fondo grafite a tre livelli di profondità, nessun gradiente decorativo",
+      "Lastre chiare (#e7e5e0) per le macchine, con didascalia \"foto Golden Laser\"",
+      "Un solo accento caldo, il laser, sotto il 10% di ogni schermata",
+      "Titoli in Archivo stretto, dati in Martian Mono con cifre tabellari",
+      "Cartiglio tecnico, quote e linee di taglio come linguaggio ricorrente",
+      "Angoli quasi vivi (2–8 px), bordi sottili al posto delle ombre"
     ],
     "rules": [
       {
-        "name": "The Safety-Code Rule",
-        "body": "Each hue carries exactly one meaning. Blue is signage and action; green is assistance; yellow is focus or \"temporary\"; red is error or tricolor. A hue that appears outside its meaning is a bug.",
+        "name": "The One Laser Rule",
+        "body": "Il caldo è la luce del laser e nient'altro: linee, frecce, piccoli indicatori. Se un'area più grande di un pulsante diventa arancione, è un errore.",
         "section": "colors"
       },
       {
-        "name": "The Green Door Rule",
-        "body": "Green marks only the way to assistance: the board's assistance plate, zone 4, the assistance section and its form and button. A green \"success\" badge, a green CTA for quotes, or a green tick outside zone 4 breaks the code.",
+        "name": "The Lamiera Rule",
+        "body": "Le macchine si mostrano su lastra chiara, non su fondo scuro. Il resto della pagina resta grafite: non inserire sezioni intere a tema chiaro.",
         "section": "colors"
       },
       {
-        "name": "The Temporary Yellow Rule",
-        "body": "Yellow placeholders are dashed and visible on purpose. When the real fact arrives the plate is removed and the fact set as plain text; placeholders are never restyled into a permanent element.",
-        "section": "colors"
-      },
-      {
-        "name": "The Sign-Face Rule",
-        "body": "Anything that would be painted or printed on a sign (headings, machine names, buttons, nav, phone numbers, codes) is Barlow Condensed. Anything you read sitting down is Barlow. The stencil exists only on the floor.",
+        "name": "The Measured Data Rule",
+        "body": "Ogni valore misurabile (mm, kW, m/min, telefono, modelli) è in Martian Mono con cifre tabellari. Le parole restano in Archivo.",
         "section": "typography"
       },
       {
-        "name": "The One Band Rule",
-        "body": "Outside the brand-name plates, the board's band heading (\"Scegliete il reparto\") is the only uppercase tracked text: it is the real heading of the rows directly under it, sitting on a 3px white rule. No uppercase kicker ever sits above a section headline.",
+        "name": "The Readable Floor Rule",
+        "body": "Nessun testo funzionale sotto i 12 px. Le didascalie a 10,5–11,5 px oggi presenti (\"Immagine illustrativa\", didascalie delle lastre) sono un debito da correggere, non un modello.",
         "section": "typography"
       },
       {
-        "name": "The Follow-the-Lane Rule",
-        "body": "The page is a route, not a grid of boxes. New content joins the walk in order (board, lane, reparti, assistance, company, quote) and attaches to existing rules or the lane; it does not float as an independent card.",
-        "section": "layout"
-      },
-      {
-        "name": "The Floor-and-Panel Rule",
-        "body": "If it is painted on the floor, it is flat. If it hangs, it gets the hung-panel shadow. Nothing else casts a shadow, and no shadow is ever offset sideways or coloured.",
+        "name": "The No Glow Rule",
+        "body": "Nessun alone colorato su elementi dell'interfaccia. L'unico bagliore ammesso è il punto incandescente della testa laser nelle animazioni di taglio.",
         "section": "elevation"
-      },
-      {
-        "name": "The Angoli Vivi Rule",
-        "body": "Every corner is 0px. A rounded corner anywhere reads as a foreign object in the plant.",
-        "section": "shapes"
       }
     ],
     "dos": [
-      "Do keep every corner square (0px): buttons, plates, panels, fields, code tiles, zone boxes, focus ring.",
-      "Do give every wayfinding element the sign anatomy: blue ground, white Condensed text, a code tile or pictogram, and the single arrow at the end.",
-      "Do mark focus with the 3px signal-yellow outline (3px offset, 1px on fields) and, on light grounds, pair it with an ink edge as the fields do; yellow on cemento alone measures 1.45:1.",
-      "Do set headings, machine names, buttons, nav and phone numbers in Barlow Condensed 600/700, reading text in Barlow 400 at 1.0625rem/1.6, and use the stencil only for zone numerals.",
-      "Do draw new pictograms as filled solid shapes on a 48×48 grid, white on blue or blue on light grounds.",
-      "Do separate with rules, not boxes: 1px hairlines between rows, 3px ink rules under section heads, the 3px white rule on the board band.",
-      "Do keep placeholders as dashed yellow segnaposto plates until the client supplies the fact, then replace them with plain text.",
-      "Do keep tap targets at 48px or more and the phone number one tap away in the header, the board and the assistance section.",
-      "Do honour reduced motion: lane fully painted, zones reached, transitions and smooth scroll off."
+      "Do usare curve decise: `cubic-bezier(0.23, 1, 0.32, 1)` per entrate e risposte, `cubic-bezier(0.77, 0, 0.175, 1)` per movimenti in scena, `cubic-bezier(0.32, 0.72, 0, 1)` per cassetto e pannello.",
+      "Do tenere le risposte dell'interfaccia sotto i 300 ms (pressione 160 ms, hover 200 ms, tendina 200 ms).",
+      "Do limitare gli effetti di passaggio del mouse a `(hover: hover) and (pointer: fine)` e rispettare `prefers-reduced-motion`.",
+      "Do indicare sempre la provenienza delle immagini: \"foto Golden Laser\" sulle foto del costruttore, \"Immagine illustrativa\" sullo stock.",
+      "Do mostrare i dati tecnici in cartigli, tabelle e quote, con la fonte quando provengono dal costruttore."
     ],
     "donts": [
-      "Don't use green for anything except assistance.",
-      "Don't use yellow as a fill, accent or call to action; it is reserved for focus and arrival states and for temporary placeholders.",
-      "Don't use red outside form errors and the logo tricolor.",
-      "Don't use gradients, frosted or glass panels, glows, or rounded cards.",
-      "Don't add eyebrow or kicker labels above headings; the board's band heading is a heading, not a kicker.",
-      "Don't build a dark hero with sparks or a grid of product cards; machines appear as board rows and reparto rows.",
-      "Don't introduce a second arrow drawing, outline or stroked icons, icon fonts or emoji.",
-      "Don't substitute stock or generated machine photography, or invent client names, years or figures to fill a placeholder.",
-      "Don't recolour, redraw or reuse the logo's tricolor or logo blue as UI colours."
+      "Don't riprendere il sistema della v1 (\"segnaletica di stabilimento\": fondo cemento chiaro, pannelli blu pieni, Barlow Condensed, numeri a stencil, verde sicurezza). È archiviato in `sito/`.",
+      "Don't usare il caldo come riempimento di pulsanti o sezioni, né aloni colorati sull'interfaccia.",
+      "Don't aggiungere gradienti decorativi, contatori animati, dashboard simulate o linguaggio da SaaS.",
+      "Don't presentare foto Golden Laser o stock come installazioni TO.DE.L., né usare immagini di macchine generate con AI.",
+      "Don't pubblicare segnaposto visibili (\"Foto da inserire\"): in produzione si sostituiscono o si nascondono.",
+      "Don't scendere sotto i 12 px per testo funzionale né sotto i 44 px per aree cliccabili."
     ]
   }
 }
