@@ -12,6 +12,7 @@ Istruzioni complete, configurazione del modulo e sostituzione di foto e video: [
 | `sito-v3/` | **In uso** | `public/` va online; `functions/api/richiesta.js` riceve il modulo; `scripts/` imposta il dominio |
 | `sito-v2/` | Archivio | Versione intermedia. Non pubblicare, non modificare |
 | `sito/` | Archivio | Prima versione ("segnaletica di stabilimento", fondo chiaro, Barlow). Non pubblicare, non modificare |
+| `docs/website-factory/` | Processo | Scheda unica (`PROJECT_BRIEF.md`) e stato del progetto (`PROJECT_STATE.md`) secondo il Website Factory playbook |
 | `brief/` | Riferimento | I tre brief di progetto e le decisioni confermate dal titolare (8 ottobre 2026) |
 | `PRODUCT.md` | Riferimento | Azienda, pubblico, offerta, dati confermati, cosa non scrivere |
 | `DESIGN.md` | Riferimento | Sistema visivo della v4 (colori, caratteri, componenti, regole) |
