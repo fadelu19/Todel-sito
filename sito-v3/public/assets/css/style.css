@@ -664,12 +664,12 @@ p { text-wrap: pretty; }
 }
 @media (hover: hover) and (pointer: fine) { .materiale:hover { color: var(--testo); border-color: rgba(226, 232, 242, 0.4); } }
 
-.spessori { --k: 4px; --base: 34px; min-width: 0; overflow-x: clip; }
-.spessori__colonne { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: clamp(8px, 1.4vw, 18px); height: calc(60 * var(--k) + var(--base) + 44px); align-items: end; border-bottom: 1px solid var(--linea-forte); }
+.spessori { --k: 8px; --base: 34px; min-width: 0; overflow-x: clip; }
+.spessori__colonne { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(8px, 1.4vw, 18px); height: calc(30 * var(--k) + var(--base) + 44px); align-items: end; border-bottom: 1px solid var(--linea-forte); }
 .spessori__colonne li { position: relative; height: 100%; min-width: 0; }
 .spessori__lastra {
-  position: absolute; left: 0; right: 0; bottom: var(--base); height: calc(60 * var(--k)); transform-origin: bottom;
-  transform: scaleY(calc(var(--mm) / 60));
+  position: absolute; left: 0; right: 0; bottom: var(--base); height: calc(30 * var(--k)); transform-origin: bottom;
+  transform: scaleY(calc(var(--mm) / 30)); /* scala fino a 30 mm: il dato confermato (3–8 kW) */
   background: linear-gradient(90deg, #3a404b 0%, #5d6470 38%, #4a505b 62%, #363b45 100%);
   transition: transform 280ms var(--ease-out);
 }
@@ -1132,6 +1132,26 @@ html:not(.js) .appro + .appro { margin-top: 64px; padding-top: 48px; border-top:
 @keyframes retrofit-percorso { 0%, 58% { stroke-dashoffset: 260; } 92%, 100% { stroke-dashoffset: 0; } }
 @keyframes retrofit-etichetta { 0%, 50% { opacity: 0; } 60%, 100% { opacity: 1; } }
 
+/* leggibilità degli schemi su schermi stretti: sotto ~480 px il viewBox (400 unità) si riduce fino a ~0,8×,
+   quindi le etichette crescono in unità SVG per restare ≥ 12 px a schermo (verificato a 390 e 360 px) */
+@media (max-width: 520px) {
+  .vista .tec__nota { font-size: 15.5px; }
+  .vista .piega__quota text, .vista .retrofit__cifre { font-size: 17px; }
+  /* "Controllo: nuovo" più grande toccherebbe la base della macchina: allineata al bordo destro del disegno */
+  .vista .retrofit__etichetta { text-anchor: end; transform: translateX(122px); }
+  /* riquadro quadrato per gli schemi disegnati (5:3): sopra e sotto restano due fasce libere per
+     il commutatore Foto/Schema e la didascalia, che altrimenti coprono le etichette */
+  .vista__riquadro:has(.tec) { aspect-ratio: 1 / 1; }
+  /* "Punzone e matrice" a questa misura toccherebbe il punzone: la didascalia sotto dice già la stessa cosa */
+  .vista .tec--piega .tec__nota { display: none; }
+}
+/* tavole: lo schema di piegatura è ancora più piccolo, la quota "90°" cresce */
+.tavola__foto--schema .piega__quota text { font-size: 18px; }
+/* simulazione a scorrimento: le quote nel disegno. Su desktop un poco più grandi; su telefono il disegno
+   scende sotto 0,5× e le quote sarebbero di 5 px: si nascondono e i valori restano nel testo del passo 04 */
+.sim--storia .sim__quota-testo { font-size: 14px; }
+@media (max-width: 760px) { .sim--storia .sim__quota-testo { display: none; } }
+
 /* ---------- barra mobile ---------- */
 .barra-mobile { display: none; }
 
@@ -1243,7 +1263,7 @@ html:not(.js) .appro + .appro { margin-top: 64px; padding-top: 48px; border-top:
   .servizio, .servizio + .servizio { padding: 20px 0 10px; border-left: 0; }
   .servizio + .servizio { border-top: 1px solid var(--linea); }
   .spunto { min-height: 44px; }
-  .spessori { --k: 3px; }
+  .spessori { --k: 6px; }
   .spessori__colonne { gap: 6px; }
   .spessori__valore { flex-direction: column; align-items: flex-start; gap: 2px; font-size: 0.7rem; }
   .settori__righe { grid-template-columns: 1fr; }

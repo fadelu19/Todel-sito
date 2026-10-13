@@ -67,7 +67,7 @@ Legenda: ✅ confermato · ⚠️ DA CONFERMARE · ❌ NON DISPONIBILE · — no
 ## 8. Privacy, credibilità e rischi
 - Dati societari: P.IVA IT05573670659 ✅; REA e capitale sociale ❌
 - Privacy e cookie: bozze da far verificare al consulente ⚠️
-- Claim tecnici: incoerenza aperta tra il grafico degli spessori (fino a 60 mm a 20 kW, U3) e il messaggio "fino a 30 mm" ⚠️ (decisione del titolare)
+- Claim tecnici: grafico degli spessori limitato a 3–8 kW (massimo 30 mm), coerente con il messaggio "fino a 30 mm, in funzione di modello, potenza e materiale" ✅ (13 ottobre 2026)
 - Consensi immagini persone: necessari per la foto dei referenti ⚠️
 
 ## 9. Vincoli di progetto

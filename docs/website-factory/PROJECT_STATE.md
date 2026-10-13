@@ -1,12 +1,12 @@
 # Project State — TO.DE.L. Automazione Industriale
 
-**Ultimo aggiornamento:** 13 ottobre 2026, pomeriggio (completamento della homepage dopo la Hero della fase 8, playbook Website Factory v1.6.1)
+**Ultimo aggiornamento:** 13 ottobre 2026, sera (pre-lancio 1: accuratezza dei contenuti e leggibilità mobile, playbook Website Factory v1.6.1)
 **Repository e branch:** `fadelu19/Todel-sito`, branch `claude/todell-hero-integration-fvnvaw` (partito da `main` @ `399ba8e`). Questo file e `PROJECT_BRIEF.md` provengono dal branch `claude/website-factory-setup-ex8ea9` (commit `9ac4338`) e qui sono aggiornati: fa fede la versione su questo branch
 **Directory/versione attiva verificata:** `sito-v3/public/` (v4.1 + Hero della fase 8). `sito/` e `sito-v2/` sono archivio
 **Deploy/preview:** nessun deploy, nessun merge in `main`. Preview solo locale (server statico + Chromium headless)
 **Modalità:** Premium
 **Modulo settore:** A — Industria / B2B / macchinari
-**Fase corrente:** homepage completata sul branch (Hero della fase 8 + sezioni esistenti ripulite e allineate) → prossimo passo: revisione del titolare, poi collaudo complessivo pre-pubblicazione. **Il sito non è pronto al lancio** (vedi "Problemi aperti")
+**Fase corrente:** pre-lancio 1 concluso sul branch (dati tecnici, claim, leggibilità degli schemi) → la pubblicazione resta **bloccata da input esterni** (matrice sotto). **Il sito non è pronto al lancio**
 
 Brief: [`PROJECT_BRIEF.md`](PROJECT_BRIEF.md). Dati confermati: [`../../PRODUCT.md`](../../PRODUCT.md). Sistema visivo: [`../../DESIGN.md`](../../DESIGN.md).
 
@@ -41,6 +41,32 @@ Modifiche:
 5. **Ripiego senza JavaScript per gli approfondimenti**: prima i link "Approfondisci" / "Scheda tecnica" portavano a contenuti nascosti; ora, senza JS (o se `main.js` non parte), gli approfondimenti sono leggibili in fondo alla pagina e le ancore ci arrivano.
 6. **Correzioni JS**: (a) link diretto a un approfondimento che parte dallo schema animato (es. `/#taglio-plasma`) → errore "caricaTaglio before initialization": dichiarazione spostata in alto; (b) barra mobile: con un salto istantaneo dal fondo pagina restava nascosta per sempre (stato aggiornato solo al passaggio delle soglie degli osservatori): ora la posizione si legge dal vivo allo scorrimento (rAF); (c) vista degli approfondimenti senza pulsanti Foto/Schema gestita.
 
+## Pre-lancio 1 — accuratezza e leggibilità (13 ottobre 2026, sera)
+**A. Dati tecnici**
+- `index.html` sezione Applicazioni (`#applicazioni`): grafico spessori da 6 a 4 colonne (3, 4, 6, 8 kW), massimo 30 mm sul carbonio; tolte le colonne 12 kW (40 mm) e 20 kW (60 mm). Motivo: il dato confermato è "fino a 30 mm, in funzione di modello, potenza e materiale". I valori restano quelli della tabella U3 in `brief/golden-laser-modelli.md`, nessun dato nuovo.
+- Testo introduttivo: "Dipende dalla macchina, dal materiale e dalla potenza… valori massimi della serie Golden Laser U3 da 3 a 8 kW". Didascalia: "da 22 mm con 3 kW a 30 mm con 8 kW… non valgono per ogni macchina o configurazione. Spessore effettivo e qualità del bordo dipendono da macchina, materiale, gas e parametri".
+- `assets/js/main.js` (`SPESSORI`, `KW`): array a 4 valori; la sintesi accessibile (`#spessori-sintesi`, `aria-describedby` del grafico) usa l'ultimo valore invece dell'indice fisso 5.
+- `assets/css/style.css` (`.spessori*`): 4 colonne, scala massima 30 mm (prima 60), `--k` raddoppiato (8 px desktop, 6 px mobile) per mantenere l'altezza: il grafico resta "in scala".
+- Approfondimento taglio laser (`#taglio-laser-fibra`, nota fonte): tolto "Con potenze superiori gli spessori aumentano"; ora "Per altri modelli, potenze e configurazioni i valori ve li indichiamo nel preventivo".
+- Famiglia "Taglio lamiera": "fino a 30 mm di spessore" → "fino a 30 mm di spessore in funzione di potenza e materiale".
+- Ricerca 60/30 mm: nessun altro valore oltre 30 mm in HTML, JS, CSS e pagine secondarie. Restano "fino a 30 mm" con il riferimento a U3 / 8 kW (famiglia lamiera, passo 03 della storia, approfondimento), già condizionati. Nel brief del titolare (`brief/01`, esempio di tono "Taglio fino a 60 mm") la frase resta: è un documento sorgente, non contenuto del sito.
+
+**B. Claim commerciali** (scansione di `index.html`, `privacy`, `cookie`, `grazie`, `404`, meta, Open Graph, JSON-LD, `config`, JS)
+- "Rivenditore ufficiale", "esclusiva", "concessionario", "distributore", "autorizzato", "dealer": nessuna occorrenza nel sito (verificato anche nell'HTML grezzo delle pagine secondarie).
+- JSON-LD `LocalBusiness`: tolta la proprietà `brand` (Golden Laser, Gilardi, DAMI, Di Donato). Per schema.org indica i marchi "gestiti" dall'organizzazione: un motore di ricerca può leggerla come rapporto commerciale non documentato. Il resto del JSON-LD (dati aziendali, servizi) è documentato.
+- `#macchine`, testo introduttivo: "Vendiamo, installiamo e assistiamo la gamma Golden Laser" → "…macchine Golden Laser". "La gamma" suggerisce un rapporto di distribuzione dell'intera linea; la vendita di macchine Golden Laser è dichiarata dal titolare (`brief/01`).
+- `#metodo`, fase 02: "Golden Laser, Gilardi, DAMI, Di Donato" → "Macchine di più marchi". I nomi restano solo nella sezione Marchi, senza linee né qualifiche.
+- Restano invariati, perché tecnici e corretti: "scheda tecnica ufficiale Golden Laser" (fonte dei dati), "foto Golden Laser" (provenienza), meta description "Taglio laser fibra Golden Laser…" (prodotto trattato).
+- Sezione Marchi: Golden Laser con le sue linee (documentate); Gilardi, DAMI Engineering, Di Donato & Partners solo come nome, perché le linee vendute non sono confermate.
+
+**C. Leggibilità degli schemi** (misura della dimensione resa a schermo di ogni `<text>` SVG, con screenshot)
+- Prima: a 390 px etichette degli schemi a 9,5 px, "90°" nella tavola a 10,7 px, quote della simulazione a scorrimento a 5,7 px; a 360 px fino a 8,7 e 5,2 px; a 1440 px le quote della simulazione a 11,4 px.
+- Ora, a 1440, 760, 521, 520, 421, 390 e 360 px: **nessuna etichetta sotto i 12 px** fuori dalla Hero (minimo 12,2 px a 360), nessuna fuori dal disegno, nessuna coperta da commutatore o didascalia, nessuna sovrapposta a forme se non quelle volute (quota "90°" sul suo richiamo, cifre nel display, quote sul pezzo).
+- Come: sotto 520 px le etichette crescono in unità SVG (`.tec__nota` 15,5, "90°" e cifre 17); riquadro quadrato per gli schemi disegnati (`.vista__riquadro:has(.tec)`), così commutatore e didascalia stanno in fasce libere; "Controllo: nuovo" allineata a destra per non toccare la base della macchina; "Punzone e matrice" nascosta sotto 520 px (la didascalia dice la stessa cosa); "90°" nelle tavole a 18 unità; simulazione a scorrimento: quote a 14 unità su desktop, nascoste sotto 760 px, con i valori nel testo del passo 04 ("Staffa 300 × 170 mm, fori Ø 24").
+- **Hero non toccata:** le sue quote ("300 mm", "170", "Ø 24") restano a 7,3 px a 390 e 6,8 px a 360. Ingrandirle sovrapporrebbe le quote tra loro; serve una decisione (vedi matrice).
+
+**Asset:** tolta da `public/` `gl/gf1530jht-officina` (jpg e webp), non più usata dopo la Hero della fase 8.
+
 ## Divergenze trovate fra documenti e codice
 - Il case study del playbook (`10_TODEL_CASE_STUDY.md`) descrive `sito/` come cartella pubblicata e il North Star "Plant Signage System". **Non è più vero:** fanno fede il README e `DESIGN.md` (`sito-v3/public/`, direzione "tavola tecnica").
 - Nella radice del repo non esiste un `CLAUDE.md`. Il playbook non è copiato nel repo.
@@ -65,67 +91,62 @@ Modifiche:
 
 ## Decisioni e non-decisioni
 - Approvate: posizionamento "partner unico"; formule numeriche e 5 clienti in `PRODUCT.md`; direzione v4; Cloudflare Pages; **Hero della fase 8 come base di lavoro (13 ottobre)**; wordmark testuale provvisorio finché non arriva il logo originale; **niente "rivenditore ufficiale" senza autorizzazione scritta**; **niente foto stock senza licenza documentata, niente segnaposto visibili: disegni tecnici al loro posto** (istruzioni del 13 ottobre)
-- Ancora da confermare: dominio; canale di recapito del modulo (Resend o webhook); grafico spessori 60 mm contro messaggio "fino a 30 mm"; linee vendute di Gilardi, DAMI e Di Donato; nomi e ruoli dei referenti; WhatsApp aziendale; dicitura "Rivenditore ufficiale Golden Laser" (solo con autorizzazione scritta); diritti d'uso delle foto Golden Laser; logo definitivo
+- Ancora da confermare: dominio; canale di recapito del modulo (Resend o webhook); linee vendute di Gilardi, DAMI e Di Donato; nomi e ruoli dei referenti; WhatsApp aziendale; dicitura "Rivenditore ufficiale Golden Laser" (solo con autorizzazione scritta); diritti d'uso delle foto Golden Laser; logo definitivo
 - Escluse: e-commerce e prezzi; testimonianze e certificazioni (non fornite); direzioni v1 e v2; video nella Hero (nessun video TO.DE.L. pubblicabile)
 
 ## Asset
-- Riferimento: README in radice + `sito-v3/README.md` (manca un manifest formale)
-- In uso: foto ufficiali Golden Laser (`assets/img/gl/`, alcune con filigrana) nelle schede delle macchine; la Hero non usa più foto
-- Segnaposto visibili: nessuno. Foto stock: nessuna (tolte plasma, robot, CNC). Disegni tecnici in SVG per plasma, piegatura, automazione, retrofit, saldatura
-- Anteprima social: `og-todel.jpg` rigenerata dal disegno CAM della Hero
-- Marchio: wordmark testuale provvisorio ovunque nel sito; i file SVG del logo restano in `assets/img/` (non usati nelle pagine), il PNG nel JSON-LD
-- Mancanti: logo originale definitivo; foto reali di persone, sede, tecnici e installazioni; kit Golden Laser senza filigrana; video reali
-
-## Problemi aperti
-| Priorità | Problema | Impatto | Prossima azione | Stato |
-|---|---|---|---|---|
-| Bloccante | Modulo non configurato né provato end-to-end | Le richieste non arrivano | Titolare: dominio + Resend o webhook; poi un invio reale | Aperto |
-| Bloccante | Dominio assente (`DOMINIO-DA-INSERIRE` in canonical, OG, JSON-LD e sitemap) | SEO e anteprime social non funzionano | Titolare sceglie il dominio → `imposta-dominio.mjs` | Aperto |
-| ~~Bloccante~~ | ~~3 segnaposto "Foto da inserire" visibili~~ | | Sostituiti da disegni tecnici (13 ottobre) | Chiuso |
-| ~~Bloccante (pre-pubblicazione)~~ | ~~"Rivenditore ufficiale Golden Laser" fuori dalla Hero~~ | | Tolta da tutto il sito, metadati e immagine social compresi (13 ottobre) | Chiuso |
-| Bloccante (pre-pubblicazione) | Autorizzazione scritta Golden Laser assente | Senza, la dicitura del rivenditore non si può usare | Titolare: archiviare l'autorizzazione; poi decidere se rimettere la dicitura | Aperto |
-| Bloccante (diritti) | Foto Golden Laser (`assets/img/gl/`, alcune con filigrana) usate su indicazione verbale del titolare, senza autorizzazione scritta nel repository | Rischio sui diritti d'immagine | Titolare: conferma scritta o kit ufficiale per rivenditori; in alternativa sostituirle con disegni | Aperto |
-| Alta | Grafico spessori fino a 60 mm contro il messaggio "fino a 30 mm" | Coerenza del claim tecnico | Decisione del titolare | Aperto |
-| Alta | Privacy/cookie in bozza; REA e capitale sociale mancanti | Conformità | Consulente privacy + dati dal titolare | Aperto |
-| Media | Logo originale assente: ovunque il marchio testuale provvisorio | Identità | Titolare: logo originale | Aperto |
-| ~~Media~~ | ~~`DESIGN.md` non allineato alla Hero~~ | | Allineato (13 ottobre) | Chiuso |
-| Media | Foto reali assenti (persone, sede, installazioni, pressopiegatrice, campioni di taglio) | Credibilità | Titolare: foto con diritti; si inseriscono senza toccare la struttura (`sito-v3/README.md`) | Aperto |
-| Bassa | Etichette dei disegni negli approfondimenti a 11 px nel viewBox (sotto i 12 px del "Readable Floor" a certe larghezze); nelle tavole sono nascoste | Leggibilità | Ingrandire nel prossimo passaggio visivo | Aperto |
-| ~~Media~~ | ~~Foto hero con filigrana Golden Laser~~ | | Superato: la Hero non usa più foto | Chiuso |
-
+- Riferimento: README in radice, `sito-v3/README.md`, `brief/golden-laser-modelli.md` (provenienza delle foto Golden Laser). Manca un `ASSET_MANIFEST` formale: la classificazione sotto ne fa le veci
+- **Utilizzabili** (di TO.DE.L. o con licenza nel repository): disegni e simulazioni SVG, `og-todel.jpg` (generata dal disegno CAM), `favicon.svg`, file del logo TO.DE.L. (`logo-todel*.svg/png`, non usati nelle pagine), font Archivo e Martian Mono (`fonts/LICENSE-OFL.txt`)
+- **Da autorizzare** (foto e rendering ufficiali Golden Laser, forniti dal titolare l'8 ottobre, nessuna licenza scritta nel repository; la provenienza dal sito del produttore non è un'autorizzazione al riuso): `gl/lamiera-grande-formato`, `lamiera-cabinata`, `lamiera-compatta`, `lamiera-tubo-aperta`, `lamiera-tubo-cabinata`, `tubo-3d-5assi`, `tubo-s12r`, `tubo-caricatore`, `saldatrice-w`, `saldatura-robot-r`
+- **Da sostituire o autorizzare espressamente** (foto con filigrana Golden Laser): `gl/gf1530jht-fronte` (approfondimento laser, variante lamiera e tubo)
+- Tolti il 13 ottobre: stock plasma/robot/CNC, poi `gf1530jht-officina`. Segnaposto visibili: nessuno
+- Marchio: wordmark testuale provvisorio ovunque nel sito; il PNG del logo resta nel JSON-LD
+- Mancanti: logo originale definitivo; foto reali di persone, sede, tecnici, installazioni, pressopiegatrice, campioni di taglio; video reali
+## Matrice dei blocchi al lancio (13 ottobre 2026)
+| Blocco | Evidenza concreta | File o pagina | Azione necessaria | Responsabile | Stato |
+|---|---|---|---|---|---|
+| Spessori oltre il dato confermato | Grafico a 60 mm con 20 kW | `index.html` `#applicazioni`, `main.js`, `style.css` | Limitato a 3–8 kW, massimo 30 mm, con nota sulla configurazione | Implementazione tecnica | Risolto |
+| Dicitura "rivenditore ufficiale" e rapporti non documentati | Nessuna autorizzazione scritta; dicitura già tolta; `brand` nel JSON-LD | tutto il sito | Tolte dicitura e `brand`; testi neutri | Implementazione tecnica | Risolto |
+| Autorizzazione scritta Golden Laser | Nessun documento nel repository (`PRODUCT.md`: conferma solo verbale) | — | Archiviare l'autorizzazione; solo allora decidere se rimettere la dicitura | Titolare | Da confermare |
+| Diritti d'uso delle immagini Golden Laser | 11 file in `assets/img/gl/` senza licenza scritta; `gf1530jht-fronte` con filigrana | sezione Macchine, approfondimenti laser e saldatura | Autorizzazione scritta o kit ufficiale per rivenditori; altrimenti sostituire con disegni come per plasma e piegatura | Titolare (+ tecnica per la sostituzione) | **Bloccante** |
+| Fotografie originali | Nessuna foto di persone, sede, installazioni; componente `.referenti` vuoto | `#metodo`, Tecnologie | Foto con diritti; inserimento senza toccare la struttura (`sito-v3/README.md`) | Titolare | Da confermare (non bloccante: oggi nessun segnaposto visibile) |
+| Logo definitivo | Marchio testuale provvisorio in tutte le pagine | tutte | Fornire il logo originale; poi sostituire il wordmark | Titolare, poi tecnica | Da confermare |
+| Marchi e linee vendute | Gilardi, DAMI, Di Donato solo come nome; linee non confermate (`PRODUCT.md`) | `#marchi` | Conferma scritta dei marchi trattati e delle linee; poi eventuali descrizioni | Titolare | Da confermare |
+| Dati aziendali mancanti | REA e capitale sociale assenti nel piè di pagina e nella privacy; anno di fondazione, orari, tempi di assistenza non forniti | piè di pagina, `privacy.html` | Fornire i dati; nessun dato va inventato | Titolare | **Bloccante** (REA e capitale sociale) |
+| Dominio | `DOMINIO-DA-INSERIRE` in 11 punti di `index.html`, in `privacy`, `cookie`, `sitemap.xml` (3), `robots.txt` | canonical, OG, JSON-LD, sitemap, robots | Scegliere il dominio; `node sito-v3/scripts/imposta-dominio.mjs https://…` | Titolare, poi tecnica | **Bloccante** |
+| Recapito del modulo | `functions/api/richiesta.js` richiede `RESEND_API_KEY`, `EMAIL_MITTENTE`, `EMAIL_DESTINATARIO` o `LEAD_WEBHOOK_URL`; nessuno configurato | modulo `#contatti` | Configurare le variabili su Cloudflare Pages; invio reale di prova end-to-end | Titolare (account) + tecnica | **Bloccante** |
+| Backend e Turnstile | Pages Function mai eseguita; `turnstileSiteKey` vuoto nel `config`, `TURNSTILE_SECRET` non impostato | `functions/api/richiesta.js`, `index.html` `config` | Test su anteprima Cloudflare: invio valido, invio rifiutato, trappola antispam, Turnstile se attivato | Tecnica (con accesso dell'account) | Da confermare |
+| GA4 e consenso cookie | `analytics.ga4` vuoto: il banner non compare e nessun cookie di statistica è attivo; mappa Google caricata solo su richiesta | `consenso.js`, `cookie.html` | Se si attiva GA4: inserire il codice in `index.html` e `cookie.html`, verificare banner, rifiuto e revoca | Titolare (decisione) + tecnica | Da confermare |
+| Testi privacy e cookie | Commento "BOZZA… da far verificare al consulente privacy" in `privacy.html`; `cookie.html` in bozza | `privacy.html`, `cookie.html` | Verifica professionale; nessun testo è stato verificato da un consulente | Consulente privacy | **Bloccante** |
+| Quote della Hero su mobile | "300 mm", "170", "Ø 24" a 7,3 px (390) e 6,8 px (360); ingrandirle le sovrappone | Hero (`taglio.js` scena `eroeCam`, markup statico) | Decidere: nasconderle sotto 760 px come nella simulazione a scorrimento, oppure ridisegnarne la posizione | Titolare (Hero approvata), poi tecnica | Da confermare |
+| Accessibilità assistiva | Solo controlli automatici (nomi, alt, focus da tastiera, movimento ridotto) | tutto il sito | Prova con VoiceOver / TalkBack / NVDA; contrasto misurato con strumento | Tecnica | Da confermare |
+| Browser e dispositivi | Solo Chromium headless con emulazione mobile | tutto il sito | Safari iOS, Chrome Android, Firefox, Edge su dispositivi reali; Lighthouse / Core Web Vitals | Tecnica | Da confermare |
 ## Strumenti
 - Playwright + Chromium (preinstallati): **UTILIZZARE ORA** per QA e rendering, senza costi
 - Cloudflare Pages, Resend, Turnstile: **VALUTARE IN SEGUITO**, servono dominio, account del titolare e autorizzazione
 - GA4: **NON NECESSARIO** prima del lancio (è già predisposto, si attiva solo con il consenso)
 
 ## Prossima sessione — istruzioni operative
-1. Verifica il branch (`claude/todell-hero-integration-fvnvaw`), lo stato Git e il rendering prima di toccare il codice.
-2. Non presumere che questo documento sia più aggiornato del progetto.
-3. Non rifare strategia, Hero, animazioni né la pulizia della homepage: sono concluse.
-4. Prossimo passo: revisione del titolare sulla homepage; raccogliere da lui i bloccanti (autorizzazione Golden Laser, diritti foto, dominio, recapito del modulo, grafico spessori, logo). Poi collaudo complessivo pre-pubblicazione (fase 18) con dispositivi reali.
+1. Verifica branch, stato Git e rendering prima di toccare il codice; non presumere che questo documento sia più aggiornato del progetto.
+2. Non rifare strategia, Hero, homepage, claim né leggibilità degli schemi: sono conclusi.
+3. Prossima attività tecnica consigliata: preparare l'anteprima su Cloudflare Pages (branch preview, senza dominio) appena il titolare fornisce l'accesso, per provare Pages Function, recapito e Turnstile; nel frattempo collaudo su dispositivi reali (iOS Safari, Android Chrome) e Lighthouse.
+4. In attesa del titolare: autorizzazione e diritti Golden Laser, REA e capitale sociale, dominio, logo, marchi e linee, decisione sulle quote della Hero; consulente per privacy e cookie.
 5. Al termine aggiorna questo documento e i soli file pertinenti.
-
 ## Ultimo QA
-**13 ottobre 2026, homepage completa.** Server statico locale (`python3 -m http.server`) su `sito-v3/public`, Chromium headless via Playwright, script automatico; controllo visivo degli screenshot fatto da Claude. **Nessun test su dispositivi reali, nessun altro browser, nessuno screen reader.**
+**13 ottobre 2026, sera — regressione dopo il pre-lancio 1.** Server statico locale su `sito-v3/public`, Chromium headless via Playwright. **Nessun dispositivo reale, nessun altro browser, nessuno screen reader.**
 
-Verifiche automatiche a 1440 × 900, 390 × 844 e 360 × 740 (mobile in emulazione touch) — tutte PASS:
-- scorrimento orizzontale 0 su tutta la pagina; nessun id duplicato; un solo h1; tutte le immagini caricate e con `alt`; tutti i pulsanti con nome accessibile
-- tutte le ancore interne hanno una destinazione; ogni `data-apri` porta a un approfondimento esistente
-- un solo numero `tel:+393288241909` e una sola email `mailto:todelsrl@gmail.com` in tutta la pagina
-- testo della pagina senza "rivenditore ufficiale", senza "Foto da inserire", senza foto stock
-- tutti i 7 approfondimenti si aprono dal loro link, mostrano contenuto visibile (foto Golden Laser o disegno) e si chiudono con Esc
-- menu desktop (tendina → approfondimento; voce → ancora) e menu mobile (voce → chiude e porta all'ancora; voce macchina → approfondimento)
-- barra mobile: compare dopo la Hero, sparisce ai contatti, ricompare dopo un salto istantaneo dal fondo pagina (prima FAIL, corretto)
-- CTA "Richiedi preventivo" con precompilazione: valore e chip corretti, scorre al modulo
-- modulo: vuoto → errori su nome e telefono con focus sul primo; email non valida → errore; invio senza backend (POST → 501 del server statico) → messaggio "Invio non riuscito" con link email e telefono
-- Hero non regredita: simulazione completata, "Riproduci", nessuno scorrimento orizzontale
-- console: nessun errore oltre al 501 atteso del backend assente
-- link diretto a ciascuno dei 7 approfondimenti (`/#id`) a 390 × 844: si apre senza errori (prima FAIL su plasma, corretto)
+Automatico a 1440 × 900, 390 × 844 e 360 × 740 — **tutto PASS** (26 controlli a 1440, 28 per ciascuna viewport mobile):
+- scorrimento orizzontale 0; nessun id duplicato; un solo h1; immagini caricate e con `alt`; pulsanti con nome accessibile; ancore e `data-apri` con destinazione
+- un solo `tel:+393288241909`, una sola email
+- testo senza diciture di rivenditore, esclusiva, concessione o autorizzazione; nessun segnaposto o stock; **nessuno spessore oltre 30 mm**; **grafico a 4 colonne, massimo 30 mm**; **JSON-LD senza `brand`**
+- 7 approfondimenti: apertura, contenuto visibile, chiusura con Esc
+- menu desktop e mobile; barra mobile (anche dopo un salto istantaneo)
+- CTA con precompilazione; modulo: errori su campi vuoti ed email non valida, ripiego con email e telefono quando il backend non risponde (501 atteso del server statico)
+- Hero: simulazione completata con "Riproduci", nessuno scorrimento orizzontale
+- console senza errori oltre al 501 atteso
 
-Altre verifiche automatiche: tastiera su desktop (primi 8 Tab: "Vai al contenuto", marchio, voci del menu, telefono, tutti con focus visibile) PASS; movimento ridotto a 390 × 844 (Hero statica, approfondimento apribile, nessun errore) PASS; senza JavaScript a 1440, 390 e 360 (Hero statica, nessuno scorrimento orizzontale, `/#piegatura-e-cesoie` porta all'approfondimento in fondo pagina) PASS.
+Altro automatico — PASS: link diretto a ciascuno dei 7 approfondimenti; pagine `privacy`, `cookie`, `grazie`, `404` a 360 × 740 (nessun claim, nessuno scorrimento orizzontale, marchio, nessun errore); tastiera su desktop (focus visibile sui primi 8 elementi); movimento ridotto; senza JavaScript a tutte e tre le viewport.
 
-Verifiche manuali (screenshot osservati): tavole con disegni, approfondimento Piegatura senza commutatore, piè di pagina con marchio, anteprima social, ripiego senza JS. Coerenti con la Hero.
+Leggibilità degli schemi (misura della dimensione resa, 7 larghezze da 1440 a 360 px): **PASS** fuori dalla Hero (≥ 12 px, nessuna etichetta fuori dal disegno o coperta); **FAIL** nella Hero (quote a 6,8–7,3 px su mobile, lasciate in attesa di decisione). Screenshot osservati a 390 e 360 px: schemi di automazione, piegatura, retrofit e saldatura senza sovrapposizioni; grafico spessori a 1440 e 360 px.
 
-NOT TESTED: invio reale del modulo e Pages Function; Turnstile; banner di consenso con GA4 attivo (GA4 è vuoto, quindi nessun banner); risparmio dati / 2G; screen reader; contrasto misurato con strumento; Safari/iOS, Firefox, Android reali; Lighthouse / Core Web Vitals; pagine `privacy`, `cookie`, `grazie`, `404` oltre al cambio del marchio.
-
-QA della sola Hero (mattina del 13 ottobre, commit `80e4ae4`): soglia di avvio, Riproduci/Pausa/Riprendi, una volta per sessione, movimento ridotto e assenza di JS a 1440 × 900: PASS, dettagli nella cronologia Git di questo file.
+NOT TESTED: invio reale del modulo, Pages Function, Turnstile; banner di consenso con GA4 attivo; risparmio dati / 2G; screen reader; contrasto misurato con strumento; Safari/iOS, Firefox, Android reali; Lighthouse / Core Web Vitals.

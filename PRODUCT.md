@@ -66,7 +66,7 @@ Confirmed for publication (October 2026). Use these formulas exactly:
 - "oltre 30 anni nel settore" delle macchine e dell'automazione industriale — never "TO.DE.L. da 30 anni".
 - oltre 100 macchinari venduti; almeno 40 impianti plasma venduti; oltre 20 sistemi laser venduti, in diverse configurazioni; quasi 10 anni di esperienza nel taglio laser.
 - Citable customers: Cerbone; 3G Metal (carpenteria metallica); MGR (lavorazioni meccaniche); General Service (manutenzione industriale); Car Segnaletica (lavorazioni e segnaletica). More names to come. Logos only if authorized. Never invent customers.
-- Laser cutting capacity to communicate: "fino a 30 mm, in funzione di modello, potenza e materiale". Golden Laser data may be used only from official technical tables, only for models TO.DE.L. sells, and in doubtful cases the lower value. U3 values at 8 kW: carbon steel 30 mm, stainless 20 mm, aluminium 18 mm, brass 18 mm. Open issue: the thickness chart on the site shows up to 60 mm at 20 kW; align it with the 30 mm message once the owner confirms.
+- Laser cutting capacity to communicate: "fino a 30 mm, in funzione di modello, potenza e materiale". Golden Laser data may be used only from official technical tables, only for models TO.DE.L. sells, and in doubtful cases the lower value. U3 values at 8 kW: carbon steel 30 mm, stainless 20 mm, aluminium 18 mm, brass 18 mm. Resolved 13 October 2026: the thickness chart now shows only the U3 columns from 3 to 8 kW (maximum 30 mm, carbon steel), with a note that values depend on machine, material and configuration. The 12 and 20 kW columns of the official table (up to 60 mm) are not shown.
 
 Still missing (do not fabricate):
 

@@ -77,7 +77,7 @@ https://www.goldenfiberlaser.com/handheld-laser-welding-machine.html
 
 ## Immagini Golden Laser usate sul sito (fornite dal titolare l'8 ottobre 2026)
 Cartella `sito-v3/public/assets/img/gl/`. Foto e rendering ufficiali Golden Laser: la didascalia dice sempre "foto Golden Laser", mai "installazione TO.DE.L.".
-- `gf1530jht-officina` e `gf1530jht-fronte`: GF-1530JHT in un capannone (foto reali con filigrana Golden Laser; il modello è scritto sul fianco). Hero e approfondimento del taglio laser.
+- `gf1530jht-officina` e `gf1530jht-fronte`: GF-1530JHT in un capannone (foto reali con filigrana Golden Laser; il modello è scritto sul fianco). Aggiornamento 13 ottobre 2026: `gf1530jht-officina` non è più usata (la Hero è il disegno CAM) ed è stata tolta da `public/`; `gf1530jht-fronte` resta nell'approfondimento del taglio laser e tra le varianti lamiera e tubo.
 - `lamiera-grande-formato`, `lamiera-cabinata`, `lamiera-compatta`: famiglia lamiera. Il modello esatto non è dichiarato nell'immagine: didascalie per configurazione, non per modello.
 - `lamiera-tubo-aperta`, `lamiera-tubo-cabinata`: famiglia lamiera e tubo, didascalie per configurazione.
 - `tubo-3d-5assi`: serie i25A-3D / i35A-3D (stesso rendering della pagina ufficiale che riporta il nome). `tubo-s12r`: S12R (nome scritto sulla macchina). `tubo-caricatore`: linea di taglio tubo, senza modello.

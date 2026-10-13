@@ -30,4 +30,4 @@ FIRST VIEWPORT: navigazione con telefono e "Richiedi preventivo"; H1 "Taglio las
 SIGNATURE: simulazione vettoriale del taglio (hero alla prima visita, sezione a scorrimento, schemi nei pannelli) e linee di taglio che si tracciano.
 
 ## Unresolved
-Dominio ed email aziendale; recapito del modulo; foto di referenti, sede e installazioni; kit immagini Golden Laser; soglia di spessore da comunicare (30 mm o fino a 60 mm con 20 kW); linee trattate di Gilardi, DAMI, Di Donato; REA e capitale sociale; percorso Assistenza.
+Dominio ed email aziendale; recapito del modulo; foto di referenti, sede e installazioni; kit immagini Golden Laser; linee trattate di Gilardi, DAMI, Di Donato; REA e capitale sociale; percorso Assistenza.

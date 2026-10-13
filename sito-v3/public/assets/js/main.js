@@ -757,12 +757,13 @@ if (famiglie) {
    Applicazioni: spessore massimo per materiale e potenza (Golden Laser U3, scheda ufficiale)
    ========================================================= */
 const SPESSORI = {
-  carbonio: { nome: "Acciaio al carbonio", mm: [22, 25, 25, 30, 40, 60] },
-  inox: { nome: "Acciaio inox", mm: [12, 12, 16, 20, 30, 35] },
-  alluminio: { nome: "Alluminio", mm: [8, 12, 16, 18, 20, 25] },
-  ottone: { nome: "Ottone", mm: [8, 12, 16, 18, 20, 22] }
+  carbonio: { nome: "Acciaio al carbonio", mm: [22, 25, 25, 30] },
+  inox: { nome: "Acciaio inox", mm: [12, 12, 16, 20] },
+  alluminio: { nome: "Alluminio", mm: [8, 12, 16, 18] },
+  ottone: { nome: "Ottone", mm: [8, 12, 16, 18] }
 };
-const KW = [3, 4, 6, 8, 12, 20];
+/* solo fino a 8 kW: il messaggio confermato dal titolare è "fino a 30 mm"; le colonne 12 e 20 kW della scheda U3 non si mostrano */
+const KW = [3, 4, 6, 8];
 const sceltaMat = $("[data-materiali]");
 const grafico = $("[data-spessori]");
 if (sceltaMat && grafico) {
@@ -774,7 +775,8 @@ if (sceltaMat && grafico) {
     if (!d) return;
     bottoni.forEach((x) => { const si = x === b; x.setAttribute("aria-checked", String(si)); x.tabIndex = si ? 0 : -1; });
     colonne.forEach((li, i) => { li.style.setProperty("--mm", d.mm[i]); $("[data-v]", li).textContent = d.mm[i]; });
-    sintesi.textContent = `${d.nome}: da ${d.mm[0]} mm con ${KW[0]} kW a ${d.mm[5]} mm con ${KW[5]} kW.`;
+    const u = KW.length - 1;
+    sintesi.textContent = `${d.nome}: da ${d.mm[0]} mm con ${KW[0]} kW a ${d.mm[u]} mm con ${KW[u]} kW.`;
     if (focus) b.focus();
   };
   sceltaMat.addEventListener("click", (e) => {
