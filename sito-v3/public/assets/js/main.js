@@ -514,59 +514,64 @@ function segnaPausa(btn, inPausa) {
   $("use", btn).setAttribute("href", inPausa ? "#i-play" : "#i-pausa");
 }
 
-function tagliaEroe() {
-  if (!inquadratura || !docEl.classList.contains("taglio-eroe")) return;
-  sessione.set("todel-taglio", "1");
-  const w = inquadratura.clientWidth, h = inquadratura.clientHeight;
-  if (!w || !h || !inquadratura.animate) { finisciTaglio(); return; }
-  const ns = "http://www.w3.org/2000/svg";
-  const strato = document.createElement("div");
-  strato.className = "taglio-strato";
-  strato.setAttribute("aria-hidden", "true");
-  const svg = document.createElementNS(ns, "svg");
-  svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
-  svg.setAttribute("preserveAspectRatio", "none");
-  const solco = document.createElementNS(ns, "path");
-  solco.setAttribute("class", "taglio-strato__solco");
-  solco.setAttribute("d", `M0 0 V${h} H${w} V0 Z`);
-  svg.appendChild(solco);
-  const punto = document.createElement("span");
-  punto.className = "taglio-strato__punto";
-  strato.append(svg, punto);
-  inquadratura.appendChild(strato);
+/* il video resta disponibile ma spento finché non esiste un video TO.DE.L. pubblicabile (config.videoEroe vuoto) */
+videoEroe();
 
-  // contorno dall'angolo in alto a sinistra: prima il lato sinistro e il fondo (quelli che si vedono),
-  // poi il lato destro e il ritorno in alto. La testa rallenta su ogni spigolo.
-  const P = 2 * (w + h);
-  const o = [0, h / P, (h + w) / P, (2 * h + w) / P, 1];
-  const curva = "cubic-bezier(0.77, 0, 0.175, 1)"; // --ease-in-out: la testa frena su ogni spigolo
-  const durata = schermoMobile.matches ? 1000 : 1150;
-  const ritardo = 180;
-  const angoli = [[0, 0], [0, h], [w, h], [w, 0], [0, 0]];
-  const percorsi = [P, P - h, P - h - w, w, 0];
-  solco.style.strokeDasharray = `${P} ${P}`;
-  solco.style.strokeDashoffset = String(P);
-  const opz = { duration: durata, delay: ritardo, fill: "forwards" };
-  const aPunto = punto.animate(angoli.map(([x, y], i) => ({ transform: `translate(${x}px, ${y}px)`, offset: o[i], easing: curva })), opz);
-  solco.animate(percorsi.map((d, i) => ({ strokeDashoffset: d, offset: o[i], easing: curva })), opz);
-  aPunto.onfinish = () => {
-    // il pezzo si stacca: la lamiera cade e il solco si raffredda
-    inquadratura.classList.add("is-tagliato");
-    const uscita = "cubic-bezier(0.23, 1, 0.32, 1)"; // --ease-out
-    punto.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 220, easing: uscita, fill: "forwards" });
-    solco.animate([{ stroke: "#ffb46e", opacity: 1 }, { stroke: "#5c6370", opacity: 0 }], { duration: 900, easing: uscita, fill: "forwards" });
-    setTimeout(() => { strato.remove(); docEl.classList.remove("taglio-eroe"); inquadratura.classList.remove("is-tagliato"); }, 950);
+/* =========================================================
+   Hero (prototipo Fase 8): taglio CAM della staffa, unica animazione narrativa della pagina.
+   Una volta per sessione, ciclo sotto i 5 s, poi fermo sul pezzo finito con «Riproduci».
+   Senza JavaScript, con movimento ridotto o con risparmio dati resta il disegno statico del markup.
+   ========================================================= */
+const simEroeEl = $("[data-sim-eroe]");
+function simEroe() {
+  if (!simEroeEl) return;
+  const conn = navigator.connection || {};
+  if (riduci.matches || conn.saveData || /(^|-)2g$/.test(conn.effectiveType || "")) return;
+  let sim = null, stato = "fermo", inVista = false, sospesa = false;
+  const btn = document.createElement("button");
+  btn.type = "button"; btn.className = "tasto-pausa"; btn.hidden = true;
+  btn.innerHTML = '<svg class="i" aria-hidden="true"><use href="#i-pausa"/></svg><span data-sim-pausa-testo>Pausa</span>';
+  simEroeEl.appendChild(btn);
+  const etichetta = (testo, icona) => { $("[data-sim-pausa-testo]", btn).textContent = testo; $("use", btn).setAttribute("href", icona); btn.hidden = false; };
+  const fine = () => { stato = "finito"; etichetta("Riproduci", "#i-play"); };
+  const monta = () => caricaTaglio().then(({ creaSimulazione }) => {
+    if (sim) return sim;
+    sim = creaSimulazione(simEroeEl, { scena: "eroeCam", modo: "ciclo", lettura: lettureDi(simEroeEl) });
+    const statica = $(".sim__statica", simEroeEl);
+    if (statica) statica.remove();
+    new MutationObserver(() => { if (simEroeEl.dataset.statoTaglio === "attesa" && stato === "taglio") fine(); })
+      .observe(simEroeEl, { attributes: true, attributeFilter: ["data-stato-taglio"] });
+    return sim;
+  });
+  const avvia = () => monta().then((s) => {
+    s.riavvia(); s.play(); s.concludi();
+    stato = "taglio"; sospesa = false; etichetta("Pausa", "#i-pausa");
+    sessione.set("todel-taglio", "1");
+  });
+  btn.addEventListener("click", () => {
+    if (stato === "taglio") { sim.pause(); stato = "pausa"; etichetta("Riprendi", "#i-play"); }
+    else if (stato === "pausa") { sim.play(); sim.concludi(); stato = "taglio"; etichetta("Pausa", "#i-pausa"); }
+    else avvia();
+    traccia("pausa_animazione", { stato, origine: "hero" });
+  });
+  /* fuori schermo o scheda nascosta: si ferma e riprende da dove era */
+  const aggiorna = () => {
+    if (stato !== "taglio" && !sospesa) return;
+    if (inVista && !document.hidden) { if (sospesa) { sospesa = false; sim.play(); sim.concludi(); } }
+    else if (!sospesa) { sospesa = true; sim.pause(); }
   };
+  const giaVista = sessione.get("todel-taglio") === "1";
+  if (giaVista) fine();
+  new IntersectionObserver((v) => {
+    inVista = v[0].isIntersecting;
+    if (inVista && stato === "fermo") avvia();
+    else aggiorna();
+  }, { threshold: 0.5 }).observe(simEroeEl);
+  document.addEventListener("visibilitychange", aggiorna);
 }
-if (videoEroe()) finisciTaglio();
-else {
-  try {
-    if (inquadratura && docEl.classList.contains("taglio-eroe")) {
-      const img = $("img", inquadratura);
-      const via = () => requestAnimationFrame(() => { try { tagliaEroe(); } catch (e) { finisciTaglio(); } });
-      if (!img || img.complete) via(); else { img.addEventListener("load", via, { once: true }); img.addEventListener("error", finisciTaglio, { once: true }); }
-    }
-  } catch (e) { finisciTaglio(); }
+{
+  const differisci = () => ("requestIdleCallback" in window ? requestIdleCallback(simEroe, { timeout: 1200 }) : setTimeout(simEroe, 300));
+  if (document.readyState === "complete") differisci(); else window.addEventListener("load", differisci, { once: true });
 }
 
 /* storia del taglio guidata dallo scorrimento */

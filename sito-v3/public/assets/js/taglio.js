@@ -8,7 +8,7 @@
  * - prima i fori interni, poi il contorno esterno; rallentamento sugli spigoli vivi;
  * - nessun raggio visibile: solo il punto di lavorazione, il bagliore sotto l'ugello e le scintille in scia.
  *
- * Uso: creaSimulazione(elemento, { scena: "eroe" | "storia" | "plasma", modo: "ciclo" | "scorrimento" })
+ * Uso: creaSimulazione(elemento, { scena: "eroe" | "eroeCam" | "storia" | "plasma", modo: "ciclo" | "scorrimento" })
  * Restituisce { play, pause, imposta(progresso 0-1), fasi, durata, distruggi }.
  */
 
@@ -113,6 +113,17 @@ const SCENE = {
     vTaglio: 380, vRapido: 1300, tSfondamento: 0.35, attesa: 1.2,
     portale: 58, testa: 21, solco: 2.1,
     quote: true, tracce: true, programma: true, scala: 1.45
+  }),
+  /* Hero senza foto: la stessa staffa della storia, con tempi compressi (ciclo intero sotto i 5 s) e senza scintille */
+  eroeCam: () => ({
+    vista: [0, 0, 800, 520],
+    lamiera: { x: 20, y: 30, w: 700, h: 470 },
+    casa: { x: 752, y: 468 },
+    pezzi: [staffa(150, 160, 1.45)],
+    tipo: "laser",
+    vTaglio: 1250, vRapido: 3400, tSfondamento: 0.12, attesa: 0.8,
+    portale: 58, testa: 21, solco: 2.1,
+    quote: true, tracce: true, programma: true, scala: 1.45, scintille: false
   }),
   nesting: () => ({
     vista: [0, 0, 440, 600],
@@ -513,7 +524,7 @@ export function creaSimulazione(host, opzioni = {}) {
     bagliore.setAttribute("r", f(Math.max(0, rBase * livelloBagliore * tremolio)));
     bagliore.setAttribute("opacity", f(clamp(livelloBagliore)));
 
-    if (muove && precedente) {
+    if (muove && precedente && def.scintille !== false) {
       const mvx = (x - precedente.x) / dt, mvy = (y - precedente.y) / dt;
       if (s.tipo === "taglio") {
         const dir = Math.atan2(mvy, mvx) + Math.PI; // scia opposta all'avanzamento
