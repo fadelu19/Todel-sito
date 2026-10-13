@@ -1151,6 +1151,9 @@ html:not(.js) .appro + .appro { margin-top: 64px; padding-top: 48px; border-top:
    scende sotto 0,5× e le quote sarebbero di 5 px: si nascondono e i valori restano nel testo del passo 04 */
 .sim--storia .sim__quota-testo { font-size: 14px; }
 @media (max-width: 760px) { .sim--storia .sim__quota-testo { display: none; } }
+/* Hero: stesso caso sotto 760 px (quote a ~7 px). Si nascondono solo i numeri, nel fotogramma statico e in quello
+   generato da taglio.js; linee di quota, scala e animazione restano invariate. I valori sono nell'aria-label */
+@media (max-width: 760px) { .sim--eroe .sim__quota-testo { display: none; } }
 
 /* ---------- barra mobile ---------- */
 .barra-mobile { display: none; }

@@ -63,9 +63,16 @@ Modifiche:
 - Prima: a 390 px etichette degli schemi a 9,5 px, "90°" nella tavola a 10,7 px, quote della simulazione a scorrimento a 5,7 px; a 360 px fino a 8,7 e 5,2 px; a 1440 px le quote della simulazione a 11,4 px.
 - Ora, a 1440, 760, 521, 520, 421, 390 e 360 px: **nessuna etichetta sotto i 12 px** fuori dalla Hero (minimo 12,2 px a 360), nessuna fuori dal disegno, nessuna coperta da commutatore o didascalia, nessuna sovrapposta a forme se non quelle volute (quota "90°" sul suo richiamo, cifre nel display, quote sul pezzo).
 - Come: sotto 520 px le etichette crescono in unità SVG (`.tec__nota` 15,5, "90°" e cifre 17); riquadro quadrato per gli schemi disegnati (`.vista__riquadro:has(.tec)`), così commutatore e didascalia stanno in fasce libere; "Controllo: nuovo" allineata a destra per non toccare la base della macchina; "Punzone e matrice" nascosta sotto 520 px (la didascalia dice la stessa cosa); "90°" nelle tavole a 18 unità; simulazione a scorrimento: quote a 14 unità su desktop, nascoste sotto 760 px, con i valori nel testo del passo 04 ("Staffa 300 × 170 mm, fori Ø 24").
-- **Hero non toccata:** le sue quote ("300 mm", "170", "Ø 24") restano a 7,3 px a 390 e 6,8 px a 360. Ingrandirle sovrapporrebbe le quote tra loro; serve una decisione (vedi matrice).
+- **Hero:** quote ("300 mm", "170", "Ø 24") a 7,3 px a 390 e 6,8 px a 360. Risolto subito dopo, vedi "Chiusura del QA mobile della Hero".
 
 **Asset:** tolta da `public/` `gl/gf1530jht-officina` (jpg e webp), non più usata dopo la Hero della fase 8.
+
+## Chiusura del QA mobile della Hero (13 ottobre 2026)
+- Origine delle quote: `text.sim__quota-testo` dentro `.sim--eroe`, sia nel fotogramma statico del markup (senza JS e con movimento ridotto) sia nell'SVG generato da `taglio.js` (scena `eroeCam`, gruppo `.sim__quote`).
+- Correzione: `assets/css/style.css`, `@media (max-width: 760px) { .sim--eroe .sim__quota-testo { display: none; } }`. Si nascondono solo i numeri: linee di quota, scala, spaziature, tempi e composizione invariati; `taglio.js` non toccato. Stessa soluzione già usata per la simulazione a scorrimento.
+- Alternativa testuale: l'`aria-label` del riquadro (`role="img"`) ora dice "…vista dall'alto: pezzo di 300 × 170 mm con fori da Ø 24 mm" (valori presi dalle quote del disegno). Nessun testo visibile aggiunto.
+- Sopra 760 px nessun cambiamento: screenshot della Hero prima e dopo a 1440 × 900 identici pixel per pixel (0 pixel diversi, sia con animazione sia con movimento ridotto). A 390 e 360 px le differenze sono limitate all'area dei numeri tolti (~200 pixel).
+- Osservazione non corretta (fuori perimetro, già presente prima): a 360 px nel cartiglio sotto la Hero l'etichetta "POSIZIONAMENTO" tocca "VELOCITÀ DI POSIZIONAMENTO".
 
 ## Divergenze trovate fra documenti e codice
 - Il case study del playbook (`10_TODEL_CASE_STUDY.md`) descrive `sito/` come cartella pubblicata e il North Star "Plant Signage System". **Non è più vero:** fanno fede il README e `DESIGN.md` (`sito-v3/public/`, direzione "tavola tecnica").
@@ -118,7 +125,7 @@ Modifiche:
 | Backend e Turnstile | Pages Function mai eseguita; `turnstileSiteKey` vuoto nel `config`, `TURNSTILE_SECRET` non impostato | `functions/api/richiesta.js`, `index.html` `config` | Test su anteprima Cloudflare: invio valido, invio rifiutato, trappola antispam, Turnstile se attivato | Tecnica (con accesso dell'account) | Da confermare |
 | GA4 e consenso cookie | `analytics.ga4` vuoto: il banner non compare e nessun cookie di statistica è attivo; mappa Google caricata solo su richiesta | `consenso.js`, `cookie.html` | Se si attiva GA4: inserire il codice in `index.html` e `cookie.html`, verificare banner, rifiuto e revoca | Titolare (decisione) + tecnica | Da confermare |
 | Testi privacy e cookie | Commento "BOZZA… da far verificare al consulente privacy" in `privacy.html`; `cookie.html` in bozza | `privacy.html`, `cookie.html` | Verifica professionale; nessun testo è stato verificato da un consulente | Consulente privacy | **Bloccante** |
-| Quote della Hero su mobile | "300 mm", "170", "Ø 24" a 7,3 px (390) e 6,8 px (360); ingrandirle le sovrappone | Hero (`taglio.js` scena `eroeCam`, markup statico) | Decidere: nasconderle sotto 760 px come nella simulazione a scorrimento, oppure ridisegnarne la posizione | Titolare (Hero approvata), poi tecnica | Da confermare |
+| Quote della Hero su mobile | Erano a 7,3 px (390) e 6,8 px (360) | Hero | Nascoste sotto 760 px, valori nell'`aria-label`; desktop invariato | Implementazione tecnica | Risolto |
 | Accessibilità assistiva | Solo controlli automatici (nomi, alt, focus da tastiera, movimento ridotto) | tutto il sito | Prova con VoiceOver / TalkBack / NVDA; contrasto misurato con strumento | Tecnica | Da confermare |
 | Browser e dispositivi | Solo Chromium headless con emulazione mobile | tutto il sito | Safari iOS, Chrome Android, Firefox, Edge su dispositivi reali; Lighthouse / Core Web Vitals | Tecnica | Da confermare |
 ## Strumenti
@@ -147,6 +154,8 @@ Automatico a 1440 × 900, 390 × 844 e 360 × 740 — **tutto PASS** (26 control
 
 Altro automatico — PASS: link diretto a ciascuno dei 7 approfondimenti; pagine `privacy`, `cookie`, `grazie`, `404` a 360 × 740 (nessun claim, nessuno scorrimento orizzontale, marchio, nessun errore); tastiera su desktop (focus visibile sui primi 8 elementi); movimento ridotto; senza JavaScript a tutte e tre le viewport.
 
-Leggibilità degli schemi (misura della dimensione resa, 7 larghezze da 1440 a 360 px): **PASS** fuori dalla Hero (≥ 12 px, nessuna etichetta fuori dal disegno o coperta); **FAIL** nella Hero (quote a 6,8–7,3 px su mobile, lasciate in attesa di decisione). Screenshot osservati a 390 e 360 px: schemi di automazione, piegatura, retrofit e saldatura senza sovrapposizioni; grafico spessori a 1440 e 360 px.
+Leggibilità degli schemi (misura della dimensione resa, 7 larghezze da 1440 a 360 px): **PASS** fuori dalla Hero (≥ 12 px, nessuna etichetta fuori dal disegno o coperta). Hero, dopo la chiusura del QA mobile: **PASS**, nessuna quota visibile a 390 e 360 px (né durante il taglio né a fine ciclo, né nel fotogramma statico), quote a 12,6 px a 1440 come prima.
+
+Regressione dopo la chiusura del QA mobile della Hero — PASS a 1440 × 900, 390 × 844, 360 × 740: tutta la suite sopra (26/28/28 controlli), Hero (avvio senza scorrere, Pausa → Riprendi → Riproduci, fermo fuori vista, nessuna ripartenza, seconda visita, movimento ridotto, senza JS), nessun errore di console né richiesta fallita nella Hero, nessuno scorrimento orizzontale; confronto screenshot prima/dopo come sopra. Screenshot osservati a 390 e 360 px: schemi di automazione, piegatura, retrofit e saldatura senza sovrapposizioni; grafico spessori a 1440 e 360 px.
 
 NOT TESTED: invio reale del modulo, Pages Function, Turnstile; banner di consenso con GA4 attivo; risparmio dati / 2G; screen reader; contrasto misurato con strumento; Safari/iOS, Firefox, Android reali; Lighthouse / Core Web Vitals.
