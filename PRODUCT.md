@@ -26,7 +26,7 @@ Company website for TO.DE.L. Automazione Industriale S.r.l. Success = qualified 
 
 **Partner unico** (confirmed by the owner as the real differentiator): sale, installation, training and assistance from the same local referent, with own technicians — the customer does not deal with a distant importer plus a separate service company.
 
-**Official Golden Laser dealer** ("Rivenditore ufficiale Golden Laser"): confirmed by the owner (October 2026) and used on the site. A written dealer authorization is still to be obtained and kept on file.
+**Official Golden Laser dealer** ("Rivenditore ufficiale Golden Laser"): stated verbally by the owner (October 2026), but **not published**: no written dealer authorization is on file in the repository. Since 13 October 2026 the site only says that TO.DE.L. sells, installs and services the Golden Laser range (owner statement, brief/01 "Gamma trattata"). The wording can return only once the written authorization is archived.
 
 ## Operating Context
 
@@ -56,7 +56,7 @@ Company website for TO.DE.L. Automazione Industriale S.r.l. Success = qualified 
 
 ## Brand Commitments
 
-- Logo: two interlocking gears, serif wordmark "TO.DE.L.", subline "Automazione Industriale S.r.l.", Italian tricolor bar underneath. The brand name is always written "TO.DE.L.". The vector logo exists (`sito-v3/public/assets/img/logo-todel-*.svg`); on the dark site it is used in white.
+- Logo: two interlocking gears, serif wordmark "TO.DE.L.", subline "Automazione Industriale S.r.l.", Italian tricolor bar underneath. The brand name is always written "TO.DE.L.". The vector logo exists (`sito-v3/public/assets/img/logo-todel-*.svg`); on the dark site it is used in white. On the site, since the Hero of phase 8, a provisional text wordmark ("TO.DE.L. / Automazione Industriale") replaces the SVG logo in header, mobile menu, footer and secondary pages, pending the original logo.
 - Original logo blue (~#42519A) survives on the site as `--blu` / `--blu-chiaro` (identity and focus), not as a fill color.
 
 ## Evidence on Hand
@@ -71,7 +71,7 @@ Confirmed for publication (October 2026). Use these formulas exactly:
 Still missing (do not fabricate):
 
 - Real photos of the people, premises, technicians and installations. Existing company photos are low quality. Planned: photo of the owner's family (father and brother) for the "Referenti" block, names and roles only once confirmed.
-- Golden Laser dealer image/video kit (requested). Until then: official Golden Laser photos labelled "foto Golden Laser", stock labelled "Immagine illustrativa", never presented as TO.DE.L. installations.
+- Golden Laser dealer image/video kit (requested). Until then: official Golden Laser photos labelled "foto Golden Laser", never presented as TO.DE.L. installations. Stock photos without a documented licence were removed on 13 October 2026 and replaced by technical drawings.
 - Founding year (available, not provided), REA number and share capital, opening hours, assistance response times.
 - Testimonials, case studies, certifications: none provided.
 

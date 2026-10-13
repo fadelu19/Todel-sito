@@ -29,7 +29,14 @@ const archivio = (tipo) => ({
 const sessione = archivio("sessionStorage");
 
 const barra = $("[data-barra]");
-const statoBarra = { eroe: true, contatti: false };
+const eroeBarra = $(".eroe");
+const contattiBarra = $("[data-contatti]");
+
+/* motore della simulazione, caricato solo quando serve. Dichiarato qui perché anche un link diretto
+   a un approfondimento (es. /#taglio-plasma) può avviarlo durante il caricamento della pagina */
+let modTaglio = null;
+const caricaTaglio = () => modTaglio || (modTaglio = import("./taglio.js"));
+const lettureDi = (el) => ({ x: $("[data-lettura-x]", el), y: $("[data-lettura-y]", el), stato: $("[data-lettura-stato]", el) });
 
 /* iOS applica :active solo se esiste un listener touchstart */
 document.addEventListener("touchstart", () => {}, { passive: true });
@@ -453,13 +460,6 @@ document.addEventListener("click", (e) => {
 });
 
 /* =========================================================
-   Motore della simulazione (caricato solo quando serve)
-   ========================================================= */
-let modTaglio = null;
-const caricaTaglio = () => modTaglio || (modTaglio = import("./taglio.js"));
-const lettureDi = (el) => ({ x: $("[data-lettura-x]", el), y: $("[data-lettura-y]", el), stato: $("[data-lettura-stato]", el) });
-
-/* =========================================================
    Hero (prototipo Fase 8): taglio CAM della staffa, unica animazione narrativa della pagina.
    Una volta per sessione, ciclo sotto i 5 s, poi fermo sul pezzo finito con «Riproduci».
    Senza JavaScript, con movimento ridotto o con risparmio dati resta il disegno statico del markup.
@@ -853,7 +853,9 @@ function preparaVista(vista) {
     else if (ctrl) ctrl.ferma();
     if (utente) { const art = vista.closest(".appro"); traccia("cambia_vista", { vista: quale, soluzione: art ? art.dataset.soluzione : "" }); }
   };
-  const iniziale = (bottoni.find((b) => b.getAttribute("aria-pressed") === "true") || bottoni[0]).dataset.vistaMostra;
+  /* senza foto autorizzata la vista ha solo lo schema e nessun comando */
+  const attivo = bottoni.find((b) => b.getAttribute("aria-pressed") === "true") || bottoni[0];
+  const iniziale = attivo ? attivo.dataset.vistaMostra : "schema";
   bottoni.forEach((b) => b.addEventListener("click", () => { if (b.getAttribute("aria-pressed") !== "true") mostra(b.dataset.vistaMostra, true); }));
   vista._pronta = { mostra, iniziale };
   return vista._pronta;
@@ -870,18 +872,23 @@ function animaApprofondimento(art) {
 /* =========================================================
    Barra mobile: dopo la hero, nascosta ai contatti e con pannelli aperti
    ========================================================= */
+/* posizione letta dal vivo: con gli osservatori un salto istantaneo (fondo pagina → inizio) non attraversava nessuna soglia
+   e la barra restava nascosta fino ai contatti successivi */
 function aggiornaBarra() {
   if (!barra) return;
-  const vis = !statoBarra.eroe && !statoBarra.contatti && !pannelloAperto() && !cassettoAperto();
+  const sopraEroe = eroeBarra && eroeBarra.getBoundingClientRect().bottom > 0;
+  const aiContatti = contattiBarra && contattiBarra.getBoundingClientRect().top < window.innerHeight * 0.95;
+  const vis = !sopraEroe && !aiContatti && !pannelloAperto() && !cassettoAperto();
   barra.toggleAttribute("data-visibile", vis);
   barra.setAttribute("aria-hidden", String(!vis));
   $$("a", barra).forEach((a) => (a.tabIndex = vis ? 0 : -1));
 }
-if (barra && "IntersectionObserver" in window) {
-  const eroe = $(".eroe");
-  const contatti = $("[data-contatti]");
-  new IntersectionObserver((v) => { statoBarra.eroe = v[0].isIntersecting; aggiornaBarra(); }).observe(eroe);
-  new IntersectionObserver((v) => { statoBarra.contatti = v[0].isIntersecting || v[0].boundingClientRect.top < 0; aggiornaBarra(); }, { threshold: 0.05 }).observe(contatti);
+if (barra) {
+  let attesaBarra = 0;
+  const pianifica = () => { if (!attesaBarra) attesaBarra = requestAnimationFrame(() => { attesaBarra = 0; aggiornaBarra(); }); };
+  window.addEventListener("scroll", pianifica, { passive: true });
+  window.addEventListener("resize", pianifica, { passive: true });
+  aggiornaBarra();
 }
 
 /* =========================================================

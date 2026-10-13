@@ -35,13 +35,13 @@ Legenda: ✅ confermato · ⚠️ DA CONFERMARE · ❌ NON DISPONIBILE · — no
 - Offerta: taglio laser fibra; saldatura e pulizia laser; presse piegatrici e cesoie; tavoli plasma; robot e cobot; retrofit CNC; usato; supporto alla parte finanziaria dell'acquisto ✅
 - Gamma Golden Laser trattata: elenco completo in `PRODUCT.md` ✅. Altri marchi (Gilardi, DAMI Engineering, Di Donato & Partners): solo il nome, le linee vendute sono ⚠️
 - Differenziatore: **partner unico** (vendita, installazione, formazione e assistenza dallo stesso referente locale, con tecnici propri) ✅
-- Rivenditore ufficiale Golden Laser: confermato dal titolare ✅; autorizzazione scritta da archiviare ⚠️
+- Rivenditore ufficiale Golden Laser: dichiarato dal titolare, **non pubblicato** finché l'autorizzazione scritta non è archiviata nel repository ⚠️ (sul sito: "vendiamo, installiamo e assistiamo la gamma Golden Laser")
 - Prove pubblicabili: formule esatte in `PRODUCT.md` → "Evidence on Hand" (oltre 30 anni nel settore, oltre 100 macchinari, almeno 40 impianti plasma, oltre 20 sistemi laser, 5 clienti citabili) ✅
 - Cosa NON promettere: testimonianze, casi studio, certificazioni (nessuno fornito); "TO.DE.L. da 30 anni"; dati tecnici di piegatura, plasma, cobot e retrofit; capacità laser oltre "fino a 30 mm, in funzione di modello, potenza e materiale" ✅
 - Prezzi: nessun prezzo, nessun e-commerce ✅
 
 ## 5. Brand e direzione visiva
-- Logo: due ingranaggi, wordmark serif, barra tricolore; vettoriale in `sito-v3/public/assets/img/` ✅
+- Logo: due ingranaggi, wordmark serif, barra tricolore; vettoriale in `sito-v3/public/assets/img/` ✅. Sul sito per ora il marchio testuale provvisorio, in attesa del logo originale ⚠️
 - Direzione approvata e in uso: v4 "tavola tecnica" (fondo grafite, lastre chiare per le macchine, un accento caldo, punto laser) → `DESIGN.md` ✅
 - Direzioni abbandonate: v1 "segnaletica di stabilimento" (`sito/`), `sito-v2/` ✅
 - Tono: concreto, tecnico, affidabile; niente "innovazione" generica ✅
@@ -51,7 +51,7 @@ Legenda: ✅ confermato · ⚠️ DA CONFERMARE · ❌ NON DISPONIBILE · — no
 - Foto aziendali reali (persone, sede, tecnici, installazioni): ❌ (quelle esistenti sono di bassa qualità)
 - Foto Golden Laser ufficiali: in `sito-v3/public/assets/img/gl/`, provenienza in `brief/golden-laser-modelli.md`; alcune con filigrana ✅/⚠️
 - Kit immagini e video del rivenditore Golden Laser: richiesto, non ricevuto ❌
-- Stock: ammesso solo con etichetta "Immagine illustrativa", mai presentato come installazione TO.DE.L. ✅
+- Stock: non usato. Le foto stock senza licenza documentata (plasma, robot, CNC) sono state tolte il 13 ottobre 2026 e sostituite da disegni tecnici ❌
 - Clienti citabili: 5 nomi; loghi solo se autorizzati ✅/⚠️
 - Video reali: ❌ (la sezione `#video` resta nascosta finché non ce ne sono almeno 2)
 

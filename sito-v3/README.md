@@ -56,10 +56,11 @@ Se si attiva GA4, copiare lo stesso codice anche nel `config` di `cookie.html`.
 ## Sostituire immagini e video
 
 - Foto Golden Laser: in `assets/img/gl/` (elenco e provenienza in `../brief/golden-laser-modelli.md`). Le foto delle macchine stanno su "lastre" chiare: i rendering a fondo bianco si fondono con la lastra, le foto d'ambiente si vedono intere.
-- Segnaposto ancora aperti: campioni di taglio (sezione Applicazioni) e pressopiegatrice (tavola Piegatura nella sezione Tecnologie e approfondimento). Sostituire il blocco `.segnaposto` con un `<img>` o `<picture>`.
+- Plasma, piegatura e automazione (tavole della sezione Tecnologie) e gli approfondimenti di plasma, piegatura, automazione e retrofit mostrano un disegno tecnico, perché non ci sono foto con diritti verificati. Per mettere una foto reale: nella tavola, un `<picture>` dentro `.tavola__foto` al posto dell'SVG (togliendo `tavola__foto--schema`); nell'approfondimento, una seconda `figure.vista__strato[data-vista-strato="foto"]` più i pulsanti `.vista__comandi` Foto/Schema, come nel taglio laser. Mai segnaposto visibili.
 - Foto della famiglia TO.DE.L. (sezione Metodo, componente `.referenti`): mettere la foto in `assets/img/famiglia/` (orizzontale 3:2, almeno 1600 px, `.jpg` + `.webp`) e inserire `<img src="..." alt="..." width="..." height="..." loading="lazy">` dentro `<div class="referenti__foto"></div>`. Il riquadro compare da solo quando contiene la foto. Nomi e ruoli nell'alt o nella didascalia solo se confermati.
 
-- Foto: stesse dimensioni e nomi in `assets/img/` (versione `.jpg`, `.webp` e `-640.webp`), oppure cambiare i percorsi nell'HTML. Togliere l'etichetta "Immagine illustrativa" quando la foto è reale.
+- Foto: versione `.jpg`, `.webp` e `-640.webp` in `assets/img/`, solo con licenza o autorizzazione documentata. Le foto stock precedenti (plasma, robot, CNC) sono state tolte perché la licenza non era documentata.
+- Anteprima social (`assets/img/og-todel.jpg`, 1200 × 630): generata dal disegno CAM della Hero, senza foto di terzi.
 - Video hero: oggi non previsto (la Hero è la simulazione CAM). Se in futuro servirà un video TO.DE.L., va ricollegato in `main.js`; formati di riferimento: WebM ≤ 3 MB, MP4 ≤ 5 MB, MP4 mobile 720p ≤ 1,5 MB, poster ≤ 50 KB, 8–12 s in loop. Didascalia con modello e fonte, mai "installazione TO.DE.L." se non lo è.
 - Video reali: decommentare gli esempi nella sezione `#video`. La sezione compare da sola quando ci sono almeno 2 video.
 

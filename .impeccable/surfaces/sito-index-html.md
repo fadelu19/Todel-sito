@@ -17,7 +17,7 @@ Titolari e responsabili di produzione di PMI manifatturiere (carpenteria metalli
 Primaria: richiesta di preventivo, precompilata con il macchinario scelto. Secondarie: chiamare, chiedere assistenza (percorso dedicato da costruire).
 
 ## Proof / content
-Numeri confermati (oltre 30 anni nel settore, oltre 100 macchinari, almeno 40 plasma, oltre 20 laser, quasi 10 anni nel laser), rivenditore ufficiale Golden Laser, 5 clienti citabili, dati tecnici ufficiali Golden Laser con fonte. Mancano foto reali di persone, sede e installazioni: oggi foto Golden Laser (dichiarate) e stock ("Immagine illustrativa").
+Numeri confermati (oltre 30 anni nel settore, oltre 100 macchinari, almeno 40 plasma, oltre 20 laser, quasi 10 anni nel laser), gamma Golden Laser (la dicitura "rivenditore ufficiale" non si pubblica senza autorizzazione scritta), 5 clienti citabili, dati tecnici ufficiali Golden Laser con fonte. Mancano foto reali di persone, sede e installazioni: oggi foto Golden Laser (dichiarate) e stock ("Immagine illustrativa").
 
 ## Constraints
 HTML/CSS/JS statico, font self-hosted, italiano, WCAG 2.2 AA. Modulo verso Cloudflare Pages Function (`functions/api/richiesta.js`), ancora da configurare. Nessun segnaposto visibile in produzione.

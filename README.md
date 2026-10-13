@@ -35,11 +35,13 @@ Variabili d'ambiente per il modulo (`RESEND_API_KEY`, `EMAIL_MITTENTE`, `EMAIL_D
 
 ## Da completare prima della messa online
 
-Fatto: logo vettoriale, clienti citabili (5), numeri aziendali, P.IVA nel piè di pagina, bozza di privacy e cookie, backend del modulo.
+Fatto: logo vettoriale, clienti citabili (5), numeri aziendali, P.IVA nel piè di pagina, bozza di privacy e cookie, backend del modulo, nessun segnaposto o foto stock visibile (13 ottobre 2026: sostituiti da disegni tecnici).
 
 - [ ] Dominio definitivo ed email aziendale; poi `node sito-v3/scripts/imposta-dominio.mjs https://www.dominio.it`
 - [ ] Recapito del modulo configurato su Cloudflare e provato con un invio reale (Resend con dominio verificato, oppure webhook)
-- [ ] Togliere i segnaposto "Foto da inserire" (tavola Piegatura, striscia campioni, pannello Piegatura)
+- [ ] Autorizzazione scritta di Golden Laser da archiviare: senza, il sito non dice "rivenditore ufficiale" (vedi `docs/website-factory/PROJECT_STATE.md`)
+- [ ] Diritti d'uso delle foto Golden Laser (`assets/img/gl/`) confermati per iscritto, oppure kit ufficiale per rivenditori
+- [ ] Logo originale definitivo (oggi marchio testuale provvisorio)
 - [ ] Kit immagini Golden Laser per rivenditori, ad alta risoluzione e senza filigrana (schede delle macchine; la Hero non usa più foto)
 - [ ] Foto dei referenti TO.DE.L. e di installazioni reali
 - [ ] REA e capitale sociale nel piè di pagina; verifica di privacy e cookie da parte del consulente

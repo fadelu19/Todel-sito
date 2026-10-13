@@ -13,7 +13,7 @@
 <meta property="og:locale" content="it_IT">
 <meta property="og:site_name" content="TO.DE.L. Automazione Industriale">
 <meta property="og:title" content="TO.DE.L. | Taglio laser, plasma e automazione per la lamiera">
-<meta property="og:description" content="Tecnologie industriali, installazione e assistenza con un unico referente. Rivenditore ufficiale Golden Laser. Battipaglia (SA).">
+<meta property="og:description" content="Taglio laser, plasma, piegatura e automazione per la lamiera: scelta, installazione e assistenza con un unico referente. Battipaglia (SA).">
 <meta property="og:url" content="https://DOMINIO-DA-INSERIRE/">
 <meta property="og:image" content="https://DOMINIO-DA-INSERIRE/assets/img/og-todel.jpg">
 <meta property="og:image:width" content="1200">
@@ -263,7 +263,7 @@
             <div><dt>Impianti plasma venduti</dt><dd><span class="distinta__pre">almeno</span><span class="distinta__n">40</span></dd></div>
             <div><dt>Sistemi laser venduti, in diverse configurazioni</dt><dd><span class="distinta__pre">oltre</span><span class="distinta__n">20</span></dd></div>
             <div><dt>Esperienza nel taglio laser</dt><dd><span class="distinta__pre">quasi</span><span class="distinta__n">10</span><span class="distinta__u">anni</span></dd></div>
-            <div><dt>Golden Laser</dt><dd><span class="distinta__marchio">Rivenditore ufficiale</span></dd></div>
+            <div><dt>Installazione e assistenza</dt><dd><span class="distinta__marchio">Tecnici propri</span></dd></div>
           </dl>
           <p class="nota">Dati aziendali TO.DE.L.</p>
         </div>
@@ -286,7 +286,7 @@
     <div class="contenitore">
       <header class="testa-sezione">
         <h2 id="titolo-macchine">Macchine Golden Laser per lamiera, tubo e saldatura</h2>
-        <p>Siamo rivenditore ufficiale: vendiamo, installiamo e assistiamo la gamma Golden Laser, dalla scelta della configurazione alla manutenzione.</p>
+        <p>Vendiamo, installiamo e assistiamo la gamma Golden Laser, dalla scelta della configurazione alla manutenzione.</p>
       </header>
 
       <div class="famiglie" data-famiglie>
@@ -430,12 +430,17 @@
       </header>
       <ul class="tavole">
         <li class="tavola" data-luce>
-          <figure class="tavola__foto">
-            <picture>
-              <source type="image/webp" srcset="assets/img/plasma-640.webp 640w, assets/img/plasma.webp 1000w" sizes="(max-width: 760px) 100vw, 33vw">
-              <img src="assets/img/plasma.jpg" alt="Torcia al plasma che taglia una lamiera d’acciaio, con scintille" width="1000" height="667" loading="lazy" decoding="async">
-            </picture>
-            <figcaption>Immagine illustrativa</figcaption>
+          <figure class="tavola__foto tavola__foto--schema">
+            <svg class="tec tec--plasma" viewBox="0 0 400 240" aria-hidden="true" focusable="false">
+              <g class="tec__piano"><path d="M0 214 H400"/></g>
+              <g class="tec__corpo"><rect x="70" y="170" width="6" height="44"/><rect x="130" y="170" width="6" height="44"/><rect x="264" y="170" width="6" height="44"/><rect x="324" y="170" width="6" height="44"/></g>
+              <rect class="tec__lamiera-piena" x="40" y="146" width="155" height="24"/>
+              <rect class="tec__lamiera-piena" x="205" y="146" width="155" height="24"/>
+              <rect class="tec__corpo" x="176" y="40" width="48" height="70"/>
+              <polygon class="tec__corpo" points="184,110 216,110 207,132 193,132"/>
+              <line class="tec__arco" x1="200" y1="132" x2="200" y2="176"/>
+              <text class="tec__nota" x="20" y="24">Torcia, arco e solco nella lamiera</text>
+              </svg>
           </figure>
           <div class="tavola__testo">
             <h3><a href="#taglio-plasma" data-apri="taglio-plasma" data-origine="tecnologie">Taglio plasma</a></h3>
@@ -445,11 +450,25 @@
           </div>
         </li>
         <li class="tavola" data-luce>
-          <figure class="tavola__foto">
-            <div class="segnaposto" role="img" aria-label="Foto da inserire: pressopiegatrice">
-              <span class="segnaposto__titolo">Foto da inserire</span>
-              <span class="segnaposto__file">pressopiegatrice · 3:2</span>
-            </div>
+          <figure class="tavola__foto tavola__foto--schema">
+            <svg class="tec tec--piega" viewBox="0 0 400 240" aria-hidden="true" focusable="false">
+              <g class="tec__piano"><path d="M0 230 H400"/></g>
+              <polygon class="tec__corpo" points="126,174 180,174 200,196 220,174 274,174 274,230 126,230"/>
+              <g class="piega__lamiera">
+              <g class="piega__ala piega__ala--sx"><line x1="96" y1="171" x2="201" y2="171"/></g>
+              <g class="piega__ala piega__ala--dx"><line x1="199" y1="171" x2="304" y2="171"/></g>
+              </g>
+              <g class="piega__punzone">
+              <rect class="tec__corpo" x="164" y="-20" width="72" height="52"/>
+              <polygon class="tec__corpo" points="188,32 212,32 212,120 200,146 188,120"/>
+              </g>
+              <g class="piega__quota">
+              <path d="M181.6 172.6 A26 26 0 0 1 218.4 172.6"/>
+              <path class="piega__richiamo" d="M219 178 L246 198 H262"/>
+              <text x="266" y="203">90°</text>
+              </g>
+              <text class="tec__nota" x="20" y="24">Punzone e matrice</text>
+              </svg>
           </figure>
           <div class="tavola__testo">
             <h3><a href="#piegatura-e-cesoie" data-apri="piegatura-e-cesoie" data-origine="tecnologie">Piegatura e cesoie</a></h3>
@@ -458,12 +477,31 @@
           </div>
         </li>
         <li class="tavola" data-luce>
-          <figure class="tavola__foto">
-            <picture>
-              <source type="image/webp" srcset="assets/img/robot-640.webp 640w, assets/img/robot.webp 1200w" sizes="(max-width: 760px) 100vw, 33vw">
-              <img src="assets/img/robot.jpg" alt="Braccio robotico industriale in una cella automatizzata" width="1400" height="878" loading="lazy" decoding="async">
-            </picture>
-            <figcaption>Immagine illustrativa</figcaption>
+          <figure class="tavola__foto tavola__foto--schema">
+            <svg class="tec tec--cobot" viewBox="0 0 400 240" aria-hidden="true" focusable="false">
+              <g class="tec__piano"><path d="M0 226 H400"/></g>
+              <rect class="tec__corpo" x="36" y="180" width="76" height="46"/>
+              <rect class="tec__lamiera-piena" x="44" y="173" width="60" height="7"/>
+              <rect class="tec__lamiera-piena" x="44" y="166" width="60" height="7"/>
+              <rect class="tec__corpo" x="290" y="180" width="76" height="46"/>
+              <rect class="tec__lamiera-piena cobot__posato" x="298" y="173" width="60" height="7"/>
+              <rect class="tec__corpo" x="176" y="206" width="48" height="20" rx="3"/>
+              <g class="cobot__spalla">
+              <rect class="tec__braccio" x="191" y="112" width="18" height="90" rx="9"/>
+              <circle class="tec__giunto" cx="200" cy="196" r="12"/>
+              <g class="cobot__gomito">
+              <rect class="tec__braccio" x="192" y="42" width="16" height="82" rx="8"/>
+              <circle class="tec__giunto" cx="200" cy="118" r="10"/>
+              <g class="cobot__polso">
+              <circle class="tec__giunto" cx="200" cy="48" r="7"/>
+              <rect class="tec__corpo" x="195" y="48" width="10" height="12"/>
+              <path class="cobot__dita" d="M192 60 H208 M193 60 V68 M207 60 V68"/>
+              <rect class="tec__lamiera-piena cobot__preso" x="170" y="68" width="60" height="7"/>
+              </g>
+              </g>
+              </g>
+              <text class="tec__nota" x="20" y="24">Carico e scarico ripetitivo</text>
+              </svg>
           </figure>
           <div class="tavola__testo">
             <h3><a href="#automazione-e-cobot" data-apri="automazione-e-cobot" data-origine="tecnologie">Automazione e cobot</a></h3>
@@ -520,13 +558,6 @@
         </figure>
       </div>
 
-      <div class="campioni segnaposto" role="img" aria-label="Foto da inserire: campioni di taglio Golden Laser su lamiera e tubo">
-        <span class="segnaposto__titolo">Foto da inserire: campioni di taglio Golden Laser</span>
-        <span class="segnaposto__file">laser-cutting-metal-sheet-sample-600-1.jpg</span>
-        <span class="segnaposto__file">laser-cutting-tube-600-1.jpg</span>
-        <span class="segnaposto__file">8000w-fiber-laser-cutting-carbon-steel-30mm.jpg</span>
-      </div>
-
       <div class="settori" id="settori">
         <h3 class="settori__titolo">I settori che seguiamo</h3>
         <ul class="settori__righe">
@@ -579,7 +610,7 @@
           <span class="fasi__binario" aria-hidden="true"><span></span></span>
           <ol>
           <li style="--i:0"><span class="fasi__n">01</span><h3>Analizziamo l’esigenza</h3><p>Partiamo da cosa producete: materiali, spessori, volumi e spazio disponibile in reparto.</p><p class="fasi__dato">Preventivo entro 24 ore</p></li>
-          <li style="--i:1"><span class="fasi__n">02</span><h3>Individuiamo la soluzione</h3><p>Proponiamo macchina e configurazione coerenti con il vostro utilizzo reale.</p><p class="fasi__dato">Rivenditore ufficiale Golden Laser</p></li>
+          <li style="--i:1"><span class="fasi__n">02</span><h3>Individuiamo la soluzione</h3><p>Proponiamo macchina e configurazione coerenti con il vostro utilizzo reale.</p><p class="fasi__dato">Golden Laser, Gilardi, DAMI, Di Donato</p></li>
           <li style="--i:2"><span class="fasi__n">03</span><h3>Fornitura e installazione</h3><p>Consegniamo, installiamo e avviamo la macchina. Formiamo i vostri operatori.</p><p class="fasi__dato">Tecnici propri TO.DE.L.</p></li>
           <li style="--i:3"><span class="fasi__n">04</span><h3>Assistenza</h3><p>Dopo la vendita restiamo il vostro riferimento: manutenzione, interventi, ricambi e consumabili.</p><p class="fasi__dato">Ricambi e consumabili su richiesta</p></li>
           </ol>
@@ -699,7 +730,7 @@
     <div class="contenitore marchi-riga">
       <h2 id="titolo-marchi">Marchi che trattiamo</h2>
       <ul class="marchi">
-        <li class="marchio marchio--ufficiale"><strong>Golden Laser</strong><span>Rivenditore ufficiale · taglio laser lamiera e tubo, saldatura e pulizia laser</span></li>
+        <li class="marchio marchio--gamma"><strong>Golden Laser</strong><span>Taglio laser lamiera e tubo, saldatura e pulizia laser</span></li>
         <li class="marchio"><strong>Gilardi</strong></li>
         <li class="marchio"><strong>DAMI Engineering</strong></li>
         <li class="marchio"><strong>Di Donato &amp; Partners</strong></li>
@@ -804,7 +835,7 @@
 <footer class="piede">
   <div class="contenitore piede__griglia">
     <div class="piede__azienda">
-      <img src="assets/img/logo-todel-completo-bianco.svg" alt="TO.DE.L. Automazione Industriale S.r.l." width="132" height="105" loading="lazy">
+      <span class="marchio-testo piede__marchio" aria-hidden="true"><span class="marchio-testo__nome">TO.DE.L.</span><span class="marchio-testo__sotto">Automazione Industriale</span></span>
       <p>TO.DE.L. Automazione Industriale S.r.l.<br>già Automazione Macchine Utensili S.r.l.<br>Via Belvedere 47H, 84091 Battipaglia (SA)<br>P.IVA 05573670659</p>
       <p><a href="tel:+393288241909" data-traccia="click_telefono" data-origine="footer">328 824 1909</a><br><a href="mailto:todelsrl@gmail.com" data-traccia="click_email" data-origine="footer">todelsrl@gmail.com</a></p>
     </div>
@@ -852,7 +883,7 @@
 
       <article class="appro" id="taglio-laser-fibra" data-soluzione="Taglio laser fibra" data-pagina="/macchine/taglio-laser-fibra/" hidden>
         <header class="appro__testa">
-          <p class="appro__livello etichetta">Golden Laser · rivenditore ufficiale</p>
+          <p class="appro__livello etichetta">Golden Laser</p>
           <h2 id="appro-laser">Taglio laser fibra</h2>
           <p>Lamiere, tubi e profili tagliati da una sorgente laser in fibra. Spessori fino a 30 mm, in funzione di macchina, potenza, materiale e configurazione.</p>
         </header>
@@ -933,17 +964,7 @@
           <p>Pressopiegatrici e cesoie per completare il reparto lamiera: tagliate a misura, poi piegate il pezzo con l’angolo richiesto.</p>
         </header>
         <div class="vista" data-vista>
-          <div class="vista__comandi" role="group" aria-label="Cosa mostrare">
-            <button type="button" aria-pressed="false" data-vista-mostra="foto">Foto</button>
-            <button type="button" aria-pressed="true" data-vista-mostra="schema">Schema</button>
-          </div>
           <div class="vista__riquadro">
-            <figure class="vista__strato is-nascosto" data-vista-strato="foto">
-              <div class="segnaposto" role="img" aria-label="Foto da inserire: pressopiegatrice in officina">
-                <span class="segnaposto__titolo">Foto da inserire</span>
-                <span class="segnaposto__file">pressopiegatrice in officina · 4:3, almeno 1600 px</span>
-              </div>
-            </figure>
             <figure class="vista__strato vista__strato--schema" data-vista-strato="schema">
               <svg class="tec tec--piega" viewBox="0 0 400 240" aria-hidden="true" focusable="false">
               <g class="tec__piano"><path d="M0 230 H400"/></g>
@@ -988,19 +1009,8 @@
           <p>Banchi CNC con torcia al plasma per tagliare lamiere di forte spessore. TO.DE.L. ha venduto almeno 40 impianti plasma.</p>
         </header>
         <div class="vista" data-vista>
-          <div class="vista__comandi" role="group" aria-label="Cosa mostrare">
-            <button type="button" aria-pressed="true" data-vista-mostra="foto">Foto</button>
-            <button type="button" aria-pressed="false" data-vista-mostra="schema">Schema</button>
-          </div>
           <div class="vista__riquadro">
-            <figure class="vista__strato" data-vista-strato="foto">
-              <picture>
-                <source type="image/webp" srcset="assets/img/plasma-640.webp 640w, assets/img/plasma.webp 1000w" sizes="(min-width: 760px) 680px, 100vw">
-                <img src="assets/img/plasma.jpg" alt="Torcia al plasma che taglia una lamiera d’acciaio, con scintille" width="1000" height="667" loading="lazy" decoding="async">
-              </picture>
-              <figcaption>Immagine illustrativa</figcaption>
-            </figure>
-            <figure class="vista__strato vista__strato--schema is-nascosto" data-vista-strato="schema" data-clona-sim="plasma">
+            <figure class="vista__strato vista__strato--schema" data-vista-strato="schema" data-clona-sim="plasma">
 
               <figcaption>Simulazione · taglio plasma di una piastra</figcaption>
             </figure>
@@ -1022,7 +1032,7 @@
 
       <article class="appro" id="saldatura-e-pulizia-laser" data-soluzione="Saldatura e pulizia laser" data-pagina="/macchine/saldatura-e-pulizia-laser/" hidden>
         <header class="appro__testa">
-          <p class="appro__livello etichetta">Golden Laser · rivenditore ufficiale</p>
+          <p class="appro__livello etichetta">Golden Laser</p>
           <h2 id="appro-salda">Saldatura e pulizia laser</h2>
           <p>Saldatrici laser portatili 3 in 1 della serie W: saldano, puliscono e tagliano con la stessa sorgente. Per la sola pulizia, le pulitrici laser della serie Clean.</p>
         </header>
@@ -1106,19 +1116,8 @@
           <p>Robot industriali e collaborativi per le operazioni ripetitive: lo stesso movimento, nella stessa posizione, a ogni ciclo.</p>
         </header>
         <div class="vista" data-vista>
-          <div class="vista__comandi" role="group" aria-label="Cosa mostrare">
-            <button type="button" aria-pressed="true" data-vista-mostra="foto">Foto</button>
-            <button type="button" aria-pressed="false" data-vista-mostra="schema">Schema</button>
-          </div>
           <div class="vista__riquadro">
-            <figure class="vista__strato" data-vista-strato="foto">
-              <picture>
-                <source type="image/webp" srcset="assets/img/robot-640.webp 640w, assets/img/robot.webp 1200w" sizes="(min-width: 760px) 680px, 100vw">
-                <img src="assets/img/robot.jpg" alt="Braccio robotico industriale in una cella automatizzata" width="1400" height="878" loading="lazy" decoding="async">
-              </picture>
-              <figcaption>Immagine illustrativa</figcaption>
-            </figure>
-            <figure class="vista__strato vista__strato--schema is-nascosto" data-vista-strato="schema">
+            <figure class="vista__strato vista__strato--schema" data-vista-strato="schema">
               <svg class="tec tec--cobot" viewBox="0 0 400 240" aria-hidden="true" focusable="false">
               <g class="tec__piano"><path d="M0 226 H400"/></g>
               <rect class="tec__corpo" x="36" y="180" width="76" height="46"/>
@@ -1166,19 +1165,8 @@
           <p>Un nuovo controllo numerico su una macchina con meccanica ancora valida: la macchina torna aggiornata senza essere sostituita.</p>
         </header>
         <div class="vista" data-vista>
-          <div class="vista__comandi" role="group" aria-label="Cosa mostrare">
-            <button type="button" aria-pressed="true" data-vista-mostra="foto">Foto</button>
-            <button type="button" aria-pressed="false" data-vista-mostra="schema">Schema</button>
-          </div>
           <div class="vista__riquadro">
-            <figure class="vista__strato" data-vista-strato="foto">
-              <picture>
-                <source type="image/webp" srcset="assets/img/cnc-640.webp 640w, assets/img/cnc.webp 1100w" sizes="(min-width: 760px) 680px, 100vw">
-                <img src="assets/img/cnc.jpg" alt="Macchina utensile a controllo numerico durante una lavorazione" width="1100" height="734" loading="lazy" decoding="async">
-              </picture>
-              <figcaption>Immagine illustrativa</figcaption>
-            </figure>
-            <figure class="vista__strato vista__strato--schema is-nascosto" data-vista-strato="schema">
+            <figure class="vista__strato vista__strato--schema" data-vista-strato="schema">
               <svg class="tec tec--retrofit" viewBox="0 0 400 240" aria-hidden="true" focusable="false">
               <defs><clipPath id="retrofit-tendina"><rect class="retrofit__tendina" x="268" y="22" width="120" height="160"/></clipPath></defs>
               <g class="tec__piano"><path d="M0 222 H400"/></g>

@@ -138,7 +138,7 @@ components:
 
 Il sito si legge come una tavola di disegno tecnico appoggiata in officina: fondo grafite, testi asciutti, quote e cartigli come su un disegno meccanico. Le macchine non stanno su sfondi scuri ma su **lastre** chiare color lamiera, come in un catalogo stampato: le foto del costruttore a fondo bianco si fondono con la lastra, le foto d'ambiente restano intere.
 
-Il colore è quasi assente. L'unico accento caldo è il **punto laser**: compare nelle linee di taglio, nelle quote, nelle frecce e negli stati attivi, mai come riempimento di superfici. Il blu del logo resta come colore d'identità e di focus. I dati tecnici sono composti in carattere monospaziato con cifre tabellari, come le letture di una macchina CNC.
+Il colore è quasi assente. L'unico accento caldo è il **punto laser**: compare nelle linee di taglio, nel punto incandescente, nei numeri di fase e negli stati attivi (le quote e i percorsi della Hero e degli schemi di piegatura, le frecce e le icone di navigazione sono blu; la simulazione a scorrimento mantiene le quote calde), mai come riempimento di superfici. Il blu del logo resta come colore d'identità e di focus. I dati tecnici sono composti in carattere monospaziato con cifre tabellari, come le letture di una macchina CNC.
 
 Il movimento è quello di una macchina: preciso, breve, con curve decise. Le animazioni lunghe sono riservate a ciò che spiega (la simulazione del taglio, la linea che si traccia); l'interfaccia di tutti i giorni risponde in meno di 300 ms.
 
@@ -155,12 +155,12 @@ Il movimento è quello di una macchina: preciso, breve, con curve decise. Le ani
 Grafite quasi neutro con una sola nota calda e un blu d'identità discreto.
 
 ### Primary
-- **Punto Laser** (caldo): linee di taglio, frecce dei link, numeri di fase, cursore dei campi, stato attivo dei filtri. È il colore della luce che taglia; non riempie mai pulsanti o sfondi.
+- **Punto Laser** (caldo): solo ciò che riguarda il laser e il taglio: linee di taglio, punto incandescente, numeri di fase, stato attivo dei filtri, cursore dei campi. È il colore della luce che taglia; non riempie mai pulsanti o sfondi. Dal 13 ottobre 2026 le frecce dei link e le icone di navigazione sono passate al blu (codice colore della Hero: blu = progetto e percorsi, caldo = laser, gesso = azione).
 - **Laser Vivo** (caldo-vivo): solo nel punto incandescente delle animazioni di taglio.
 
 ### Secondary
 - **Blu TO.DE.L.** (blu): erede del blu del logo; identità, mai riempimento di grandi superfici.
-- **Blu Focus** (blu-chiaro): anello di focus da tastiera (2 px, offset 3 px) e bordo dei campi attivi.
+- **Blu Focus** (blu-chiaro): anello di focus da tastiera (2 px, offset 3 px), bordo dei campi attivi; come nella Hero anche quote e percorsi CAM della Hero, quota dello schema di piegatura, frecce dei link e icone di telefono e mappa.
 
 ### Neutral
 - **Grafite Profonda** (fondo): sfondo della pagina e dei campi.
@@ -186,7 +186,7 @@ Grafite quasi neutro con una sola nota calda e un blu d'identità discreto.
 **Character:** un grottesco industriale compresso per i titoli, che regge numeri grandi e parole tecniche lunghe, affiancato da un monospaziato da strumento di misura per tutto ciò che è un dato.
 
 ### Hierarchy
-- **Display** (650, clamp 2,5–4,6 rem, interlinea 0,94, larghezza 72%): solo il titolo della hero, massimo 12 caratteri per riga.
+- **Display** (660, clamp 2,5–4 rem, interlinea 1,02, larghezza 72%, `text-wrap: balance`): solo il titolo della hero (fase 8).
 - **Headline** (640, clamp 2,1–3,8 rem, interlinea 0,96, larghezza 74%): titoli di sezione H2.
 - **Title** (640, clamp 1,45–2 rem, interlinea 1,05, larghezza 78%): H3 di schede, tavole, fasi.
 - **Lead** (400, clamp 1,08–1,25 rem, interlinea 1,5): sottotitoli di hero e sezioni, massimo 38–60 caratteri per riga.
@@ -207,7 +207,7 @@ Griglie asimmetriche a due colonne su desktop (testo a sinistra, dato o immagine
 
 ## Elevation & Depth
 
-La profondità viene dai gradini di grafite e dai bordi sottili, non dalle ombre. Le ombre esistono solo sotto elementi che galleggiano davvero (cartiglio della hero, pannello di approfondimento, modulo, menu a tendina): sono lunghe, scure e senza colore.
+La profondità viene dai gradini di grafite e dai bordi sottili, non dalle ombre. Le ombre esistono solo sotto elementi che galleggiano davvero (pannello di approfondimento, modulo, menu a tendina): sono lunghe, scure e senza colore. Il cartiglio della hero della fase 8 sta dentro la cornice della simulazione, senza ombra.
 
 ### Shadow Vocabulary
 - **Galleggiante** (`box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.8)`): cartiglio tecnico e tavole al passaggio del mouse.
@@ -236,7 +236,7 @@ Angoli quasi vivi: 2 px per etichette, chip e didascalie; 4 px per pulsanti, cam
 
 ### Cards / Containers
 - **Lastra:** fondo lastra con leggero radiale, angoli 8 px, foto in `multiply`, quota tecnica sotto la foto, didascalia in Martian Mono con la fonte della foto, varianti come piccoli pulsanti con miniatura.
-- **Tavola:** fondo-2, bordo linea, angoli 8 px, foto 3:2 in alto con etichetta "Immagine illustrativa" se stock; con mouse si alza di 4 px.
+- **Tavola:** fondo-2, bordo linea, angoli 8 px; in alto, al posto della foto, il disegno tecnico fermo dell'approfondimento (`.tavola__foto--schema`), perché non ci sono foto con diritti verificati. Una foto reale si potrà rimettere con `<picture>` nella stessa figura. Con mouse si alza di 4 px.
 - **Cartiglio tecnico:** griglia di 3 colonne di dati (2 su mobile) con etichette maiuscole e valori monospaziati, fondo semitrasparente sfocato, link finale a tutta larghezza.
 - **Distinta:** i numeri aziendali in griglia di 3 colonne separate da filetti, prefisso piccolo ("oltre", "almeno", "quasi") in Martian Mono e numero grande in Archivo stretto. Nessun contatore animato.
 
@@ -246,7 +246,7 @@ Angoli quasi vivi: 2 px per etichette, chip e didascalie; 4 px per pulsanti, cam
 - **Error:** bordo e messaggio in colore errore, `aria-invalid`, focus sul primo campo errato.
 
 ### Navigation
-- **Desktop:** logo bianco a sinistra, voci in Archivo 500 (Grigio Quota, Bianco Gesso al passaggio), tendina "Macchine" raggruppata per Golden Laser / tecnologie complementari / servizi, telefono in Martian Mono, pulsante primario.
+- **Desktop:** marchio testuale provvisorio «TO.DE.L. / Automazione Industriale» a sinistra (anche nel menu mobile, nel piè di pagina e nelle pagine secondarie, finché non arriva il logo originale), voci in Archivo 500 (Grigio Quota, Bianco Gesso al passaggio), tendina "Macchine" raggruppata per Laser / tecnologie complementari / servizi, telefono in Martian Mono, pulsante primario.
 - **Mobile:** pulsante menu che apre un cassetto laterale con curva iOS (420 ms), macchine in alto e pulsanti pieni in basso.
 
 ### Simulazione del taglio (signature)
@@ -258,7 +258,7 @@ Vista dall'alto in SVG, stile CAM: lamiera grafite, percorsi tratteggiati per gl
 - **Do** usare curve decise: `cubic-bezier(0.23, 1, 0.32, 1)` per entrate e risposte, `cubic-bezier(0.77, 0, 0.175, 1)` per movimenti in scena, `cubic-bezier(0.32, 0.72, 0, 1)` per cassetto e pannello.
 - **Do** tenere le risposte dell'interfaccia sotto i 300 ms (pressione 160 ms, hover 200 ms, tendina 200 ms).
 - **Do** limitare gli effetti di passaggio del mouse a `(hover: hover) and (pointer: fine)` e rispettare `prefers-reduced-motion`.
-- **Do** indicare sempre la provenienza delle immagini: "foto Golden Laser" sulle foto del costruttore, "Immagine illustrativa" sullo stock.
+- **Do** indicare sempre la provenienza delle immagini: "foto Golden Laser" sulle foto del costruttore. Lo stock senza licenza documentata non si usa: al suo posto un disegno tecnico.
 - **Do** mostrare i dati tecnici in cartigli, tabelle e quote, con la fonte quando provengono dal costruttore.
 
 ### Don't:
