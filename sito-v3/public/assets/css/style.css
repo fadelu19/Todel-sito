@@ -442,7 +442,8 @@ p { text-wrap: pretty; }
 
 /* riquadro: simulazione + cartiglio, un'unica cornice; il banco continua fino al bordo della finestra */
 .eroe__sim { grid-column: foto-inizio / pieno-fine; min-width: 0; border: 1px solid var(--linea-forte); border-right: 0; border-radius: var(--r-3) 0 0 var(--r-3); overflow: hidden; background: #0a0c11; }
-.sim--eroe { aspect-ratio: 800 / 520; border: 0; border-radius: 0; box-shadow: none; }
+/* .sim.sim--eroe: la regola .sim viene dopo e a pari specificità vincerebbe. Proporzione: resta quella di .sim (10/7), come nelle preview approvate */
+.sim.sim--eroe { border: 0; border-radius: 0; box-shadow: none; }
 .sim--eroe .sim__svg { position: absolute; inset: 0; }
 .sim--eroe .sim__statica { position: absolute; inset: 0; width: 100%; height: 100%; }
 .sim--eroe .sim__quota-linea { stroke: var(--blu-chiaro); stroke-width: 2; }
@@ -500,7 +501,6 @@ p { text-wrap: pretty; }
 .marchio-testo__nome { font-family: var(--font-titolo); font-size: 1.32rem; font-weight: 700; font-stretch: 80%; letter-spacing: 0.01em; color: var(--testo); }
 .marchio-testo__sotto { font-family: var(--font-dati); font-size: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--testo-3); }
 .nav__tel .i { color: var(--blu-chiaro); }
-.taglio-strato { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
 .tasto-pausa {
   position: absolute; z-index: 3; right: 12px; top: 12px; display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 12px 0 10px;
   border-radius: var(--r-2); border: 1px solid var(--linea-forte); background: rgba(10, 12, 17, 0.8); color: var(--testo); font-size: 0.84rem;
@@ -509,12 +509,6 @@ p { text-wrap: pretty; }
 .tasto-pausa::before { content: ""; position: absolute; inset: -4px; }
 .tasto-pausa .i { width: 16px; height: 16px; }
 .tasto-pausa:active { transform: scale(0.96); }
-.taglio-strato svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.taglio-strato__solco { fill: none; stroke: var(--caldo); stroke-width: 2; stroke-linecap: square; filter: drop-shadow(0 0 3px rgba(255, 138, 61, 0.9)); }
-.taglio-strato__punto {
-  position: absolute; left: 0; top: 0; width: 9px; height: 9px; margin: -4.5px 0 0 -4.5px; border-radius: 50%;
-  background: #fff6e8; box-shadow: 0 0 8px 3px rgba(255, 170, 90, 0.9), 0 0 26px 8px rgba(255, 120, 40, 0.45);
-}
 
 /* ---------- scheda azienda: i numeri come un cartiglio ---------- */
 .azienda { padding-top: clamp(56px, 7vw, 96px); }

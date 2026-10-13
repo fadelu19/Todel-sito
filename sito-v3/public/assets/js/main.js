@@ -460,64 +460,6 @@ const caricaTaglio = () => modTaglio || (modTaglio = import("./taglio.js"));
 const lettureDi = (el) => ({ x: $("[data-lettura-x]", el), y: $("[data-lettura-y]", el), stato: $("[data-lettura-stato]", el) });
 
 /* =========================================================
-   Hero: la foto reale della macchina.
-   Alla prima visita della sessione il riquadro viene "tagliato" dalla lamiera:
-   un punto caldo percorre il contorno, rallenta sugli spigoli, poi il pezzo si stacca.
-   La lamiera è già disegnata dal CSS prima che lo script parta (classe .taglio-eroe nel <head>).
-   ========================================================= */
-const inquadratura = $("[data-taglio-eroe]");
-const finisciTaglio = () => {
-  docEl.classList.remove("taglio-eroe");
-  if (inquadratura) inquadratura.classList.remove("is-tagliato");
-};
-
-/* video della hero (kit Golden Laser): se configurato sostituisce la foto, con pausa sempre disponibile */
-function videoEroe() {
-  const v = CONFIG.videoEroe || {};
-  if (!inquadratura || (!v.mp4 && !v.webm)) return false;
-  const video = document.createElement("video");
-  video.muted = true; video.loop = true; video.playsInline = true; video.preload = "none";
-  video.setAttribute("muted", ""); video.setAttribute("playsinline", "");
-  if (v.poster) video.poster = v.poster;
-  video.setAttribute("aria-label", v.didascalia || "Video di una macchina Golden Laser in funzione");
-  const foto = $("picture", inquadratura);
-  inquadratura.prepend(video);
-  if (foto && v.poster) foto.remove();
-  const conn = navigator.connection || {};
-  const lento = conn.saveData || /(^|-)2g$/.test(conn.effectiveType || "");
-  if (riduci.matches || lento) return true;
-  const pausa = document.createElement("button");
-  pausa.type = "button"; pausa.className = "tasto-pausa"; pausa.setAttribute("aria-pressed", "false");
-  pausa.innerHTML = '<svg class="i" aria-hidden="true"><use href="#i-pausa"/></svg><span data-sim-pausa-testo>Pausa</span>';
-  inquadratura.after(pausa);
-  let inPausa = false, inVista = false, avviato = false;
-  const aggiorna = () => { if (!avviato) return; (inVista && !inPausa && !document.hidden) ? video.play().catch(() => {}) : video.pause(); };
-  const carica = () => {
-    if (v.webm) { const s = document.createElement("source"); s.src = v.webm; s.type = "video/webm"; video.appendChild(s); }
-    const mp4 = schermoMobile.matches && v.mp4Mobile ? v.mp4Mobile : v.mp4;
-    if (mp4) { const s = document.createElement("source"); s.src = mp4; s.type = "video/mp4"; video.appendChild(s); }
-    video.load();
-    avviato = true;
-    aggiorna();
-    video.addEventListener("playing", () => traccia("video_play", { video: "hero" }), { once: true });
-  };
-  const differisci = () => ("requestIdleCallback" in window ? requestIdleCallback(carica, { timeout: 2000 }) : setTimeout(carica, 400));
-  if (document.readyState === "complete") differisci(); else window.addEventListener("load", differisci, { once: true });
-  new IntersectionObserver((x) => { inVista = x[0].isIntersecting; aggiorna(); }, { threshold: 0.2 }).observe(inquadratura);
-  document.addEventListener("visibilitychange", aggiorna);
-  pausa.addEventListener("click", () => { inPausa = !inPausa; segnaPausa(pausa, inPausa); aggiorna(); traccia("pausa_animazione", { stato: inPausa ? "pausa" : "ripresa" }); });
-  return true;
-}
-function segnaPausa(btn, inPausa) {
-  btn.setAttribute("aria-pressed", String(inPausa));
-  $("[data-sim-pausa-testo]", btn).textContent = inPausa ? "Riprendi" : "Pausa";
-  $("use", btn).setAttribute("href", inPausa ? "#i-play" : "#i-pausa");
-}
-
-/* il video resta disponibile ma spento finché non esiste un video TO.DE.L. pubblicabile (config.videoEroe vuoto) */
-videoEroe();
-
-/* =========================================================
    Hero (prototipo Fase 8): taglio CAM della staffa, unica animazione narrativa della pagina.
    Una volta per sessione, ciclo sotto i 5 s, poi fermo sul pezzo finito con «Riproduci».
    Senza JavaScript, con movimento ridotto o con risparmio dati resta il disegno statico del markup.
@@ -543,30 +485,36 @@ function simEroe() {
       .observe(simEroeEl, { attributes: true, attributeFilter: ["data-stato-taglio"] });
     return sim;
   });
-  const avvia = () => monta().then((s) => {
-    s.riavvia(); s.play(); s.concludi();
-    stato = "taglio"; sospesa = false; etichetta("Pausa", "#i-pausa");
-    sessione.set("todel-taglio", "1");
-  });
+  /* «avvio» copre il caricamento del modulo: osservatore e clic ravvicinati non fanno partire due cicli */
+  const avvia = () => {
+    stato = "avvio";
+    return monta().then((s) => {
+      s.riavvia(); s.play(); s.concludi();
+      stato = "taglio"; sospesa = false; etichetta("Pausa", "#i-pausa");
+      sessione.set("todel-taglio", "1");
+      aggiorna(); // se nel frattempo il riquadro è uscito dalla vista, resta in pausa
+    });
+  };
   btn.addEventListener("click", () => {
+    if (stato === "avvio") return;
     if (stato === "taglio") { sim.pause(); stato = "pausa"; etichetta("Riprendi", "#i-play"); }
     else if (stato === "pausa") { sim.play(); sim.concludi(); stato = "taglio"; etichetta("Pausa", "#i-pausa"); }
     else avvia();
     traccia("pausa_animazione", { stato, origine: "hero" });
   });
   /* fuori schermo o scheda nascosta: si ferma e riprende da dove era */
-  const aggiorna = () => {
+  function aggiorna() {
     if (stato !== "taglio" && !sospesa) return;
     if (inVista && !document.hidden) { if (sospesa) { sospesa = false; sim.play(); sim.concludi(); } }
     else if (!sospesa) { sospesa = true; sim.pause(); }
-  };
+  }
   const giaVista = sessione.get("todel-taglio") === "1";
   if (giaVista) fine();
   new IntersectionObserver((v) => {
     inVista = v[0].isIntersecting;
     if (inVista && stato === "fermo") avvia();
     else aggiorna();
-  }, { threshold: 0.5 }).observe(simEroeEl);
+  }, { threshold: 0.3 }).observe(simEroeEl); /* 0,3 e non 0,5: a 360 × 740 il riquadro entra esattamente a metà e non partiva */
   document.addEventListener("visibilitychange", aggiorna);
 }
 {

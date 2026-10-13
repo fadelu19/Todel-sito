@@ -49,7 +49,7 @@ Nel blocco `<script id="config">` in `index.html`:
 | `modulo.turnstileSiteKey` | chiave pubblica Turnstile (antispam). Vuoto = non caricato |
 | `analytics.ga4` | codice Google Analytics 4 (`G-XXXX`). Vuoto = nessuna statistica e nessun banner |
 | `googleBusinessProfile` | link alla scheda Google dell'azienda |
-| `videoEroe` | video della hero (webm, mp4, mp4Mobile, poster, didascalia): sostituisce la simulazione |
+| `videoEroe` | **non collegato**: con la Hero della fase 8 (disegno CAM) il codice del video è stato rimosso; la chiave resta solo come promemoria dei formati |
 
 Se si attiva GA4, copiare lo stesso codice anche nel `config` di `cookie.html`.
 
@@ -60,7 +60,7 @@ Se si attiva GA4, copiare lo stesso codice anche nel `config` di `cookie.html`.
 - Foto della famiglia TO.DE.L. (sezione Metodo, componente `.referenti`): mettere la foto in `assets/img/famiglia/` (orizzontale 3:2, almeno 1600 px, `.jpg` + `.webp`) e inserire `<img src="..." alt="..." width="..." height="..." loading="lazy">` dentro `<div class="referenti__foto"></div>`. Il riquadro compare da solo quando contiene la foto. Nomi e ruoli nell'alt o nella didascalia solo se confermati.
 
 - Foto: stesse dimensioni e nomi in `assets/img/` (versione `.jpg`, `.webp` e `-640.webp`), oppure cambiare i percorsi nell'HTML. Togliere l'etichetta "Immagine illustrativa" quando la foto è reale.
-- Video hero (kit Golden Laser): WebM ≤ 3 MB, MP4 ≤ 5 MB, MP4 mobile 720p ≤ 1,5 MB, poster ≤ 50 KB, 8–12 s in loop. Indicare i percorsi in `videoEroe`. Didascalia con modello e fonte, mai "installazione TO.DE.L." se non lo è.
+- Video hero: oggi non previsto (la Hero è la simulazione CAM). Se in futuro servirà un video TO.DE.L., va ricollegato in `main.js`; formati di riferimento: WebM ≤ 3 MB, MP4 ≤ 5 MB, MP4 mobile 720p ≤ 1,5 MB, poster ≤ 50 KB, 8–12 s in loop. Didascalia con modello e fonte, mai "installazione TO.DE.L." se non lo è.
 - Video reali: decommentare gli esempi nella sezione `#video`. La sezione compare da sola quando ci sono almeno 2 video.
 
 ## Dati ancora da completare

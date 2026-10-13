@@ -12,6 +12,7 @@ Istruzioni complete, configurazione del modulo e sostituzione di foto e video: [
 | `sito-v3/` | **In uso** | `public/` va online; `functions/api/richiesta.js` riceve il modulo; `scripts/` imposta il dominio |
 | `sito-v2/` | Archivio | Versione intermedia. Non pubblicare, non modificare |
 | `sito/` | Archivio | Prima versione ("segnaletica di stabilimento", fondo chiaro, Barlow). Non pubblicare, non modificare |
+| `docs/website-factory/` | Processo | Scheda unica (`PROJECT_BRIEF.md`) e stato del progetto (`PROJECT_STATE.md`) secondo il Website Factory playbook |
 | `brief/` | Riferimento | I tre brief di progetto e le decisioni confermate dal titolare (8 ottobre 2026) |
 | `PRODUCT.md` | Riferimento | Azienda, pubblico, offerta, dati confermati, cosa non scrivere |
 | `DESIGN.md` | Riferimento | Sistema visivo della v4 (colori, caratteri, componenti, regole) |
@@ -39,7 +40,7 @@ Fatto: logo vettoriale, clienti citabili (5), numeri aziendali, P.IVA nel piè d
 - [ ] Dominio definitivo ed email aziendale; poi `node sito-v3/scripts/imposta-dominio.mjs https://www.dominio.it`
 - [ ] Recapito del modulo configurato su Cloudflare e provato con un invio reale (Resend con dominio verificato, oppure webhook)
 - [ ] Togliere i segnaposto "Foto da inserire" (tavola Piegatura, striscia campioni, pannello Piegatura)
-- [ ] Kit immagini Golden Laser per rivenditori, ad alta risoluzione e senza filigrana (hero e schede)
+- [ ] Kit immagini Golden Laser per rivenditori, ad alta risoluzione e senza filigrana (schede delle macchine; la Hero non usa più foto)
 - [ ] Foto dei referenti TO.DE.L. e di installazioni reali
 - [ ] REA e capitale sociale nel piè di pagina; verifica di privacy e cookie da parte del consulente
 - [ ] Link alla scheda Google dell'azienda (`googleBusinessProfile` nel blocco `config` di `index.html`)
